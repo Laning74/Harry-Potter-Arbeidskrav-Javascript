@@ -1,38 +1,46 @@
-let studentlist = document.querySelector(".student-list");
-let searchBar = document.querySelector(".searchbar");
+const charactersList = document.querySelector(".characters-list");
+const searchBar = document.querySelector(".searchbar");
+// const searchBtn = document.querySelector(".search-btn");
+let hpCharacters = [];
 
-let studentArray = [];
-
-searchBar.addEventListener("keyup", (e) => {
+searchBar.addEventListener('keyup', (e) => {
   const searchString = e.target.value.toLowerCase();
-  const filteredStudents = studentArray.filter((student) => {
-    return (
-      student.name.toLowerCase().includes(searchString) ||
-      student.house.toLowerCase().includes(searchString)
-    );
+
+  const filteredCharacters = hpCharacters.filter((character) => {
+      return (
+          character.name.toLowerCase().includes(searchString) ||
+          character.house.toLowerCase().includes(searchString)
+      );
   });
-  showStudents(filteredStudents);
+  displayCharacters(filteredCharacters);
 });
 
-const getStudents = async () => {
+
+
+const loadCharacters = async () => {
   try {
-    const res = await fetch(`http://hp-api.herokuapp.com/api/characters`);
-    const hpStudents = await res.json();
-    showStudents(hpStudents);
+    const res = await fetch("https://hp-api.herokuapp.com/api/characters");
+    hpCharacters = await res.json();
+    displayCharacters(hpCharacters);
   } catch (err) {
     console.error(err);
   }
 };
 
-const showStudents = (student) => {
-  const htmlString = student
-    .map((student) => {
-      return `<li class="character"> <h2> ${student.name}</h2>
-        <h2> ${student.house}</p>
-        <img src="${student.image}"</img>`;
+const displayCharacters = (characters) => {
+  const htmlString = characters
+    .map((character) => {
+      return `
+            <li class="character">
+                <h2>${character.name}</h2>
+                <p>House: ${character.house}</p>
+                <img src="${character.image}"></img>
+            </li>
+        `;
+        
     })
-    .join(``);
-  studentlist.innerHTML = htmlString;
+    .join("");
+  charactersList.innerHTML = htmlString;
 };
 
-getStudents();
+loadCharacters();
