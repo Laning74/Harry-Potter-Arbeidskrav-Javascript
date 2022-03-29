@@ -16,10 +16,16 @@ body {
   display: flex;
   flex-direction: column;
   width: 50%;
+  height: 20rem;
   border: 2px solid black;
   padding: 2em;
 }
 
 input {
   margin: 1em;
+}
+
+.default-student-img {
+  width: 100px;
+  height: 100px;
 }
