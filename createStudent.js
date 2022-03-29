@@ -1,19 +1,39 @@
 // Lager elmenter til DOM
 
 const createStudentContainer = document.createElement("div");
-const createForm = document.createElement("form");
+const exitBtnContainer = document.createElement("div");
+const createExitBtn = document.createElement("button");
+const createInputWrapper = document.createElement("div");
+const createStudentHeader = document.createElement("h2");
 const createNameInput = document.createElement("input");
 const createHouseInput = document.createElement("input");
 const createAgeInput = document.createElement("input");
 const createAliveInput = document.createElement("input");
 const saveStudentBtn = document.createElement("button");
-const createExitBtn = document.createElement("button");
 
+//Legge til klasser
+createExitBtn.classList.add("exit-btn");
 createStudentContainer.classList.add("create-student-container");
+exitBtnContainer.classList.add("exit-btn-container");
+createInputWrapper.classList.add("create-input-wrapper");
+createStudentHeader.classList.add("create-student-header");
+createNameInput.classList.add("create-name-input");
+createHouseInput.classList.add("create-house-input");
+createAgeInput.classList.add("create-house-input");
+createAliveInput.classList.add("create-alive-input");
+saveStudentBtn.classList.add("save-student-btn");
+// Classes added til input feltene
+createNameInput.classList.add("create-name-input");
+createHouseInput.classList.add("create-house-input");
+createAgeInput.classList.add("create-age-input");
+createAliveInput.classList.add("create-alive-input");
+
 // Legger til elemnter i DOM
 document.body.append(createStudentContainer);
-createStudentContainer.append(createExitBtn, createForm);
-createForm.append(
+createStudentContainer.append(exitBtnContainer, createInputWrapper);
+exitBtnContainer.append(createExitBtn);
+createInputWrapper.append(
+  createStudentHeader,
   createNameInput,
   createHouseInput,
   createAgeInput,
@@ -21,15 +41,11 @@ createForm.append(
   saveStudentBtn
 );
 
-// Classes added til input feltene
-createNameInput.classList.add("create-name-input");
-createHouseInput.classList.add("create-house-input");
-createAgeInput.classList.add("create-age-input");
-createAliveInput.classList.add("create-alive-input");
 // Gi verdi til elemnter
+createStudentHeader.innerText = "Create new Student";
 //Knapper
 saveStudentBtn.innerText = "Save Student🎓";
-createExitBtn.innerText = "Exit";
+createExitBtn.innerText = "x";
 // Placeholder
 createNameInput.placeholder = "Name";
 createHouseInput.placeholder = "House";

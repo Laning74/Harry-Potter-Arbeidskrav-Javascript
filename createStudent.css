@@ -1,6 +1,18 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: mr-darcy, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+:root {
+  --primary-clr: #0d0d10;
+  --secundary-clr: #a92332;
+  --hoover-button-clr: #1c7351;
+  --button-clr: #eaaf1c;
+  --fifth-clr: #02649e;
+  --sixth-clr: #293454;
 }
 
 body {
@@ -10,22 +22,64 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 2em;
+  font-family: mr-darcy, sans-serif;
+  font-weight: 600;
+  font-style: normal;
 }
 
 .create-student-container {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  height: 20rem;
+  text-align: center;
+  width: 30em;
+  height: 25rem;
   border: 2px solid black;
   padding: 2em;
 }
 
-input {
+.exit-btn-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.exit-btn {
+  width: 1.5em;
+}
+
+.create-student-header {
+  margin-bottom: 1.5em;
+}
+
+.create-name-input,
+.create-house-input,
+.create-age-input,
+.create-alive-input {
   margin: 1em;
+  width: 80%;
+  border-radius: 17px;
+  height: 33px;
+  padding-left: 1em;
+}
+
+::placeholder {
+  text-transform: uppercase;
+  font-family: mr-darcy, sans-serif;
 }
 
 .default-student-img {
   width: 100px;
   height: 100px;
+}
+
+.save-student-btn {
+  margin-top: 2em;
+  padding: 0.7em;
+  width: 20em;
+  border-radius: 10px;
+  background-color: var(--button-clr);
+  border: none;
+}
+
+.save-student-btn:hover {
+  background-color: var(--hoover-button-clr);
+  color: var(--button-clr);
 }
