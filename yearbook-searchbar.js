@@ -3,7 +3,6 @@ const searchBar = document.querySelector(".searchbar");
 // const searchBtn = document.querySelector(".search-btn");
 let hpCharacters = [];
 
-
 // The searchbar function
 searchBar.addEventListener("keyup", (e) => {
   const searchString = e.target.value.toLowerCase();
@@ -12,6 +11,7 @@ searchBar.addEventListener("keyup", (e) => {
     return character.name.toLowerCase().includes(searchString);
   });
   displayCharacters(filteredCharacters);
+  console.log(object);   // STOPPET HER SIST
 });
 
 // Getting the characters from the API
