@@ -4,9 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+
+   <title>Harry Potter</title>
     <link rel="stylesheet" href="/CSS/indexStyles.css" />
     <link rel="stylesheet" href="https://use.typekit.net/crr1vck.css" />
+  <link rel="stylesheet" href="https://use.typekit.net/crr1vck.css" />
+    <link rel="stylesheet" href="./students.css" />
   </head>
   <body>
     <header>
@@ -26,7 +29,20 @@
         </ul>
       </nav>
     </header>
-
+    
+<div class="container">
+      <div class="searchbar-wrapper">
+        <input type="text" placeholder="Search for student" class="searchbar" />
+        <!-- <button class="search-btn" onclick="showSearch()">Search</button> -->
+      </div>
+      <ul class="characters-list"></ul>
+    </div>
+ 
+    <div class="gryffindor-btn">Gryffindor</div>
+    <div class="slytherin-btn">Slytherin</div>
+    <div class="hufflepuff-btn">Hufflepuff</div>
+    <div class="ravenclaw-btn">Ravenclaw</div>
+    
     <!-- Wrapper Cards begynner her -->
 
     <div class="wrapper">
@@ -78,6 +94,9 @@
         </cards>
       </main>
     </div>
+    <script src="/index.js"></script>
     <script src="/JS/flipCard.js"></script>
+    <script src="./yearbook-searchbar.js" defer></script>
   </body>
+
 </html>
