@@ -7,7 +7,6 @@ createStudentContainer.style.display = "none";
 // Vis div - New student button
 function showCreateStudent() {
   createStudentContainer.style.display = "block";
-  filterNewStudents("griffingdor", "slyttherin", "ravenclaw", "huffelpuff");
 }
 // Skjul div - exit button
 let createExitBtn = document.querySelector(".exit-btn");
@@ -15,7 +14,6 @@ createExitBtn.addEventListener("click", () => {
   createStudentContainer.style.display = "none";
 });
 
-let newStudentList = document.querySelector(".newStudentList");
 let saveStudentBtn = document.querySelector(".save-student-btn");
 const newStudentArray = [];
 
@@ -49,41 +47,77 @@ saveStudentBtn.addEventListener("click", () => {
     newStudentArray.splice(-1);
   }
 
-  // addNewStudent();
+  addNewStudent();
 });
 
-let newStudents;
-function filterNewStudents(house) {
-  newStudents = newStudentArray.filter(function (student) {
-    student.house == house;
-  });
-  console.log(newStudents);
-  addNewStudent(newStudents);
-}
+let griffingdorStudentList = document.querySelector(
+  ".griffingdor-student-list"
+);
+let slytherinStudentList = document.querySelector(".slytherin-student-list");
+let ravenclawStudentList = document.querySelector(".ravenclaw-student-list");
+let huffelpuffStudentList = document.querySelector(".huffelpuff-student-list");
 
 //function som adder elever til liste
-function addNewStudent(newStudents) {
-  newStudentList.innerHTML = "";
+function addNewStudent() {
+  griffingdorStudentList.innerHTML = "";
+  slytherinStudentList.innerHTML = "";
+  ravenclawStudentList.innerHTML = "";
+  huffelpuffStudentList.innerHTML = "";
 
-  for (let i = 0; i < newStudents.length; i++) {
-    newStudentList.innerHTML += `<li>
-    <img src = "./images/default-image.png" class="default-student-img" />
-    <p>${newStudents[i].name}</p>
-    <p>${newStudents[i].house}</p>
-    <p>${newStudents[i].age}</p>
-    <p>${newStudents[i].alive}</p>
+  let griffingdorStudents = newStudentArray.filter(function (currentElement) {
+    return currentElement.house === "griffingdor";
+  });
+
+  let slytherinStudents = newStudentArray.filter(function (currentElement) {
+    return currentElement.house === "slytherin";
+  });
+
+  let ravenclawStudents = newStudentArray.filter(function (currentElement) {
+    return currentElement.house === "ravenclaw";
+  });
+
+  let huffelpuffStudents = newStudentArray.filter(function (currentElement) {
+    return currentElement.house === "huffelpuff";
+  });
+
+  for (let i = 0; i < griffingdorStudents.length; i++) {
+    griffingdorStudentList.innerHTML += `<li>
+      <img src = "./images/default-image.png" class="default-student-img" />
+    <p>${griffingdorStudents[i].name}</p>
+    <p>${griffingdorStudents[i].house}</p>
+    <p>${griffingdorStudents[i].age}</p>
+    <p>${griffingdorStudents[i].alive}</p>
     </li>`;
-
-    // legge student inn i riktig hus med samme styling
-    // if (houseName == "GRIFFINGDOR") {
-    //   newStudentList.style.backgroundColor = "red";
-    // } else if (houseName == "SLYTTHERIN") {
-    //   newStudentList.style.backgroundColor = "green";
-    // } else if (houseName == "RAVENCLAW") {
-    //   newStudentList.style.backgroundColor = "blue";
-    // } else if (houseName == "HUFFELPUFF") {
-    //   newStudentList.style.backgroundColor = "yellow";
-    // }
   }
-  console.log(newStudentArray);
+
+  for (let i = 0; i < slytherinStudents.length; i++) {
+    slytherinStudentList.innerHTML += `<li>
+      <img src = "./images/default-image.png" class="default-student-img" />
+    <p>${slytherinStudents[i].name}</p>
+    <p>${slytherinStudents[i].house}</p>
+    <p>${slytherinStudents[i].age}</p>
+    <p>${slytherinStudents[i].alive}</p>
+    </li>`;
+  }
+
+  for (let i = 0; i < ravenclawStudents.length; i++) {
+    ravenclawStudentList.innerHTML += `<li>
+      <img src = "./images/default-image.png" class="default-student-img" />
+    <p>${ravenclawStudents[i].name}</p>
+    <p>${ravenclawStudents[i].house}</p>
+    <p>${ravenclawStudents[i].age}</p>
+    <p>${ravenclawStudents[i].alive}</p>
+    </li>`;
+  }
+
+  for (let i = 0; i < huffelpuffStudents.length; i++) {
+    huffelpuffStudentList.innerHTML += `<li>
+      <img src = "./images/default-image.png" class="default-student-img" />
+    <p>${huffelpuffStudents[i].name}</p>
+    <p>${huffelpuffStudents[i].house}</p>
+    <p>${huffelpuffStudents[i].age}</p>
+    <p>${huffelpuffStudents[i].alive}</p>
+    </li>`;
+  }
 }
+console.log(newStudentArray);
