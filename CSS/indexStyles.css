@@ -7,6 +7,9 @@ body {
   width: 100%;
   min-height: 100vh;
   background-image: url(/images/Harry-Potter-background.jpg);
+  font-family: mr-darcy, sans-serif;
+  font-weight: 600;
+  font-style: normal;
 }
 
 /* Header begynner her */
@@ -17,7 +20,6 @@ header {
   right: 0;
   margin: 0;
   z-index: 99;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .logo {
@@ -81,20 +83,22 @@ nav a:hover::before {
   }
 }
 
-.SectionOne {
+/* Wrapper Cards begynner her */
+
+.tittel {
+  grid-column: 1/5;
   width: 100%;
-  height: 50vh;
+  height: 10vh;
   text-align: center;
   position: relative;
 }
 
 h1 {
+  padding: 30px;
   font-size: 3rem;
-  margin-top: 60px;
+  margin: 60px;
   color: #e0c53b;
 }
-
-/* Wrapper Cards begynner her */
 
 .wrapper {
   padding: 40px 0;
@@ -106,6 +110,7 @@ h1 {
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 200px 700px;
   grid-gap: 20px;
   margin: 20px;
   align-items: stretch;
@@ -120,6 +125,7 @@ h1 {
 .middle {
   position: absolute;
 }
+
 .card {
   cursor: pointer;
   width: 340px;
