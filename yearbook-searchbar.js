@@ -3,6 +3,8 @@ const searchBar = document.querySelector(".searchbar");
 // const searchBtn = document.querySelector(".search-btn");
 let hpCharacters = [];
 
+
+// The searchbar function
 searchBar.addEventListener("keyup", (e) => {
   const searchString = e.target.value.toLowerCase();
 
@@ -12,16 +14,17 @@ searchBar.addEventListener("keyup", (e) => {
   displayCharacters(filteredCharacters);
 });
 
+// Getting the characters from the API
 const loadCharacters = async () => {
   try {
     const res = await fetch("https://hp-api.herokuapp.com/api/characters");
     hpCharacters = await res.json();
-    displayCharacters(hpCharacters);
   } catch (err) {
     console.error(err);
   }
 };
 
+// Display all characters with name, age, status and image
 const displayCharacters = (characters) => {
   const htmlString = characters
     .map((character) => {
@@ -73,6 +76,7 @@ const displayCharacters = (characters) => {
   charactersList.innerHTML = htmlString;
 };
 
+// Getting the age for all characters
 function calculateAge(age) {
   return 2022 - age;
 }
