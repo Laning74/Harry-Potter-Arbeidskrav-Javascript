@@ -4,13 +4,33 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="./yearbook-searchbar.js" defer></script>
+
+   <title>Harry Potter</title>
+    <link rel="stylesheet" href="/CSS/indexStyles.css" />
     <link rel="stylesheet" href="https://use.typekit.net/crr1vck.css" />
+  <link rel="stylesheet" href="https://use.typekit.net/crr1vck.css" />
     <link rel="stylesheet" href="./students.css" />
-    <title>Harry Potter</title>
   </head>
   <body>
-    <div class="container">
+    <header>
+      <a href="index.html">
+        <img
+          src="/images/Harry-Potter-Logo.png"
+          alt="Harry Potter logo"
+          class="logo"
+        />
+      </a>
+
+      <nav>
+        <ul>
+          <li><a href="">Yearbook</a></li>
+          <li><a href="">Potions Class</a></li>
+          <li><a href="">Teacher-Creator</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+<div class="container">
       <div class="searchbar-wrapper">
         <input type="text" placeholder="Search for student" class="searchbar" />
         <!-- <button class="search-btn" onclick="showSearch()">Search</button> -->
@@ -22,6 +42,61 @@
     <div class="slytherin-btn">Slytherin</div>
     <div class="hufflepuff-btn">Hufflepuff</div>
     <div class="ravenclaw-btn">Ravenclaw</div>
-</body>
+    
+    <!-- Wrapper Cards begynner her -->
+
+    <div class="wrapper">
+      <main class="grid">
+        <div class="tittel">
+          <h1>Welcome to the house of Hogwarts</h1>
+        </div>
+        <cards>
+          <div class="card house" id="gryffindor-btn">
+            <div class="front">
+              <img src="/images/Gryffindor-front.png" alt="" />
+            </div>
+            <div class="back">
+              <img src="/images/Gryffindor-back.png" alt="" />
+            </div>
+          </div>
+        </cards>
+        <cards>
+          <div class="card house" id="slytherin-btn">
+            <div class="front">
+              <img src="/images/Slytherin-front.png" alt="" />
+            </div>
+            <div class="back">
+              <img src="/images/Slytherin-back.png" alt="" />
+            </div>
+          </div>
+        </cards>
+        <cards>
+          <div class="card house" id="hufflepuff-btn">
+            <div></div>
+            <div class="front">
+              <img src="/images/Hufflepuff-front.png" alt="" />
+            </div>
+            <div class="back">
+              <img src="/images/Hufflepuff-back.png" alt="" />
+            </div>
+          </div>
+        </cards>
+        <cards>
+          <div class="card house" id="ravenclaw-btn">
+            <div></div>
+            <div class="front">
+              <img src="/images/Ravenclaw-front.png" alt="" />
+            </div>
+            <div class="back">
+              <img src="/images/Ravenclaw-back.png" alt="" />
+            </div>
+          </div>
+        </cards>
+      </main>
+    </div>
     <script src="/index.js"></script>
+    <script src="/JS/flipCard.js"></script>
+    <script src="./yearbook-searchbar.js" defer></script>
+  </body>
+
 </html>
