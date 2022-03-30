@@ -3,10 +3,15 @@
   padding: 0;
 }
 
+/* Fikset på bakgrunnen, så den er i orden nå */
 body {
   width: 100%;
   min-height: 100vh;
-  background-image: url(/images/Harry-Potter-background.jpg);
+  background-image: url(/images/background-image.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: mr-darcy, sans-serif;
   font-weight: 600;
   font-style: normal;

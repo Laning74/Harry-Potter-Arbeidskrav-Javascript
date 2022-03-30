@@ -19,6 +19,7 @@ h1 {
 }
 
 .characters-list {
+  margin-top: 25px;
   padding-inline-start: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -27,14 +28,17 @@ h1 {
 
 .character {
   list-style-type: none;
-  background-color: #eaeaea;
-  border-radius: 3px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
   padding: 10px 20px;
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-areas:
     "name image"
-    "house image";
+    "house image"
+    "status image"
+    "status image";
   text-align: left;
 }
 
@@ -49,12 +53,19 @@ h1 {
   margin-top: -18px;
 }
 
+.character-age {
+  grid-area: status;
+}
+
 .character-image {
-  max-height: 100px;
+  max-height: 150px;
   grid-area: image;
+  display: flex;
+  justify-content: center;
 }
 
 .character-status-dead {
+  grid-area: status;
   color: red;
 }
 
@@ -74,6 +85,6 @@ h1 {
 .searchbar-container::after {
   content: "🔍";
   position: absolute;
-  top: 7px;
-  right: 15px;
+  float: right;
+  right: 10px;
 }

@@ -1,17 +1,20 @@
-const charactersList = document.querySelector(".characters-list");
+let charactersList = document.querySelector(".characters-list");
 const searchBar = document.querySelector(".searchbar");
 // const searchBtn = document.querySelector(".search-btn");
 let hpCharacters = [];
 
 // The searchbar function
 searchBar.addEventListener("keyup", (e) => {
-  const searchString = e.target.value.toLowerCase();
+  let searchString = e.target.value.toLowerCase();
 
-  const filteredCharacters = hpCharacters.filter((character) => {
-    return character.name.toLowerCase().includes(searchString);
-  });
-  displayCharacters(filteredCharacters);
-  console.log(object);   // STOPPET HER SIST
+  if (e.target.value === "") {
+    charactersList.innerHTML = "";
+  } else  {
+    let filteredCharacters = hpCharacters.filter((character) => {
+      return character.name.toLowerCase().includes(searchString);
+    });
+    displayCharacters(filteredCharacters);
+  }
 });
 
 // Getting the characters from the API
