@@ -29,10 +29,10 @@ body {
 }
 
 .create-student-container {
+  background-image: url(./images/oldpaper.jpg);
   text-align: center;
   width: 30em;
   height: 25rem;
-  border: 2px solid black;
   padding: 2em;
 }
 
