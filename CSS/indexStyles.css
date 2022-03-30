@@ -179,3 +179,12 @@ nav a:hover::before {
 .flipCard {
   transform: rotateY(180deg);
 }
+.character {
+  border:1px solid rgba(68, 83, 147, .8);
+  transition: transform 500ms ease-in-out;
+}
+.character:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px 5px rgba(68, 83, 147, .8),
+    inset 0 0 10px 5px rgba(68, 83, 147, .8);
+}
