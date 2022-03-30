@@ -43,3 +43,10 @@ document.querySelector("#hufflepuff-btn").onclick = () => {
 document.querySelector("#ravenclaw-btn").onclick = () => {
   fetchData("Ravenclaw");
 };
+const card = document.querySelector(".card");
+
+card.addEventListener("click", flipCard);
+
+function flipCard() {
+  card.classList.toggle("flipCard");
+}
