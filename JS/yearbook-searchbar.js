@@ -9,7 +9,7 @@ searchBar.addEventListener("keyup", (e) => {
 
   if (e.target.value === "") {
     charactersList.innerHTML = "";
-  } else  {
+  } else {
     let filteredCharacters = hpCharacters.filter((character) => {
       return character.name.toLowerCase().includes(searchString);
     });
@@ -28,7 +28,8 @@ const loadCharacters = async () => {
 };
 
 // Display all characters with name, age, status and image
-const displayCharacters = (characters) => {
+export const displayCharacters = (characters) => {
+  // La til en export her
   const htmlString = characters
     .map((character) => {
       let age = character.yearOfBirth;

@@ -87,6 +87,7 @@ nav a:hover::before {
 
 /* Wrapper House Cards begynner her */
 
+/* Kommenterte ut noen ting som jeg ikke kunne se gjorde noe endring */
 .tittel {
   /* grid-column: 1/5; */
   /* width: 100%; */
@@ -95,7 +96,11 @@ nav a:hover::before {
   position: relative;
   font-size: 1.5rem;
   margin: 40px;
-  
+}
+
+/* Måtte gjøre det på denne måten for å legge til farge, funket ikke i tittel classen */
+.tittel h1 {
+  color: #e0c53b;
 }
 
 .wrapper {
@@ -155,6 +160,8 @@ nav a:hover::before {
   position: absolute;
   backface-visibility: hidden;
 }
+
+/* Ved å kommentere ut position absolute, så stod kortet på samme sted uten og flytte seg litt til siden */
 .back {
   /* position: absolute; */
   backface-visibility: hidden;

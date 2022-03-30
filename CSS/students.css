@@ -7,10 +7,6 @@ body {
 * {
   box-sizing: border-box;
 }
-h1 {
-  color: #eee;
-  margin-bottom: 30px;
-}
 
 .container {
   padding: 40px;
@@ -75,12 +71,6 @@ h1 {
   position: relative;
 }
 
-.searchbar-container::after {
-  content: "🔍";
-  position: absolute;
-  /* left: 100px; */
-}
-
 .searchbar {
   width: 30%;
   height: 32px;
@@ -91,16 +81,17 @@ h1 {
 }
 
 .create-student-btn {
+  border: none;
   font-family: mr-darcy, sans-serif;
   font-weight: 600;
   font-style: normal;
   width: 200px;
   border-radius: 8px;
-  background-color: #E6A038;
+  background-color: #e6a038;
 }
 
 .create-student-btn:hover {
   cursor: pointer;
-  background-color: #377F6A;
+  background-color: #377f6a;
   color: white;
 }
