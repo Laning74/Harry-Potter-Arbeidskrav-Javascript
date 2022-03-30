@@ -11,11 +11,11 @@ h1 {
   color: #eee;
   margin-bottom: 30px;
 }
+
 .container {
   padding: 40px;
   margin: 0 auto;
-  max-width: 1000px;
-  text-align: center;
+  width: 100%;
 }
 
 .characters-list {
@@ -33,7 +33,7 @@ h1 {
   border-radius: 10px;
   padding: 10px 20px;
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 4fr 1fr;
   grid-template-areas:
     "name image"
     "house image"
@@ -69,8 +69,20 @@ h1 {
   color: red;
 }
 
+.searchbar-container {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+}
+
+.searchbar-container::after {
+  content: "🔍";
+  position: absolute;
+  /* left: 100px; */
+}
+
 .searchbar {
-  width: 100%;
+  width: 30%;
   height: 32px;
   border-radius: 3px;
   border: 1px solid #eaeaea;
@@ -78,13 +90,17 @@ h1 {
   font-size: 12px;
 }
 
-.searchbar-container {
-  position: relative;
+.create-student-btn {
+  font-family: mr-darcy, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  width: 200px;
+  border-radius: 8px;
+  background-color: #E6A038;
 }
 
-.searchbar-container::after {
-  content: "🔍";
-  position: absolute;
-  float: right;
-  right: 10px;
+.create-student-btn:hover {
+  cursor: pointer;
+  background-color: #377F6A;
+  color: white;
 }
