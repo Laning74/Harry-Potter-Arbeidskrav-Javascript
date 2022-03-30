@@ -1,6 +1,6 @@
 * {
   margin: 0;
-  padding 0;
+  padding: 0;
 }
 
 body {
@@ -9,13 +9,90 @@ body {
   background-image: url(/images/Harry-Potter-background.jpg);
 }
 
-a {
-    color: white;
+/* Header begynner her */
+
+header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0;
+  z-index: 99;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-/* header */
+.logo {
+  width: 18rem;
+}
 
+.logo:hover {
+  opacity: 60%;
+}
 
+nav ul {
+  margin: 0.6rem;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin: 1em;
+  position: relative;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 0.5em;
+  text-transform: uppercase;
+  color: white;
+  font-size: 1.3rem;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #e0c53b;
+}
+
+nav a::before {
+  content: "";
+  display: block;
+  height: 5px;
+  background-color: #e0c53b;
+
+  position: absolute;
+  top: 0;
+  margin-top: 1.5rem;
+  border-radius: 2px;
+
+  transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+  width: 100%;
+}
+
+@media (min-width: 60rem) {
+  .logo {
+    float: left;
+  }
+
+  nav {
+    float: right;
+  }
+}
+
+.SectionOne {
+  width: 100%;
+  height: 50vh;
+  text-align: center;
+  position: relative;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-top: 60px;
+  color: #e0c53b;
+}
 
 /* Wrapper Cards begynner her */
 
@@ -34,32 +111,45 @@ a {
   align-items: stretch;
 }
 
-.grid > cards {
-  background-color: whitesmoke;
-  border: 1px solid #ccc;
-  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
-}
-
 .grid > cards img {
   max-width: 100%;
 }
 
-.grid > cards img:hover {
-  opacity: 60%;
+/* tester hover kort */
+
+.middle {
+  position: absolute;
+}
+.card {
+  cursor: pointer;
+  width: 340px;
+  height: 480px;
+}
+.front,
+.back {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  transition: transform 0.6s linear;
+}
+.front img {
+  height: 100%;
+}
+.back img {
+  height: 100%;
+}
+.front {
+  transform: perspective(600px) rotateY(0deg);
+}
+.back {
+  transform: perspective(600px) rotateY(180deg);
 }
 
-.grid .text {
-  padding: 20px;
+.card:hover > .front {
+  transform: perspective(600px) rotateY(-180deg);
 }
-
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 528px) {
-  .grid {
-    grid-template-columns: repeat(1, 1fr);
-  }
+.card:hover > .back {
+  transform: perspective(600px) rotateY(0deg);
 }
