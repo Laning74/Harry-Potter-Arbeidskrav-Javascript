@@ -67,11 +67,11 @@ h1 {
   font-size: 12px;
 }
 
-.searchbar-wrapper {
+.searchbar-container {
   position: relative;
 }
 
-.searchbar-wrapper::after {
+.searchbar-container::after {
   content: "🔍";
   position: absolute;
   top: 7px;
