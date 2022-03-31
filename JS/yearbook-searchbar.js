@@ -45,12 +45,12 @@ export const displayCharacters = (characters) => {
       if (character.alive === false) {
         characterStatus = "Is dead";
         return `<li class="character">
-        <h2>${character.name}</h2>
-        <p class ="character-status-dead">Status: ${characterStatus}</p> 
-        <p class="character-house">House: ${hogwartsHouse}</p>
-        <img src="${placeholder}" class="character-image"/>
-        </li>
-        `;
+      <h2>${character.name}</h2>
+      <p class ="character-status-dead">Status: ${characterStatus}</p> 
+      <p class="character-house">House: ${hogwartsHouse}</p>
+      <img src="${placeholder}" class="character-image"/>
+      </li>
+      `;
       }
       if (age === "") {
         characterStatus = `Is alive`;
