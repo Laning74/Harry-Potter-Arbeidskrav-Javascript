@@ -8,11 +8,10 @@
 
 :root {
   --primary-clr: #0d0d10;
-  --secundary-clr: #a92332;
-  --hoover-button-clr: #1c7351;
-  --button-clr: #eaaf1c;
-  --fifth-clr: #02649e;
-  --sixth-clr: #293454;
+  --griffingdor-clr: #ce373d;
+  --slytherin-hoover-button-clr: #377f6a;
+  --huffelpuff-button-clr: #e6a038;
+  --ravenclaw-clr: #445393;
 }
 
 body {
@@ -29,40 +28,52 @@ body {
 }
 
 .create-student-container {
-  background-image: url(./images/oldpaper.jpg);
+  background-image: url(./images/pergament.png);
+  background-position: center;
+  background-size: cover;
   text-align: center;
-  width: 30em;
+  width: 50em;
   height: 25rem;
   padding: 2em;
+  cursor: url("./images/pngwing.com\ \(8\).png"), auto;
 }
 
-.exit-btn-container {
+.logo-header-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
-.exit-btn {
-  width: 1.5em;
+.hogwarts-logo {
+  position: absolute;
+  left: 20em;
+  width: 70px;
 }
 
-.create-student-header {
-  margin-bottom: 1.5em;
+.new-student-header {
+  margin: 0.5em 0 1em 0;
+}
+
+.input-container {
+  width: 100%;
 }
 
 .create-name-input,
 .create-house-input,
 .create-age-input,
 .create-alive-input {
-  margin: 1em;
-  width: 80%;
+  margin: 0.5em;
+  width: 50%;
   border-radius: 17px;
   height: 33px;
   padding-left: 1em;
+  border: none;
+  background-color: transparent;
 }
 
 ::placeholder {
   text-transform: uppercase;
   font-family: mr-darcy, sans-serif;
+  color: var(--primary-clr);
 }
 
 .default-student-img {
@@ -70,37 +81,29 @@ body {
   height: 100px;
 }
 
+.exit-btn,
 .save-student-btn {
-  margin-top: 2em;
+  width: 10em;
+  margin: 2em 1em;
   padding: 0.7em;
-  width: 20em;
   border-radius: 10px;
-  background-color: var(--button-clr);
   border: none;
+}
+.exit-btn {
+  background-color: var(--huffelpuff-button-clr);
+}
+
+.save-student-btn {
+  background-color: var(--slytherin-hoover-button-clr);
 }
 
 .save-student-btn:hover {
-  background-color: var(--hoover-button-clr);
+  background-color: var(--slytherin-hoover-button-clr);
   color: var(--button-clr);
 }
 
 .student-list {
-  background-color: rgb(170, 56, 56);
+  background-color: var(--griffingdor-clr);
   width: 200px;
   /* height: 200px; */
 }
-
-/* .slytherin-student-list {
-  background-color: green;
-  width: 200px;
-}
-
-.ravenclaw-student-list {
-  background-color: rgb(43, 43, 90);
-  width: 200px;
-}
-
-.huffelpuff-student-list {
-  background-color: #eaaf1c;
-  width: 200px;
-} */

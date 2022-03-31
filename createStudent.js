@@ -51,25 +51,19 @@ saveStudentBtn.addEventListener("click", () => {
 });
 
 let studentList = document.querySelector(".student-list");
-// let slytherinStudentList = document.querySelector(".slytherin-student-list");
-// let ravenclawStudentList = document.querySelector(".ravenclaw-student-list");
-// let huffelpuffStudentList = document.querySelector(".huffelpuff-student-list");
 
 //function som adder elever til liste
 function addNewStudent() {
   studentList.innerHTML = "";
-  // slytherinStudentList.innerHTML = "";
-  // ravenclawStudentList.innerHTML = "";
-  // huffelpuffStudentList.innerHTML = "";
 
-  let griffingdorStudents = addNewStudent(newStudentArray, "griffingdor");
-  let slytherinStudents = addNewStudent(newStudentArray, "slytherin");
-  let ravenclawStudents = addNewStudent(newStudentArray, "ravenclaw");
-  let huffelpuffStudents = addNewStudent(newStudentArray, "huffelpuff");
+  filterNewStudent(newStudentArray, "griffingdor");
+  filterNewStudent(newStudentArray, "slytherin");
+  filterNewStudent(newStudentArray, "ravenclaw");
+  filterNewStudent(newStudentArray, "huffelpuff");
 
-  function addNewStudent(array, name) {
+  function filterNewStudent(array, house) {
     let filterStudentArray = array.filter(function (curr) {
-      return curr.house === name;
+      return curr.house === house;
     });
 
     for (i = 0; i < filterStudentArray.length; i++) {
@@ -81,67 +75,7 @@ function addNewStudent() {
      <p>${filterStudentArray[i].alive}</p>
     </li>`;
     }
+
     console.log(filterStudentArray);
-    if (name === "griffingdor") {
-      studentList.style.backgroundColor = "red";
-    } else if (name === "slytherin")
-      studentList.style.backgroundColor = "green";
   }
-
-  // let griffingdorStudents = newStudentArray.filter(function (currentElement) {
-  //   return currentElement.house === "griffingdor";
-  // });
-
-  // let slytherinStudents = newStudentArray.filter(function (currentElement) {
-  //   return currentElement.house === "slytherin";
-  // });
-
-  // let ravenclawStudents = newStudentArray.filter(function (currentElement) {
-  //   return currentElement.house === "ravenclaw";
-  // });
-
-  // let huffelpuffStudents = newStudentArray.filter(function (currentElement) {
-  //   return currentElement.house === "huffelpuff";
-  // });
-
-  // for (let i = 0; i < griffingdorStudents.length; i++) {
-  //   griffingdorStudentList.innerHTML += `<li>
-  //     <img src = "./images/default-image.png" class="default-student-img" />
-  //   <p>${griffingdorStudents[i].name}</p>
-  //   <p>${griffingdorStudents[i].house}</p>
-  //   <p>${griffingdorStudents[i].age}</p>
-  //   <p>${griffingdorStudents[i].alive}</p>
-  //   </li>`;
-  // }
-
-  // for (let i = 0; i < slytherinStudents.length; i++) {
-  //   slytherinStudentList.innerHTML += `<li>
-  //     <img src = "./images/default-image.png" class="default-student-img" />
-  //   <p>${slytherinStudents[i].name}</p>
-  //   <p>${slytherinStudents[i].house}</p>
-  //   <p>${slytherinStudents[i].age}</p>
-  //   <p>${slytherinStudents[i].alive}</p>
-  //   </li>`;
-  // }
-
-  // for (let i = 0; i < ravenclawStudents.length; i++) {
-  //   ravenclawStudentList.innerHTML += `<li>
-  //     <img src = "./images/default-image.png" class="default-student-img" />
-  //   <p>${ravenclawStudents[i].name}</p>
-  //   <p>${ravenclawStudents[i].house}</p>
-  //   <p>${ravenclawStudents[i].age}</p>
-  //   <p>${ravenclawStudents[i].alive}</p>
-  //   </li>`;
-  // }
-
-  // for (let i = 0; i < huffelpuffStudents.length; i++) {
-  //   huffelpuffStudentList.innerHTML += `<li>
-  //     <img src = "./images/default-image.png" class="default-student-img" />
-  //   <p>${huffelpuffStudents[i].name}</p>
-  //   <p>${huffelpuffStudents[i].house}</p>
-  //   <p>${huffelpuffStudents[i].age}</p>
-  //   <p>${huffelpuffStudents[i].alive}</p>
-  //   </li>`;
-  // }
 }
-// console.log(newStudentArray);
