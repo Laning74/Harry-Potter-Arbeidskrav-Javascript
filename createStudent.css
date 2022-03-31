@@ -84,13 +84,13 @@ body {
   color: var(--button-clr);
 }
 
-.griffingdor-student-list {
+.student-list {
   background-color: rgb(170, 56, 56);
   width: 200px;
   /* height: 200px; */
 }
 
-.slytherin-student-list {
+/* .slytherin-student-list {
   background-color: green;
   width: 200px;
 }
@@ -103,4 +103,4 @@ body {
 .huffelpuff-student-list {
   background-color: #eaaf1c;
   width: 200px;
-}
+} */
