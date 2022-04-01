@@ -90,7 +90,7 @@ body {
   border: none;
 }
 .exit-btn {
-  background-color: var(--huffelpuff-button-clr);
+  background-color: var(--griffingdor-clr);
 }
 
 .save-student-btn {
@@ -98,7 +98,7 @@ body {
 }
 
 .save-student-btn:hover {
-  background-color: var(--slytherin-hoover-button-clr);
+  background-color: var(--huffelpuff-button-clr);
   color: var(--button-clr);
 }
 

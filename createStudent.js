@@ -24,27 +24,28 @@ saveStudentBtn.addEventListener("click", () => {
   let studentAge = document.querySelector(".create-age-input").value;
   let studentAlive = document.querySelector(".create-alive-input").value;
 
-  newStudentArray.push({
-    image: src,
-    name: studentName,
-    house: houseName,
-    age: studentAge,
-    alive: studentAlive,
-  });
-
+  // console.log(newStudentArray);
   // Lager error melding hvis input ikke er utfylt
   if (studentName == "") {
     alert("Name is required");
-    newStudentArray.splice(-1);
+    // newStudentArray.splice(-1);
   } else if (houseName == "") {
     alert("House is required");
-    newStudentArray.splice(-1);
+    // newStudentArray.splice(-1);
   } else if (studentAge == "") {
     alert("Age is required");
-    newStudentArray.splice(-1);
+    // newStudentArray.splice(-1);
   } else if (studentAlive == "") {
     alert("Dead or Alive is required");
-    newStudentArray.splice(-1);
+    // newStudentArray.splice(-1);
+  } else {
+    newStudentArray.push({
+      image: src,
+      name: studentName,
+      house: houseName,
+      age: studentAge,
+      alive: studentAlive,
+    });
   }
 
   addNewStudent();
@@ -56,7 +57,7 @@ let studentList = document.querySelector(".student-list");
 function addNewStudent() {
   studentList.innerHTML = "";
 
-  filterNewStudent(newStudentArray, "griffingdor");
+  filterNewStudent(newStudentArray, "gryffindor");
   filterNewStudent(newStudentArray, "slytherin");
   filterNewStudent(newStudentArray, "ravenclaw");
   filterNewStudent(newStudentArray, "huffelpuff");
@@ -76,6 +77,7 @@ function addNewStudent() {
     </li>`;
     }
 
-    console.log(filterStudentArray);
+    // console.log(filterStudentArray);
   }
+  // console.log(filterStudentArray);
 }
