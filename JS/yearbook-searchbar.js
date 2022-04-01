@@ -60,13 +60,14 @@ saveStudentBtn.addEventListener("click", () => {
 function addNewStudent() {
   charactersList.innerHTML = "";
 
-  filterNewStudent(hpCharacters, "gryffindor");
-  filterNewStudent(hpCharacters, "slytherin");
-  filterNewStudent(hpCharacters, "ravenclaw");
-  filterNewStudent(hpCharacters, "huffelpuff");
+  filterNewStudent(hpCharacters, "Gryffindor");
+  filterNewStudent(hpCharacters, "Slytherin");
+  filterNewStudent(hpCharacters, "Ravenclaw");
+  filterNewStudent(hpCharacters, "Huffelpuff");
 
   function filterNewStudent(array, house) {
     let filterStudentArray = array.filter(function (curr) {
+      displayCharacters(filterStudentArray);
       return curr.house === house;
     });
 
@@ -221,3 +222,7 @@ card.addEventListener("click", flipCard);
 function flipCard() {
   card.classList.toggle("flipCard");
 }
+
+
+
+
