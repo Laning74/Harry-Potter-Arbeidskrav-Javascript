@@ -74,9 +74,9 @@ function addNewStudent() {
       charactersList.innerHTML += displayCharacters(filterStudentArray);
       `<li class="character">
            <h2>${filterStudentArray[i].name}</h2>
-           <p class="character-status">Status: ${characterStatus}</p>
+           <p class="character-status">Status: ${filterStudentArray[i].alive}</p>
            <p class="character-age">Age: Uknown</p>
-           <p class="character-house">House: ${hogwartsHouse}</p>
+           <p class="character-house">House: ${filterStudentArray[i].house}</p>
            <img src="${placeholder}" class="character-image" />
          </li>`;
       // `<li>
@@ -181,43 +181,3 @@ function calculateAge(age) {
 }
 
 loadCharacters();
-
-//   Harpreet
-function fetchData(houseName) {
-  fetch(url)
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      renderData(data, houseName);
-    });
-}
-let houseMembers;
-function renderData(data, houseName) {
-  houseMembers = data.filter(function (data) {
-    return data.house == houseName;
-  });
-  console.log(houseMembers);
-  displayCharacters(houseMembers); // Vi trengte kun dette for å få ut alt på nettsiden pga funksjonen fra searchbar tror jeg
-}
-// charactersList.innerHTML = houseMembers; // La til denne også, men ser ikke ut som vi trenger den..
-document.querySelector("#gryffindor-btn").onclick = () => {
-  fetchData("Gryffindor");
-};
-document.querySelector("#slytherin-btn").onclick = () => {
-  fetchData("Slytherin");
-};
-document.querySelector("#hufflepuff-btn").onclick = () => {
-  fetchData("Hufflepuff");
-};
-document.querySelector("#ravenclaw-btn").onclick = () => {
-  fetchData("Ravenclaw");
-};
-
-let card = document.querySelector(".card");
-
-card.addEventListener("click", flipCard);
-
-function flipCard() {
-  card.classList.toggle("flipCard");
-}
