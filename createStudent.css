@@ -17,10 +17,7 @@
 body {
   width: 100%;
   min-height: 100vh;
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center; */
-  /* flex-direction: column;  */
+
   gap: 2em;
   font-family: mr-darcy, sans-serif;
   font-weight: 600;
@@ -28,6 +25,7 @@ body {
 }
 
 .create-student-container {
+  margin: 2em auto 0 auto;
   background-image: url(./images/pergament.png);
   background-position: center;
   background-size: cover;
@@ -39,12 +37,15 @@ body {
 }
 
 .logo-header-container {
+  /* padding-left: 10em; */
   display: flex;
   justify-content: center;
+  gap: 70px;
+  /* width: 100%; */
 }
 
 .hogwarts-logo {
-  position: absolute;
+  /* position: absolute; */
   left: 20em;
   width: 70px;
 }
@@ -84,7 +85,7 @@ body {
 .exit-btn,
 .save-student-btn {
   width: 10em;
-  margin: 2em 1em;
+  margin: 0.5em 1em;
   padding: 0.7em;
   border-radius: 10px;
   border: none;
