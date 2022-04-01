@@ -119,9 +119,9 @@ nav a:hover::before {
 
 .wrapper {
   /* padding: 40px 0; */
-  width: 100%;
+  /* width: 100%; */
   /* margin: 20px auto; */
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
 /* Kommenterte ut dette for å få kortene characters riktig under kortene */
