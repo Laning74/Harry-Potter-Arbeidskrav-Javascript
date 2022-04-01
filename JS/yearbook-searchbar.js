@@ -2,6 +2,13 @@
 let createStudentContainer = document.querySelector(
   ".create-student-container"
 );
+
+
+// // Vis div - New student button
+function showCreateStudent() {
+  createStudentContainer.style.display = "block";
+}
+
 //Skjul container
 createStudentContainer.style.display = "none";
 
@@ -71,7 +78,9 @@ function addNewStudent() {
       return curr.house === house;
     });
 
-    for (i = 0; i < filterStudentArray.length; i++) {
+    let placeholder = "./images/defaultimage.png";
+
+    for (let i = 0; i < filterStudentArray.length; i++) {
       charactersList.innerHTML += displayCharacters(filterStudentArray);
       `<li class="character">
            <h2>${filterStudentArray[i].name}</h2>
