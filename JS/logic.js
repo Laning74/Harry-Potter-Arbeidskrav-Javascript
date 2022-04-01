@@ -116,10 +116,6 @@ let createStudentContainer = document.querySelector(
 );
 //Skjul container
 createStudentContainer.style.display = "none";
-// // Vis div - New student button
-// function showCreateStudent() {
-//   createStudentContainer.style.display = "block";
-// }
 
 // Vis div - New student button
 const showCreateStudent = document.querySelector(".create-student-btn");
@@ -144,16 +140,12 @@ saveStudentBtn.addEventListener("click", () => {
   // Lager error melding hvis input ikke er utfylt
   if (studentName == "") {
     alert("Name is required");
-  
   } else if (houseName == "") {
     alert("House is required");
-  
   } else if (studentAge == "") {
     alert("Age is required");
-  
   } else if (studentAlive == "") {
     alert("Dead or Alive is required");
-  
   } else {
     hpCharacters.push({
       image: src,
@@ -196,4 +188,3 @@ saveStudentBtn.addEventListener("click", () => {
 //     }
 //   }
 // }
-
