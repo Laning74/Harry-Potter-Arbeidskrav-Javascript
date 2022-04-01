@@ -23,8 +23,8 @@ searchBar.addEventListener("keyup", (e) => {
     console.log(filteredCharacters);
   }
 });
-const displayCharacters = (characters) => {
-  const htmlString = characters
+const displayCharacters = (hpCharacters) => {
+  const htmlString = hpCharacters
     .map((character) => {
       let age = character.yearOfBirth;
       let placeholder = character.image;
@@ -110,3 +110,90 @@ function renderData(houseName) {
   });
   displayCharacters(houseMembers);
 }
+// Her begynner create new student funksjonene
+let createStudentContainer = document.querySelector(
+  ".create-student-container"
+);
+//Skjul container
+createStudentContainer.style.display = "none";
+// // Vis div - New student button
+// function showCreateStudent() {
+//   createStudentContainer.style.display = "block";
+// }
+
+// Vis div - New student button
+const showCreateStudent = document.querySelector(".create-student-btn");
+showCreateStudent.addEventListener("click", () => {
+  createStudentContainer.style.display = "block";
+});
+// Skjul div - exit button
+let createExitBtn = document.querySelector(".exit-btn");
+createExitBtn.addEventListener("click", () => {
+  createStudentContainer.style.display = "none";
+});
+//Save new student
+let saveStudentBtn = document.querySelector(".save-student-btn");
+saveStudentBtn.addEventListener("click", () => {
+  let src = "./images/default-image.png";
+  let studentName = document.querySelector(".create-name-input").value;
+  let houseName = document.querySelector(".create-house-input").value;
+  let studentAge = document.querySelector(".create-age-input").value;
+  let studentAlive = document.querySelector(".create-alive-input").value;
+
+  // console.log(newStudentArray);
+  // Lager error melding hvis input ikke er utfylt
+  if (studentName == "") {
+    alert("Name is required");
+  
+  } else if (houseName == "") {
+    alert("House is required");
+  
+  } else if (studentAge == "") {
+    alert("Age is required");
+  
+  } else if (studentAlive == "") {
+    alert("Dead or Alive is required");
+  
+  } else {
+    hpCharacters.push({
+      image: src,
+      name: studentName,
+      house: houseName,
+      age: studentAge,
+      alive: studentAlive,
+    });
+  }
+  charactersList.innerHTML = hpCharacters;
+  // addNewStudent();
+  renderData(houseName); //calling this function to filter according to the house name
+  console.log(hpCharacters);
+});
+// function addNewStudent() {
+//   charactersList.innerHTML = "";
+
+//   filterNewStudent(hpCharacters, "Gryffindor");
+//   filterNewStudent(hpCharacters, "Slytherin");
+//   filterNewStudent(hpCharacters, "Ravenclaw");
+//   filterNewStudent(hpCharacters, "Huffelpuff");
+
+//   function filterNewStudent(array, house) {
+//     let filterStudentArray = array.filter(function (curr) {
+//       displayCharacters(filterStudentArray);
+//       return curr.house === house;
+//     });
+
+//     let placeholder = "./images/defaultimage.png";
+
+//     for (let i = 0; i < filterStudentArray.length; i++) {
+//       charactersList.innerHTML += displayCharacters(filterStudentArray);
+//       `<li class="character">
+//            <h2>${filterStudentArray[i].name}</h2>
+//            <p class="character-status">Status: ${filterStudentArray[i].alive}</p>
+//            <p class="character-age">Age: Uknown</p>
+//            <p class="character-house">House: ${filterStudentArray[i].house}</p>
+//            <img src="${placeholder}" class="character-image" />
+//          </li>`;
+//     }
+//   }
+// }
+
