@@ -160,6 +160,7 @@ saveStudentBtn.addEventListener("click", () => {
   renderData(houseName); //calling this function to filter according to the house name
   console.log(hpCharacters);
 });
+//trenger ikke denne funksjonen egentlig for vi kan bruke den samme filter funksjonen her i.e renderData()
 // function addNewStudent() {
 //   charactersList.innerHTML = "";
 
