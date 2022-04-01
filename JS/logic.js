@@ -144,16 +144,12 @@ saveStudentBtn.addEventListener("click", () => {
   // Lager error melding hvis input ikke er utfylt
   if (studentName == "") {
     alert("Name is required");
-  
   } else if (houseName == "") {
     alert("House is required");
-  
   } else if (studentAge == "") {
     alert("Age is required");
-  
   } else if (studentAlive == "") {
     alert("Dead or Alive is required");
-  
   } else {
     hpCharacters.push({
       image: src,
@@ -168,6 +164,7 @@ saveStudentBtn.addEventListener("click", () => {
   renderData(houseName); //calling this function to filter according to the house name
   console.log(hpCharacters);
 });
+//trenger ikke denne funksjonen egentlig for vi kan bruke den samme filter funksjonen her i.e renderData()
 // function addNewStudent() {
 //   charactersList.innerHTML = "";
 
@@ -196,4 +193,3 @@ saveStudentBtn.addEventListener("click", () => {
 //     }
 //   }
 // }
-
