@@ -92,12 +92,12 @@ slytherinCard.addEventListener("click", () => {
 let hufflepuffCard = document.querySelector("#hufflepuff-btn");
 hufflepuffCard.addEventListener("click", () => {
   renderData("Hufflepuff");
-  flipCard(slytherinCard);
+  flipCard(hufflepuffCard);
 });
 let ravenclawCard = document.querySelector("#ravenclaw-btn");
 ravenclawCard.addEventListener("click", () => {
   renderData("Ravenclaw");
-  flipCard(slytherinCard);
+  flipCard(ravenclawCard);
 });
 
 function flipCard(card) {
