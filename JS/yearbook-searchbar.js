@@ -75,9 +75,9 @@ function addNewStudent() {
       charactersList.innerHTML += displayCharacters(filterStudentArray);
       `<li class="character">
            <h2>${filterStudentArray[i].name}</h2>
-           <p class="character-status">Status: ${characterStatus}</p>
+           <p class="character-status">Status: ${filterStudentArray[i].alive}</p>
            <p class="character-age">Age: Uknown</p>
-           <p class="character-house">House: ${hogwartsHouse}</p>
+           <p class="character-house">House: ${filterStudentArray[i].house}</p>
            <img src="${placeholder}" class="character-image" />
          </li>`;
       // `<li>
@@ -222,7 +222,5 @@ card.addEventListener("click", flipCard);
 function flipCard() {
   card.classList.toggle("flipCard");
 }
-
-
 
 
