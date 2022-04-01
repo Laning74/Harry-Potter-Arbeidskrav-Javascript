@@ -94,41 +94,59 @@ nav a:hover::before {
   /* height: 10vh; */
   text-align: center;
   position: relative;
-  font-size: 1.5rem;
-  margin: 40px;
+  font-size: 22px;
+  padding: 20px;
+  margin-bottom: 40px;
 }
 
 /* Måtte gjøre det på denne måten for å legge til farge, funket ikke i tittel classen */
 .tittel h1 {
-  color: #e0c53b;
+  /* color: #e0c53b; */
+  background-image: linear-gradient(
+    to right,
+    #ce373d,
+    #ce373d,
+    #377f6a,
+    #e6a038,
+    #445393,
+    #445393
+  );
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .wrapper {
-  padding: 40px 0;
+  /* padding: 40px 0; */
   width: 100%;
-  margin: 20px auto;
+  /* margin: 20px auto; */
   box-sizing: border-box;
 }
 
+/* Kommenterte ut dette for å få kortene characters riktig under kortene */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 200px 700px;
-  grid-gap: 20px;
-  margin: 20px;
-  align-items: stretch;
+  /* display: grid; */
+  /* grid-template-columns: repeat(4, 1fr); */
+  /* grid-template-rows: 300px auto; */
+  /* grid-gap: 20px; */
+  margin-top: 30px;
+  /* align-items: stretch; */
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .grid > cards img {
   max-width: 100%;
 }
 
-.house {
-  position: absolute;
-}
+/* .house {
+  /* position: absolute; */
 
 .card {
   position: relative;
+  display: flex;
+  justify-content: center;
   cursor: pointer;
   width: 100%;
   height: 100%;
@@ -176,6 +194,16 @@ nav a:hover::before {
   transform: perspective(600px) rotateY(0deg);
 }
 */
+
 .flipCard {
   transform: rotateY(180deg);
+}
+.character {
+  border: 1px solid rgba(68, 83, 147, 0.8);
+  transition: transform 500ms ease-in-out;
+}
+.character:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px 5px rgba(68, 83, 147, 0.8),
+    inset 0 0 10px 5px rgba(68, 83, 147, 0.8);
 }
