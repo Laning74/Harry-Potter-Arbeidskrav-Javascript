@@ -20,7 +20,7 @@ searchBar.addEventListener("keyup", (e) => {
       return character.name.toLowerCase().includes(searchString);
     });
     displayCharacters(filteredCharacters);
-    console.log(filteredCharacters);
+    // console.log(filteredCharacters);
   }
 });
 const displayCharacters = (hpCharacters) => {
@@ -133,7 +133,7 @@ saveStudentBtn.addEventListener("click", () => {
   let src = "./images/default-image.png";
   let studentName = document.querySelector(".create-name-input").value;
   let houseName = document.querySelector(".create-house-input").value;
-  let studentAge = document.querySelector(".create-age-input").value;
+  let studentAge = parseInt(document.querySelector(".create-age-input").value);
   let studentAlive = document.querySelector(".create-alive-input").value;
 
   // console.log(newStudentArray);
@@ -158,7 +158,8 @@ saveStudentBtn.addEventListener("click", () => {
   charactersList.innerHTML = hpCharacters;
   // addNewStudent();
   renderData(houseName); //calling this function to filter according to the house name
-  console.log(hpCharacters);
+  // console.log(hpCharacters);
+  console.log(studentAge);
 });
 //trenger ikke denne funksjonen egentlig for vi kan bruke den samme filter funksjonen her i.e renderData()
 // function addNewStudent() {
