@@ -96,7 +96,7 @@ function addNewStudent() {
 let charactersList = document.querySelector(".characters-list");
 const searchBar = document.querySelector(".searchbar");
 // const searchBtn = document.querySelector(".search-btn");
-let hpCharacters = [];
+export let hpCharacters = [];
 
 // The searchbar function
 searchBar.addEventListener("keyup", (e) => {

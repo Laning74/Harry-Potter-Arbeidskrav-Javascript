@@ -1,8 +1,16 @@
+
 // let createStudentContainer = document.querySelector(
 //   ".create-student-container"
 // );
 // //Skjul container
 // createStudentContainer.style.display = "none";
+
+// let createStudentContainer = document.querySelector(
+//   ".create-student-container"
+// );
+// //Skjul container
+// createStudentContainer.style.display = "none";
+
 
 // // Vis div - New student button
 // function showCreateStudent() {
@@ -23,6 +31,34 @@
 //   let houseName = document.querySelector(".create-house-input").value;
 //   let studentAge = document.querySelector(".create-age-input").value;
 //   let studentAlive = document.querySelector(".create-alive-input").value;
+
+
+//   console.log(newStudentArray);
+//   Lager error melding hvis input ikke er utfylt
+//   if (studentName == "") {
+//     alert("Name is required");
+//     // newStudentArray.splice(-1);
+//   } else if (houseName == "") {
+//     alert("House is required");
+//     // newStudentArray.splice(-1);
+//   } else if (studentAge == "") {
+//     alert("Age is required");
+//     // newStudentArray.splice(-1);
+//   } else if (studentAlive == "") {
+//     alert("Dead or Alive is required");
+//     // newStudentArray.splice(-1);
+//   } else {
+//     newStudentArray.push({
+//       image: src,
+//       name: studentName,
+//       house: houseName,
+//       age: studentAge,
+//       alive: studentAlive,
+//     });
+//   }
+  
+//   addNewStudent();
+// });
 
 //   // console.log(newStudentArray);
 //   // Lager error melding hvis input ikke er utfylt
@@ -50,6 +86,7 @@
 
 //   addNewStudent();
 // });
+
 
 // let studentList = document.querySelector(".student-list");
 
