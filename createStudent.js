@@ -1,3 +1,4 @@
+
 let createStudentContainer = document.querySelector(
   ".create-student-container"
 );
@@ -47,7 +48,7 @@ saveStudentBtn.addEventListener("click", () => {
       alive: studentAlive,
     });
   }
-
+  
   addNewStudent();
 });
 

@@ -19,7 +19,7 @@ let houseMembers;
 function renderData(data, houseName) {
   houseMembers = data.filter(function (data) {
     return data.house == houseName;
-  });
+  }) ;
   console.log(houseMembers);
   displayCharacters(houseMembers); // Vi trengte kun dette for å få ut alt på nettsiden pga funksjonen fra searchbar tror jeg
 }
