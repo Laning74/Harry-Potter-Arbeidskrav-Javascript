@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: mr-darcy, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+:root {
+  --primary-clr: #0d0d10;
+  --griffingdor-clr: #ce373d;
+  --slytherin-hoover-button-clr: #377f6a;
+  --huffelpuff-button-clr: #e6a038;
+  --ravenclaw-clr: #445393;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2em;
+  font-family: mr-darcy, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.create-student-container {
+  background-image: url(./images/pergament.png);
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  width: 50em;
+  height: 25rem;
+  padding: 2em;
+  cursor: url("./images/pngwing.com\ \(8\).png"), auto;
+}
+
+.logo-header-container {
+  display: flex;
+  justify-content: center;
+}
+
+.hogwarts-logo {
+  position: absolute;
+  left: 20em;
+  width: 70px;
+}
+
+.new-student-header {
+  margin: 0.5em 0 1em 0;
+}
+
+.input-container {
+  width: 100%;
+}
+
+.create-name-input,
+.create-house-input,
+.create-age-input,
+.create-alive-input {
+  margin: 0.5em;
+  width: 50%;
+  border-radius: 17px;
+  height: 33px;
+  padding-left: 1em;
+  border: none;
+  background-color: transparent;
+}
+
+::placeholder {
+  text-transform: uppercase;
+  font-family: mr-darcy, sans-serif;
+  color: var(--primary-clr);
+}
+
+.default-student-img {
+  width: 100px;
+  height: 100px;
+}
+
+.exit-btn,
+.save-student-btn {
+  width: 10em;
+  margin: 2em 1em;
+  padding: 0.7em;
+  border-radius: 10px;
+  border: none;
+}
+.exit-btn {
+  background-color: var(--griffingdor-clr);
+}
+
+.save-student-btn {
+  background-color: var(--slytherin-hoover-button-clr);
+}
+
+.save-student-btn:hover {
+  background-color: var(--huffelpuff-button-clr);
+  color: var(--button-clr);
+}
+
+.student-list {
+  background-color: var(--griffingdor-clr);
+  width: 200px;
+  /* height: 200px; */
+}
