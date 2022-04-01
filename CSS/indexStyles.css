@@ -181,19 +181,9 @@ nav a:hover::before {
 
 /* Ved å kommentere ut position absolute, så stod kortet på samme sted uten og flytte seg litt til siden */
 .back {
-  /* position: absolute; */
   backface-visibility: hidden;
   transform: rotateY(180deg);
 }
-
-/*
-.card:hover > .front {
-  transform: perspective(600px) rotateY(-180deg);
-}
-.card:hover > .back {
-  transform: perspective(600px) rotateY(0deg);
-}
-*/
 
 .flipCard {
   transform: rotateY(180deg);
