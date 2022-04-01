@@ -23,24 +23,29 @@ function renderData(data, houseName) {
   console.log(houseMembers);
   displayCharacters(houseMembers); // Vi trengte kun dette for å få ut alt på nettsiden pga funksjonen fra searchbar tror jeg
 }
-// charactersList.innerHTML = houseMembers; // La til denne også, men ser ikke ut som vi trenger den..
-document.querySelector("#gryffindor-btn").onclick = () => {
+
+
+let gryffindorCard = document.querySelector("#gryffindor-btn");
+
+gryffindorCard.addEventListener("click", () => {
+  flipCard(gryffindorCard);
   fetchData("Gryffindor");
-};
-document.querySelector("#slytherin-btn").onclick = () => {
+});
+let slytherinCard = document.querySelector("#slytherin-btn");
+slytherinCard.addEventListener("click", () => {
+  flipCard(slytherinCard);
   fetchData("Slytherin");
-};
-document.querySelector("#hufflepuff-btn").onclick = () => {
+});
+let hufflepuffCard = document.querySelector("#hufflepuff-btn");
+hufflepuffCard.addEventListener("click", () => {
+  flipCard(hufflepuffCard);
   fetchData("Hufflepuff");
-};
-document.querySelector("#ravenclaw-btn").onclick = () => {
+});
+let ravenclawCard = document.querySelector("#ravenclaw-btn");
+ravenclawCard.addEventListener("click", () => {
+  flipCard(ravenclawCard);
   fetchData("Ravenclaw");
-};
-
-let card = document.querySelector(".card");
-
-card.addEventListener("click", flipCard);
-
-function flipCard() {
+});
+function flipCard(card) {
   card.classList.toggle("flipCard");
 }

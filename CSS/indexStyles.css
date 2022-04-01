@@ -207,3 +207,7 @@ nav a:hover::before {
   box-shadow: 0 0 10px 5px rgba(68, 83, 147, 0.8),
     inset 0 0 10px 5px rgba(68, 83, 147, 0.8);
 }
+/* .house1,.house2,.house3,.house4{
+  transform-style: preserve-3d;
+  transition: all 0.8s ease;
+} */

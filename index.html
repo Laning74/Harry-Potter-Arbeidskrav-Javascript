@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<<<<<<< HEAD
+    <<<<<<< HEAD
 
     <title>Harry Potter</title>
     <link rel="stylesheet" href="/CSS/indexStyles.css" />
     <link rel="stylesheet" href="https://use.typekit.net/crr1vck.css" />
     <link rel="stylesheet" href="https://use.typekit.net/crr1vck.css" />
     <link rel="stylesheet" href="./CSS/students.css" />
-      <link rel="stylesheet" href="createStudent.css">
+    <link rel="stylesheet" href="createStudent.css" />
     <link rel="stylesheet" href="https://use.typekit.net/crr1vck.css" />
   </head>
   <body>
@@ -42,9 +42,10 @@
         placeholder="Type here to search for a student..."
         class="searchbar"
       />
-      <button class="create-student-btn" onclick="showCreateStudent()">Create new student</button>
+      <button class="create-student-btn" onclick="showCreateStudent()">
+        Create new student
+      </button>
     </div>
-
 
     <!-- !!Kommenterte disse ut!! -->
     <!-- <div class="gryffindor-btn">Gryffindor</div>
@@ -55,27 +56,31 @@
     <!-- Her kommer create new student container -->
     <div class="create-student-container">
       <div class="logo-header-container">
-        <img  class="hogwarts-logo" src="./images/hogwarts-7918.png" alt="">
+        <img class="hogwarts-logo" src="./images/hogwarts-7918.png" alt="" />
         <h2 class="new-student-header">New student to Hogwarts</h2>
       </div>
-      
+
       <div class="input-container">
-        <input type="text" placeholder="Name:" class="create-name-input">
-        <input type="text" placeholder="House:" class="create-house-input">
-        <input type="text" placeholder="Age:" class="create-age-input">
-        <input type="text" placeholder="Dead or alive:" class="create-alive-input">
+        <input type="text" placeholder="Name:" class="create-name-input" />
+        <input type="text" placeholder="House:" class="create-house-input" />
+        <input type="text" placeholder="Age:" class="create-age-input" />
+        <input
+          type="text"
+          placeholder="Dead or alive:"
+          class="create-alive-input"
+        />
       </div>
       <button class="save-student-btn">Save</button>
       <button class="exit-btn">Exit</button>
     </div>
-    
+
     <ul class="student-list"></ul>
-    
+
     <!-- Wrapper Cards begynner her -->
     <div class="wrapper">
       <main class="grid">
         <cards>
-          <div class="card house" id="gryffindor-btn">
+          <div class="card" id="gryffindor-btn">
             <div class="front">
               <img src="/images/Gryffindor-front.png" alt="" />
             </div>
@@ -85,7 +90,7 @@
           </div>
         </cards>
         <cards>
-          <div class="card house" id="slytherin-btn">
+          <div class="card" id="slytherin-btn">
             <div class="front">
               <img src="/images/Slytherin-front.png" alt="" />
             </div>
@@ -95,8 +100,7 @@
           </div>
         </cards>
         <cards>
-          <div class="card house" id="hufflepuff-btn">
-            <div></div>
+          <div class="card" id="hufflepuff-btn">
             <div class="front">
               <img src="/images/Hufflepuff-front.png" alt="" />
             </div>
@@ -106,8 +110,7 @@
           </div>
         </cards>
         <cards>
-          <div class="card house" id="ravenclaw-btn">
-            <div></div>
+          <div class="card" id="ravenclaw-btn">
             <div class="front">
               <img src="/images/Ravenclaw-front.png" alt="" />
             </div>
@@ -124,12 +127,7 @@
     <script src="./JS/yearbook-searchbar.js" type="module"></script>
     <script src="./JS/index.js" type="module"></script>
 
-    <script src="./JS/flipCard.js" type="module"></script>
+    <!-- <script src="./JS/flipCard.js" type="module"></script> -->
     <script src="createStudent.js"></script>
-
-
   </body>
 </html>
-
-  
-
