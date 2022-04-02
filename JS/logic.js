@@ -20,7 +20,6 @@ searchBar.addEventListener("keyup", (e) => {
       return character.name.toLowerCase().includes(searchString);
     });
     displayCharacters(filteredCharacters);
-    // console.log(filteredCharacters);
   }
 });
 const displayCharacters = (hpCharacters) => {
@@ -117,18 +116,19 @@ let createStudentContainer = document.querySelector(
 //Skjul container
 createStudentContainer.style.display = "none";
 
-// Vis div - New student button
+// Vis container - create new student button
 const showCreateStudent = document.querySelector(".create-student-btn");
 showCreateStudent.addEventListener("click", () => {
   createStudentContainer.style.display = "block";
 });
-// Skjul div - exit button
+// Skjul container - exit button
 let createExitBtn = document.querySelector(".exit-btn");
 createExitBtn.addEventListener("click", () => {
   createStudentContainer.style.display = "none";
 });
-//Save new student
+//Lagrer new student og pusher til arryet
 let saveStudentBtn = document.querySelector(".save-student-btn");
+
 saveStudentBtn.addEventListener("click", () => {
   let src = "./images/default-image.png";
   let studentName = document.querySelector(".create-name-input").value;
@@ -136,7 +136,6 @@ saveStudentBtn.addEventListener("click", () => {
   let studentAge = parseInt(document.querySelector(".create-age-input").value);
   let studentAlive = document.querySelector(".create-alive-input").value;
 
-  // console.log(newStudentArray);
   // Lager error melding hvis input ikke er utfylt
   if (studentName == "") {
     alert("Name is required");
@@ -155,6 +154,7 @@ saveStudentBtn.addEventListener("click", () => {
       alive: studentAlive,
     });
   }
+
   charactersList.innerHTML = hpCharacters;
   // addNewStudent();
   renderData(houseName); //calling this function to filter according to the house name
