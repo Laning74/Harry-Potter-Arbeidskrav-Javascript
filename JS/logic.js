@@ -150,7 +150,7 @@ saveStudentBtn.addEventListener("click", () => {
       image: src,
       name: studentName,
       house: houseName,
-      age: studentAge,
+      yearOfBirth: studentAge,
       alive: studentAlive,
     });
   }
@@ -158,10 +158,8 @@ saveStudentBtn.addEventListener("click", () => {
   charactersList.innerHTML = hpCharacters;
   // addNewStudent();
   renderData(houseName); //calling this function to filter according to the house name
-  // console.log(hpCharacters);
-  console.log(studentAge);
 });
-//trenger ikke denne funksjonen egentlig for vi kan bruke den samme filter funksjonen her i.e renderData()
+//trenger ikke denne funksjonen egentlig for vi kan bruke det samme filter funksjonen her i.e renderData()
 // function addNewStudent() {
 //   charactersList.innerHTML = "";
 
