@@ -23,14 +23,14 @@ const displaySeverus = (hpCharacters) => {
     let placeholder = severus.image;
     let name = severus.name;
     let age = severus.yearOfBirth;
-    let wandInfo = severus.wand.core.length.wood;
+    let wandInfo = severus.wand.wood;
     return `<div class="severus-text-container">
-    <h2> ${name} </h2>
+    <h2> Professor ${name} </h2>
     <p class="severus-age"> Age: ${calculateAge(age)} </p>
-    <p class="wand-info"> Wand: ${wandInfo}</p>
+    <p class="wand-info"> Wand: ${wandInfo} </p>
+    <div class="button-container">
     <button class="start-btn">Start teaching</button>
     </div>
-    <div class="severus-image-container">
     <img src="${placeholder}" class="severus-img"/>
     </div>`;
   });
@@ -46,9 +46,8 @@ function calculateAge(age) {
 // Severus snape
 
 //students
-  // console.log(hpCharacters);
-  getStudents();
-
+// console.log(hpCharacters);
+// getStudents();
 
 // Severus snape
 
@@ -84,4 +83,3 @@ displayStudents.addEventlistner("click", (students) => {
 });
 
 getCharcters();
-
