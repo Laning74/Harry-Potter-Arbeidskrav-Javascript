@@ -227,3 +227,19 @@ h1 {
 #edit-btn:hover {
   opacity: 60%;
 }
+
+.teacher-gryffindor {
+  background-color: #ce373d;
+}
+
+.teacher-slytherin {
+  background-color: #377f6a;
+}
+
+.teacher-hufflepuff {
+  background-color: #e6a038;
+}
+
+.teacher-hufflepuff {
+  background-color: #445393;
+}
