@@ -22,19 +22,30 @@ function filterStaffMembers(data) {
   displayTeachers(staffMembers);
   return staffMembers;
 }
-   
+
 function displayTeachers(staffMembers) {
-    console.log(staffMembers);
-    const teacherList = document.querySelector(".teacher-list");
-     teacherList.innerHTML = "";
+  console.log(staffMembers);
+  const teacherList = document.querySelector(".teacher-list");
+  teacherList.innerHTML = "";
   for (let i = 0; i < staffMembers.length; i++) {
     let teacherCard = document.createElement("li");
-    teacherCard.classList.add("teacher");
+    // teacherCard.classList.add("teacher");
     let teacherName = document.createElement("h2");
     teacherName.innerText = staffMembers[i].name;
     let teacherHouse = document.createElement("p");
-    teacherHouse.classList.add("teacher-house");
+teacherHouse.classList.add("teacher-house");
     teacherHouse.innerText = staffMembers[i].house;
+    if (staffMembers[i].house == "Gryffindor") {
+      teacherCard.classList.add("teacher-gryffindor");
+    } else if (staffMembers[i].house == "Slytherin") {
+      teacherCard.classList.add("teacher-slytherin");
+    } else if (staffMembers[i].house == "Hufflepuff") {
+      teacherCard.classList.add(".teacher-hufflepuff");
+    } else if (staffMembers[i].house == "Ravenclaw ") {
+      teacherCard.classList.add(".teacher-ravenclaw");
+    } else {
+      teacherCard.classList.add("teacher");
+    }
     let teacherPatronus = document.createElement("p");
     teacherPatronus.classList.add("teacher-patronus");
     if (staffMembers[i].patronus == "") {
@@ -73,15 +84,16 @@ function displayTeachers(staffMembers) {
   }
 }
 function deleteTeacher(index, staffMembers) {
-    let userConfirm = prompt("Do you want to delete this teacher from list? yes/no");
-    if (userConfirm == "yes") {
-        staffMembers.splice(index, 1);
-    } else {
-        alert("Nothing deleted from this list");
-    }
+  let userConfirm = prompt(
+    "Do you want to delete this teacher from list? yes/no"
+  );
+  if (userConfirm == "yes") {
+    staffMembers.splice(index, 1);
+  } else {
+    alert("Nothing deleted from this list");
+  }
   displayTeachers(staffMembers);
 }
-
 
 //hiding the form for creating new teacher
 let createTeacherContainer = document.querySelector(
@@ -121,14 +133,6 @@ function addNewTeacher() {
   document.querySelector(".create-house-input").value = "";
   document.querySelector(".create-patronus-input").value = "";
 }
-
-
-
-
-
-
-
-
 
 //trykk på skjerm så flytter tryllestav seg dit, samme funksjon som banan men denne funka ikke, skjønner ikke hvorfor
 
