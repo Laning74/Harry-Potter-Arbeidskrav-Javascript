@@ -38,6 +38,14 @@ const displayTeacher = (hogwartsStaffList) => {
     if (staffMember.house === "") {
       hogwartsHouse = "Not in a house";
     }
+
+    function changeColor() {
+      if (staffMember.house === "Gryffindor") {
+        teacherList.style.backgroundColor = "#e6a038;";
+      }
+    }
+    changeColor();
+
     let hogwartsPatronus = staffMember.patronus;
 
     teacherList.innerHTML += `<li class="teacher">
@@ -65,17 +73,17 @@ const displayTeacher = (hogwartsStaffList) => {
   //   }
 };
 
-function deleteTeacher(staffMember, i) {
-  let askUser = prompt("Do you want to delete? Write yes/no");
-  if (askUser === "yes") {
-    staffMember.splice(i, 1);
-  } else {
-    alert("Nothing has been deleted");
-  }
-  displayTeacher(hogwartsStaffList);
-}
+// function deleteTeacher(staffMember, i) {
+//   let askUser = prompt("Do you want to delete? Write yes/no");
+//   if (askUser === "yes") {
+//     staffMember.splice(i, 1);
+//   } else {
+//     alert("Nothing has been deleted");
+//   }
+//   displayTeacher(hogwartsStaffList);
+// }
 
-deleteTeacher(hogwartsStaffList, 1);
+// deleteTeacher(hogwartsStaffList, 1);
 
 //trykk på skjerm så flytter tryllestav seg dit, samme funksjon som banan men denne funka ikke, skjønner ikke hvorfor
 
