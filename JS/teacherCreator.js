@@ -81,6 +81,55 @@ function deleteTeacher(index, staffMembers) {
     }
   displayTeachers(staffMembers);
 }
+
+
+//hiding the form for creating new teacher
+let createTeacherContainer = document.querySelector(
+  ".create-teacher-container"
+);
+createTeacherContainer.style.display = "none";
+//function for displaying form to craete new teacher
+let createTeacherBtn = document.querySelector(".create-teacher-btn");
+createTeacherBtn.addEventListener("click", () => {
+  createTeacherContainer.style.display = "block";
+});
+//function for hiding the form on exit click
+let exitBtn = document.querySelector(".exit-btn");
+exitBtn.addEventListener("click", () => {
+  createTeacherContainer.style.display = "none";
+});
+
+//function for saving new teacher data in array
+let saveBtn = document.querySelector(".save-btn");
+saveBtn.addEventListener("click", () => {
+  addNewTeacher();
+});
+function addNewTeacher() {
+  let src = "./images/default-image.png";
+  let teacherName = document.querySelector(".create-name-input").value;
+  let teachersHouse = document.querySelector(".create-house-input").value;
+  let teacherPatronus = document.querySelector(".create-patronus-input").value;
+  staffMembers.push({
+    name: teacherName,
+    house: teachersHouse,
+    patronus: teacherPatronus,
+    image: src,
+  });
+  // console.log(staffMembers);
+  displayTeachers(staffMembers);
+  document.querySelector(".create-name-input").value = "";
+  document.querySelector(".create-house-input").value = "";
+  document.querySelector(".create-patronus-input").value = "";
+}
+
+
+
+
+
+
+
+
+
 //trykk på skjerm så flytter tryllestav seg dit, samme funksjon som banan men denne funka ikke, skjønner ikke hvorfor
 
 // const imgWand = document.createElement("img");
