@@ -185,6 +185,10 @@ h1 {
   color: transparent;
 }
 
+.teacher:hover > .teacher-patronus {
+  visibility: visible;
+}
+
 .teacher-image {
   max-height: 150px;
   grid-area: image;

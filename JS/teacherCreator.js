@@ -53,17 +53,17 @@ const displayTeacher = (hogwartsStaffList) => {
         `;
   });
 
-  // Hover effekt for hidden patronus
+  // Hover effekt for hidden patronus denne trenger man ikke da hover ble lagd i css
 
-  let teachers = document.body.querySelectorAll(".teacher");
-  for (let teacher of teachers) {
-    teacher.addEventListener("mouseover", function () {
-      this.querySelector(".teacher-patronus").style.visibility = "visible";
-    });
-    teacher.addEventListener("mouseout", function () {
-      this.querySelector(".teacher-patronus").style.visibility = "hidden";
-    });
-  }
+  //   let teachers = document.body.querySelectorAll(".teacher");
+  //   for (let teacher of teachers) {
+  //     teacher.addEventListener("mouseover", function () {
+  //       this.querySelector(".teacher-patronus").style.visibility = "visible";
+  //     });
+  //     teacher.addEventListener("mouseout", function () {
+  //       this.querySelector(".teacher-patronus").style.visibility = "hidden";
+  //     });
+  //   }
 };
 
 //trykk på skjerm så flytter tryllestav seg dit, samme funksjon som banan men denne funka ikke, skjønner ikke hvorfor
