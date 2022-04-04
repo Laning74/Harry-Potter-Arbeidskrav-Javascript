@@ -26,8 +26,6 @@ function renderData(data) {
 // Display all staffmembers with name, house and image + delete and edit button
 
 const teacherList = document.querySelector(".teacher-list");
-//const deleteTeacher = document.getElementById("delete-btn");
-//const editTeacher = document.getElementById("edit-btn");
 
 const displayTeacher = (hogwartsStaffList) => {
   console.log(hogwartsStaffList);
@@ -49,6 +47,7 @@ const displayTeacher = (hogwartsStaffList) => {
         <button id="delete-btn" onclick="deleteTeacher()">Delete teacher</button>
         <button id="edit-btn" onclick="editTeacher()">Edit teacher</button>
         <img src="${placeholder}" class="teacher-image"/>
+
         </li>
         `;
   });
@@ -65,6 +64,18 @@ const displayTeacher = (hogwartsStaffList) => {
   //     });
   //   }
 };
+
+function deleteTeacher(staffMember, i) {
+  let askUser = prompt("Do you want to delete? Write yes/no");
+  if (askUser === "yes") {
+    staffMember.splice(i, 1);
+  } else {
+    alert("Nothing has been deleted");
+  }
+  displayTeacher(hogwartsStaffList);
+}
+
+deleteTeacher(hogwartsStaffList, 1);
 
 //trykk på skjerm så flytter tryllestav seg dit, samme funksjon som banan men denne funka ikke, skjønner ikke hvorfor
 
