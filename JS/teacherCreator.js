@@ -1,87 +1,86 @@
-fetch("http://hp-api.herokuapp.com/api/characters")
-  .then((response) => {
-    console.log(response);
-    if (response.ok) {
-      return response.json();
-    }
-    throw "feilmelding";
-  })
-  .then((data) => {
-    displayTeacher(renderData(data));
-  })
-  .catch((err) => console.log("first", err));
+const loadCharacters = async () => {
+  fetch("http://hp-api.herokuapp.com/api/characters")
+    .then((response) => {
+      console.log(response);
+      if (response.ok) {
+        return response.json();
+      }
+      throw "feilmelding";
+    })
+    .then((data) => {
+      filterStaffMembers(data);
+    })
+    .catch((err) => console.log("first", err));
+};
+loadCharacters();
+let staffMembers = [];
 
-let staffMembers;
-
-//filtrerer staffmembers
-
-function renderData(data) {
+function filterStaffMembers(data) {
   staffMembers = data.filter(function (data) {
     return data.hogwartsStaff == true;
   });
-  // console.log(`staffmembers: ${staffMembers}`);
+  displayTeachers(staffMembers);
   return staffMembers;
 }
-
-// Display all staffmembers with name, house and image + delete and edit button
-
-const teacherList = document.querySelector(".teacher-list");
-
-const displayTeacher = (array) => {
-  console.log(array);
-  array.forEach((staffMember) => {
-    let placeholder = staffMember.image;
-    if (staffMember.image === "") {
-      placeholder = "./images/defaultimage.png";
+   
+function displayTeachers(staffMembers) {
+    console.log(staffMembers);
+    const teacherList = document.querySelector(".teacher-list");
+     teacherList.innerHTML = "";
+  for (let i = 0; i < staffMembers.length; i++) {
+    let teacherCard = document.createElement("li");
+    teacherCard.classList.add("teacher");
+    let teacherName = document.createElement("h2");
+    teacherName.innerText = staffMembers[i].name;
+    let teacherHouse = document.createElement("p");
+    teacherHouse.classList.add("teacher-house");
+    teacherHouse.innerText = staffMembers[i].house;
+    let teacherPatronus = document.createElement("p");
+    teacherPatronus.classList.add("teacher-patronus");
+    if (staffMembers[i].patronus == "") {
+      teacherPatronus.innerText = "Uvisst";
+    } else {
+      teacherPatronus.innerText = staffMembers[i].patronus;
     }
-    let hogwartsHouse = staffMember.house;
-    if (staffMember.house === "") {
-      hogwartsHouse = "Not in a house";
+    let teacherImage = document.createElement("img");
+    teacherImage.classList.add(".teacher-image");
+    if (staffMembers[i].image == "") {
+      teacherImage.src = "/images/default-image.png";
+    } else {
+      teacherImage.src = staffMembers[i].image;
     }
-    let hogwartsPatronus = staffMember.patronus;
-
-    teacherList.innerHTML += `<li class="teacher">
-        <h2>${staffMember.name}</h2>
-        <p class="teacher-house">House: ${hogwartsHouse}</p>
-        <p class="teacher-patronus">Patronus: ${hogwartsPatronus}</p>
-        <button id="delete-btn" onclick="deleteTeacher(hogwartsStaffList, 1)">Delete teacher</button>
-        <button id="edit-btn" onclick="editTeacher()">Edit teacher</button>
-        <img src="${placeholder}" class="teacher-image"/>
-
-        </li>
-        `;
-  });
-
-  // Hover effekt for hidden patronus denne trenger man ikke da hover ble lagd i css
-
-    // let teachers = document.body.querySelectorAll(".teacher");
-    // for (let teacher of teachers) {
-    //   teacher.addEventListener("mouseover", function () {
-    //     this.querySelector(".teacher-patronus").style.visibility = "visible";
-    //   });
-    //   teacher.addEventListener("mouseout", function () {
-    //     this.querySelector(".teacher-patronus").style.visibility = "hidden";
-    //   });
-    // }
+    let deleteBtn = document.createElement("button");
+    deleteBtn.innerText = "Slett";
+    deleteBtn.classList.add("delete-btn");
+    deleteBtn.addEventListener("click", () => {
+      deleteTeacher(i, staffMembers);
+    });
+    let editBtn = document.createElement("button");
+    editBtn.innerText = "Rediger";
+    editBtn.classList.add("edit-btn");
+    editBtn.addEventListener("click", () => {
+      // editTeacher(i, staffMembers);
+    });
+    teacherList.append(teacherCard);
+    teacherCard.append(
+      teacherName,
+      teacherHouse,
+      teacherPatronus,
+      teacherImage,
+      deleteBtn,
+      editBtn
+    );
+  }
 }
-
-
-
-
-
-
-// function deleteTeacher(staffMember, i) {
-//   let askUser = prompt("Do you want to delete? Write yes/no");
-//   if (askUser === "yes") {
-//     staffMember.splice(i, 1);
-//   } else {
-//     alert("Nothing has been deleted");
-//   }
-//   displayTeacher(hogwartsStaffList);
-// }
-
-// deleteTeacher(staffMembers, 1);
-
+function deleteTeacher(index, staffMembers) {
+    let userConfirm = prompt("Do you want to delete this teacher from list? yes/no");
+    if (userConfirm == "yes") {
+        staffMembers.splice(index, 1);
+    } else {
+        alert("Nothing deleted from this list");
+    }
+  displayTeachers(staffMembers);
+}
 //trykk på skjerm så flytter tryllestav seg dit, samme funksjon som banan men denne funka ikke, skjønner ikke hvorfor
 
 // const imgWand = document.createElement("img");
@@ -96,3 +95,4 @@ const displayTeacher = (array) => {
 //   },
 //   false
 // );
+// };

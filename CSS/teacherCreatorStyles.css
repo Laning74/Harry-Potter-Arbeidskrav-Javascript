@@ -196,7 +196,7 @@ h1 {
   justify-content: center;
 }
 
-#delete-btn {
+.delete-btn {
   border: none;
   font-family: mr-darcy, sans-serif;
   font-weight: 600;
@@ -208,11 +208,11 @@ h1 {
   margin-bottom: 5px;
 }
 
-#delete-btn:hover {
+.delete-btn:hover {
   opacity: 60%;
 }
 
-#edit-btn {
+.edit-btn {
   border: none;
   font-family: mr-darcy, sans-serif;
   font-weight: 600;
@@ -224,6 +224,22 @@ h1 {
   margin-bottom: 5px;
 }
 
-#edit-btn:hover {
+.edit-btn:hover {
   opacity: 60%;
+}
+
+.teacher-gryffindor {
+  background-color: #ce373d;
+}
+
+.teacher-slytherin {
+  background-color: #377f6a;
+}
+
+.teacher-hufflepuff {
+  background-color: #e6a038;
+}
+
+.teacher-hufflepuff {
+  background-color: #445393;
 }
