@@ -134,7 +134,6 @@ saveStudentBtn.addEventListener("click", () => {
   let studentName = document.querySelector(".create-name-input").value;
   let house = document.querySelector(".create-house-input").value;
   let studentAge = parseInt(document.querySelector(".create-age-input").value);
-  let studentAlive = document.querySelector(".create-alive-input").value;
 
   const capitalizeStudentHouse = house;
   const houseName =
@@ -149,15 +148,12 @@ saveStudentBtn.addEventListener("click", () => {
     alert("House is required");
   } else if (studentAge == "") {
     alert("Age is required");
-  } else if (studentAlive == "") {
-    alert("Dead or Alive is required");
   } else {
     hpCharacters.push({
       image: src,
       name: studentName,
       house: houseName,
       yearOfBirth: studentAge,
-      alive: studentAlive,
     });
   }
 
