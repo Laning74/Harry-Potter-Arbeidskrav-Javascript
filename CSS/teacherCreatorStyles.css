@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-clr: #0d0d10;
+  --griffingdor-clr: #ce373d;
+  --slytherin-hoover-button-clr: #377f6a;
+  --huffelpuff-button-clr: #e6a038;
+  --ravenclaw-clr: #445393;
+}
+/* Prøvde og sette inn tryllestav som musepeker med det funka ikke (Passer nok best på side 2) */
+/* html {
+  cursor: url("../images/Wand.png"), auto;
+  height: 100%;
+} */
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(../images/Harry-Potter-background.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: mr-darcy, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Header begynner her */
+
+header {
+  display: flex;
+  justify-content: space-around;
+}
+
+.logo {
+  width: 18rem;
+}
+
+.logo:hover {
+  opacity: 60%;
+}
+
+nav ul {
+  margin: 0.6rem;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin: 1em;
+  position: relative;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 0.5em;
+  text-transform: uppercase;
+  color: white;
+  font-size: 1.3rem;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #e0c53b;
+}
+
+nav a::before {
+  content: "";
+  display: block;
+  height: 5px;
+  background-color: #e0c53b;
+
+  position: absolute;
+  top: 0;
+  margin-top: 1.5rem;
+  border-radius: 2px;
+
+  transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+  width: 100%;
+}
+
+@media (min-width: 60rem) {
+  .logo {
+    float: left;
+  }
+
+  nav {
+    float: right;
+  }
+}
+
+/* heading and teachers list */
+
+h1 {
+  padding: 30px;
+  text-align: center;
+  position: relative;
+  font-size: 4rem;
+  margin: 60px;
+  background-image: linear-gradient(
+    to right,
+    #ce373d,
+    #ce373d,
+    #377f6a,
+    #e6a038,
+    #445393,
+    #445393
+  );
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.container {
+  padding: 40px;
+  margin: 0 auto;
+  /* width: 100%; */
+}
+
+.teacher-list {
+  padding-inline-start: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 20px;
+}
+
+.teacher {
+  list-style-type: none;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  padding: 10px 20px;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  grid-template-areas:
+    "name image"
+    "house image"
+    "patronus image"
+    "delete-btn image"
+    "edit-btn image";
+  text-align: left;
+  border: 1px solid rgba(68, 83, 147, 0.8);
+  transition: transform 500ms ease-in-out;
+}
+
+.teacher:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px 5px rgba(68, 83, 147, 0.8),
+    inset 0 0 10px 5px rgba(68, 83, 147, 0.8);
+}
+
+.teacher > h2 {
+  grid-area: name;
+}
+
+.teacher-house {
+  grid-area: house;
+}
+
+.teacher-patronus {
+  grid-area: patronus;
+  margin: 0;
+  margin-top: 3px;
+  visibility: hidden;
+  background-image: linear-gradient(
+    to right,
+    #ce373d,
+    #ce373d,
+    #377f6a,
+    #e6a038,
+    #445393,
+    #445393
+  );
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.teacher-image {
+  max-height: 150px;
+  grid-area: image;
+  display: flex;
+  justify-content: center;
+}
+
+#delete-btn {
+  border: none;
+  font-family: mr-darcy, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  width: 200px;
+  border-radius: 8px;
+  background-color: #e6a038;
+  grid-area: delete-btn;
+  margin-bottom: 5px;
+}
+
+#delete-btn:hover {
+  opacity: 60%;
+}
+
+#edit-btn {
+  border: none;
+  font-family: mr-darcy, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  width: 200px;
+  border-radius: 8px;
+  background-color: #e6a038;
+  grid-area: edit-btn;
+  margin-bottom: 5px;
+}
+
+#edit-btn:hover {
+  opacity: 60%;
+}
