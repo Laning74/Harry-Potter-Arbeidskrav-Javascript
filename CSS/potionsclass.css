@@ -104,31 +104,50 @@ nav a:hover::before {
 
 .severus-snape-container {
   grid-area: severus;
-  background-color: red;
-  display: flex;
-  justify-content: space-between;
+  background-color: #000000;
+  color: white;
+  border-radius: 8px;
 }
 
 .severus-text-container {
-  display: flex;
+  height: 100%;
   width: 100%;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
-  text-align: left;
+  display: grid;
+  grid-template-columns: 3em 1fr 40%;
+  grid-template-rows: 30% 20% 20% 30%;
+  grid-template-areas:
+    ". severusname image"
+    ". severusage image"
+    ". severuswand image"
+    ". startbtn image";
 }
 
-.severus-text-container h2 {
-  position: relative;
-  top: -130px;
-  font-size: 40px;
+.severus-text-container > h2 {
+  grid-area: severusname;
+  font-size: 30px;
+}
+
+.severus-age {
+  grid-area: severusage;
+  font-size: 25px;
+}
+
+.wand-info {
+  grid-area: severuswand;
+  font-size: 25px;
+}
+
+.button-container {
+  grid-area: startbtn;
+  display: flex;
+  justify-content: center;
 }
 
 .start-btn {
-  position: relative;
-  bottom: -100px;
+  background-color: #e0c53b;
   width: 200px;
-  padding: 10px;
+  height: 50px;
   border-radius: 8px;
   border: none;
   font-family: mr-darcy, sans-serif;
@@ -136,9 +155,17 @@ nav a:hover::before {
   font-style: normal;
 }
 
+.start-btn:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #377f6a;
+}
+
 .severus-img {
-  width: 350px;
+  grid-area: image;
+  width: 100%;
   height: 100%;
+  border-radius: 0 8px 8px 0;
 }
 
 main {
