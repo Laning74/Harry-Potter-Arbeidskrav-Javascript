@@ -132,9 +132,15 @@ let saveStudentBtn = document.querySelector(".save-student-btn");
 saveStudentBtn.addEventListener("click", () => {
   let src = "./images/default-image.png";
   let studentName = document.querySelector(".create-name-input").value;
-  let houseName = document.querySelector(".create-house-input").value;
+  let house = document.querySelector(".create-house-input").value;
   let studentAge = parseInt(document.querySelector(".create-age-input").value);
   let studentAlive = document.querySelector(".create-alive-input").value;
+
+  const capitalizeStudentHouse = house;
+  const houseName =
+    capitalizeStudentHouse.charAt(0).toUpperCase() +
+    capitalizeStudentHouse.slice(1);
+  console.log(houseName);
 
   // Lager error melding hvis input ikke er utfylt
   if (studentName == "") {
