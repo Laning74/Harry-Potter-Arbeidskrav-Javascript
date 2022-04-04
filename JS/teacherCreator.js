@@ -19,7 +19,7 @@ function renderData(data) {
   staffMembers = data.filter(function (data) {
     return data.hogwartsStaff == true;
   });
-  console.log(staffMembers);
+  // console.log(`staffmembers: ${staffMembers}`);
   return staffMembers;
 }
 
@@ -27,9 +27,9 @@ function renderData(data) {
 
 const teacherList = document.querySelector(".teacher-list");
 
-const displayTeacher = (hogwartsStaffList) => {
-  console.log(hogwartsStaffList);
-  hogwartsStaffList.forEach((staffMember) => {
+const displayTeacher = (array) => {
+  console.log(array);
+  array.forEach((staffMember) => {
     let placeholder = staffMember.image;
     if (staffMember.image === "") {
       placeholder = "./images/defaultimage.png";
@@ -44,7 +44,7 @@ const displayTeacher = (hogwartsStaffList) => {
         <h2>${staffMember.name}</h2>
         <p class="teacher-house">House: ${hogwartsHouse}</p>
         <p class="teacher-patronus">Patronus: ${hogwartsPatronus}</p>
-        <button id="delete-btn" onclick="deleteTeacher()">Delete teacher</button>
+        <button id="delete-btn" onclick="deleteTeacher(hogwartsStaffList, 1)">Delete teacher</button>
         <button id="edit-btn" onclick="editTeacher()">Edit teacher</button>
         <img src="${placeholder}" class="teacher-image"/>
 
@@ -54,28 +54,33 @@ const displayTeacher = (hogwartsStaffList) => {
 
   // Hover effekt for hidden patronus denne trenger man ikke da hover ble lagd i css
 
-  //   let teachers = document.body.querySelectorAll(".teacher");
-  //   for (let teacher of teachers) {
-  //     teacher.addEventListener("mouseover", function () {
-  //       this.querySelector(".teacher-patronus").style.visibility = "visible";
-  //     });
-  //     teacher.addEventListener("mouseout", function () {
-  //       this.querySelector(".teacher-patronus").style.visibility = "hidden";
-  //     });
-  //   }
-};
-
-function deleteTeacher(staffMember, i) {
-  let askUser = prompt("Do you want to delete? Write yes/no");
-  if (askUser === "yes") {
-    staffMember.splice(i, 1);
-  } else {
-    alert("Nothing has been deleted");
-  }
-  displayTeacher(hogwartsStaffList);
+    // let teachers = document.body.querySelectorAll(".teacher");
+    // for (let teacher of teachers) {
+    //   teacher.addEventListener("mouseover", function () {
+    //     this.querySelector(".teacher-patronus").style.visibility = "visible";
+    //   });
+    //   teacher.addEventListener("mouseout", function () {
+    //     this.querySelector(".teacher-patronus").style.visibility = "hidden";
+    //   });
+    // }
 }
 
-deleteTeacher(hogwartsStaffList, 1);
+
+
+
+
+
+// function deleteTeacher(staffMember, i) {
+//   let askUser = prompt("Do you want to delete? Write yes/no");
+//   if (askUser === "yes") {
+//     staffMember.splice(i, 1);
+//   } else {
+//     alert("Nothing has been deleted");
+//   }
+//   displayTeacher(hogwartsStaffList);
+// }
+
+// deleteTeacher(staffMembers, 1);
 
 //trykk på skjerm så flytter tryllestav seg dit, samme funksjon som banan men denne funka ikke, skjønner ikke hvorfor
 
