@@ -6,8 +6,9 @@ const getCharcters = async () => {
   const data = await fetch("https://hp-api.herokuapp.com/api/characters");
   hpCharacters = await data.json();
 
-  console.log(hpCharacters);
+  // console.log(hpCharacters);
   getSeverus();
+  getStudents();
 };
 
 function getSeverus() {
@@ -37,51 +38,50 @@ const displaySeverus = (hpCharacters) => {
   severusContainer.innerHTML = professorCard;
 };
 
-getCharcters();
-
 function calculateAge(age) {
   return 2022 - age;
 }
 
-// Severus snape
-
 //students
-  // console.log(hpCharacters);
-  getStudents();
-
-
-// Severus snape
-
-//students
-let students;
+let allStudents = [];
 //display students
+let startTeachingBtn = document.querySelector(".start-btn");
+startTeachingBtn.addEventListener("click", () => {
+  getStudents();
+});
+
 function getStudents() {
-  students = hpCharacters.filter(function (data) {
+  allStudents = hpCharacters.filter(function (data) {
     return data.hogwartsStudent == true;
   });
-  console.log(studentsArray);
-  getRandomStudents(students);
-}
 
-function getRandomStudents(students) {
-  let randomStudents = Math.floor(Math.random() * students.length);
-  return randomStudents;
+  const randomStudents = Math.floor(Math.random() * students.length);
+  for (let i = 10; (i = students.length); i++) {
+    return randomStudents;
+  }
+  console.log(students);
 }
-
-let displayStudents = document.querySelector(".start-btn");
 
 let studentsContainer = document.querySelector(".students-container");
 
-displayStudents.addEventlistner("click", (students) => {
-  let placeholder = students.image;
-  let name = students.name;
-  let age = students.yearOfBirth;
-  return `<div class="student-card>
-  <h2 class="student-name"> ${name}</h2>
-  <p class="student-age"> ${age} </p>
-  <img class="student-img" ${placeholder} />
-  </div>"`;
-});
+const displayStudents = (hpCharacters) => {
+  const studentsInfo = hpCharacters.map((student) => {
+    let placeholder = student.image;
+    let name = student.name;
+    let age = student.yearOfBirth;
+    let house = student.house;
+    return `
+    <li>
+    <div class="student-card">
+    
+    <h2 class="student-name">Name: ${name}</h2>
+    <p class="student-age"> Age: ${age} </p>
+     <p class="student-house">House: ${house} </p>
+     <img class="student-img" ${placeholder} />
+ </div>    </li>`;
+  });
+  studentsContainer.innerHTML = studentsInfo;
+};
+getStudents();
 
 getCharcters();
-
