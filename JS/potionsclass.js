@@ -7,7 +7,7 @@ const getCharcters = async () => {
 
   // console.log(hpCharacters);
   getSeverus();
-  // getStudents();
+  getStudents();
 };
 
 // The function for getting professor Severus Snape from the API
@@ -16,7 +16,6 @@ function getSeverus() {
     return data.name == "Severus Snape";
   });
   displaySeverus(professor);
-  console.log(hpCharacters);
 }
 
 // The function for displaying professor Severus Snape
@@ -37,7 +36,7 @@ const displaySeverus = (hpCharacters) => {
       severus.wand.length
     } </p>
     <div class="button-container">
-    <button class="start-btn">Start teaching</button>
+    <button class="start-btn" onclick="startTeaching()">Start teaching</button>
     </div>
     <img src="${placeholder}" class="severus-img"/>
     </div>`;
@@ -70,56 +69,48 @@ severusContainer.addEventListener("mouseout", () => {
   chatBubbleContainer.style.visibility = "hidden";
 });
 
-//students
+let studentsList = document.querySelector(".students-list");
+// funsjonen som skal starte klassen
+// studentsList.style.visibility = "hidden";
 
-// let allStudents = [];
-//display students
-// let startTeachingBtn = document.querySelector(".start-btn");
-// startTeachingBtn.addEventListener("click", () => {
+// function startTeaching() {
+//   studentsList.style.visibility = "visible";
 //   getStudents();
-// });
-
-// console.log(hpCharacters);
-// getStudents();
-
-// Severus snape
-
-//students
-// let students;
-//display students
-
-// function getStudents() {
-//   allStudents = hpCharacters.filter(function (data) {
-//     return data.hogwartsStudent == true;
-//   });
-
-//   const randomStudents = Math.floor(Math.random() * allStudents.length);
-//   for (let i = 10; (i = students.length); i++) {
-//     return randomStudents;
-//   }
-//   console.log(allStudents);
 // }
 
-// let studentsContainer = document.querySelector(".students-container");
+let students = [];
+function getStudents() {
+  students = hpCharacters.filter(function (data) {
+    return data.hogwartsStudent == true;
+  });
+  getRandomStudents(students, 10);
+}
 
-// const displayStudents = (hpCharacters) => {
-//   const studentsInfo = hpCharacters.map((student) => {
-//     let placeholder = student.image;
-//     let name = student.name;
-//     let age = student.yearOfBirth;
-//     let house = student.house;
-//     return `
-//     <li>
-//     <div class="student-card">
-
-//     <h2 class="student-name">Name: ${name}</h2>
-//     <p class="student-age"> Age: ${age} </p>
-//      <p class="student-house">House: ${house} </p>
-//      <img class="student-img" ${placeholder} />
-//  </div>    </li>`;
-//   });
-//   studentsContainer.innerHTML = studentsInfo;
-// };
-// getStudents();
+const getRandomStudents = (students, tenStudents) => {
+  let randomTen = [];
+  for (let i = 0; i < tenStudents; i++) {
+    randomTen.push(students[Math.floor(Math.random() * students.length)]);
+    const studentsInfo = randomTen.map((student) => {
+      let name = student.name;
+      let placeholder = student.image;
+      if (placeholder == "") {
+        placeholder = "./images/default-image.png";
+      }
+      let house = student.house;
+      return `<li>
+    <div class="student-card">
+    <div class="student-info">
+    <h2 class="student-name">Name: ${name}</h2>
+    <p class="student-house">House: ${house} </p>
+    <button class="delete-student-btn">Delete Student</button>
+    </div>
+    <img src="${placeholder}" class="students-image"/></
+    div>
+    </li>`;
+    });
+    studentsList.innerHTML = studentsInfo;
+  }
+  return randomTen;
+};
 
 getCharcters();

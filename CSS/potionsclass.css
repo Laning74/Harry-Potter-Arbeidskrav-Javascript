@@ -1,6 +1,9 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: mr-darcy, sans-serif;
 }
 
 /* Fikset på bakgrunnen, så den er i orden nå */
@@ -13,7 +16,6 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  font-family: mr-darcy, sans-serif;
   font-weight: 600;
   font-style: normal;
 }
@@ -37,7 +39,6 @@ header {
 nav ul {
   margin: 0.6rem;
   padding: 0;
-  list-style: none;
 }
 
 nav li {
@@ -192,7 +193,67 @@ main {
   background-color: aqua;
 }
 
+.students-container {
+  width: 100%;
+  padding: 2em 0 2em 0;
+  background-color: rgb(251, 255, 0);
+}
+
+.students-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+}
+
+.student-card {
+  display: flex;
+  justify-content: space-between;
+  width: 23rem;
+  height: 9rem;
+  background-color: #000000;
+  color: white;
+}
+
+.student-info {
+  width: 100%;
+  margin: 1em 0;
+  padding: 0 1em;
+}
+
+.delete-student-btn {
+  margin-top: 1em;
+  padding: 0.3em;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+}
+.students-image {
+  width: 200px;
+  overflow: hidden;
+}
+
+.student-name {
+  font-size: 1em;
+}
+
 footer {
   grid-area: footer;
-  background-color: blueviolet;
+}
+@media screen and (max-width: 1200px) {
+  .wrapper {
+    grid-template-columns: 1em 1fr 2fr 2fr 2fr 1em;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .wrapper {
+    grid-template-areas:
+      "header header header header header header "
+      ". . severus severus bubble ."
+      ". . severus severus . ."
+      "main main main main main main"
+      ". footer footer footer footer .";
+  }
 }
