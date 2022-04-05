@@ -33,41 +33,41 @@ function displayTeachers(staffMembers) {
     let teacherName = document.createElement("h2");
     teacherName.innerText = staffMembers[i].name;
     let teacherHouse = document.createElement("p");
-teacherHouse.classList.add("teacher-house");
+    teacherHouse.classList.add("teacher-house");
     teacherHouse.innerText = staffMembers[i].house;
     if (staffMembers[i].house == "Gryffindor") {
       teacherCard.classList.add("teacher-gryffindor");
     } else if (staffMembers[i].house == "Slytherin") {
       teacherCard.classList.add("teacher-slytherin");
     } else if (staffMembers[i].house == "Hufflepuff") {
-      teacherCard.classList.add(".teacher-hufflepuff");
-    } else if (staffMembers[i].house == "Ravenclaw ") {
-      teacherCard.classList.add(".teacher-ravenclaw");
+      teacherCard.classList.add("teacher-hufflepuff");
+    } else if (staffMembers[i].house == "Ravenclaw") {
+      teacherCard.classList.add("teacher-ravenclaw");
     } else {
       teacherCard.classList.add("teacher");
     }
     let teacherPatronus = document.createElement("p");
     teacherPatronus.classList.add("teacher-patronus");
     if (staffMembers[i].patronus == "") {
-      teacherPatronus.innerText = "Uvisst";
+      teacherPatronus.innerText = "Patronus: Uncertain";
     } else {
       teacherPatronus.innerText = staffMembers[i].patronus;
     }
     let teacherImage = document.createElement("img");
     teacherImage.classList.add(".teacher-image");
     if (staffMembers[i].image == "") {
-      teacherImage.src = "/images/default-image.png";
+      teacherImage.src = "../images/defaultimage.png";
     } else {
       teacherImage.src = staffMembers[i].image;
     }
     let deleteBtn = document.createElement("button");
-    deleteBtn.innerText = "Slett";
+    deleteBtn.innerText = "Delete";
     deleteBtn.classList.add("delete-btn");
     deleteBtn.addEventListener("click", () => {
       deleteTeacher(i, staffMembers);
     });
     let editBtn = document.createElement("button");
-    editBtn.innerText = "Rediger";
+    editBtn.innerText = "Edit";
     editBtn.classList.add("edit-btn");
     editBtn.addEventListener("click", () => {
       // editTeacher(i, staffMembers);
@@ -133,19 +133,3 @@ function addNewTeacher() {
   document.querySelector(".create-house-input").value = "";
   document.querySelector(".create-patronus-input").value = "";
 }
-
-//trykk på skjerm så flytter tryllestav seg dit, samme funksjon som banan men denne funka ikke, skjønner ikke hvorfor
-
-// const imgWand = document.createElement("img");
-// imgWanda.src = "../images/Wand.png";
-// document.body.appendChild(imgWand);
-
-// document.addEventListener(
-//   "click",
-//   function (ev) {
-//     imgWand.style.transform = "translateY(" + (ev.clientY - 25) + "px)";
-//     imgWand.style.transform += "translateX(" + (ev.clientX - 25) + "px)";
-//   },
-//   false
-// );
-// };

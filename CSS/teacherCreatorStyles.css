@@ -100,11 +100,10 @@ nav a:hover::before {
 /* heading and teachers list */
 
 h1 {
-  padding: 30px;
+  padding: 10px;
   text-align: center;
   position: relative;
   font-size: 4rem;
-  margin: 60px;
   background-image: linear-gradient(
     to right,
     #ce373d,
@@ -122,7 +121,7 @@ h1 {
 
 .btn-container {
   text-align: center;
-  padding: 10px 0 50px 0;
+  padding: 5px 0 40px 0;
 }
 .create-teacher-btn {
   border: none;
@@ -133,17 +132,22 @@ h1 {
   width: 200px;
   border-radius: 8px;
   background-color: #e6a038;
-  margin: 40px;
+  margin: 30px;
 }
+
+.create-teacher-btn:hover {
+  opacity: 80%;
+}
+
 .create-teacher-container {
-  margin: 2em auto 0 auto;
+  margin: 0.7em auto 0 auto;
   background-image: url(/images/pergament.png);
   background-position: center;
   background-size: cover;
   text-align: center;
   width: 50em;
   height: 25rem;
-  padding: 2em;
+  padding: 1.5em;
   cursor: url("./images/pngwing.com\ \(8\).png"), auto;
 }
 
@@ -152,6 +156,7 @@ h1 {
   display: flex;
   justify-content: center;
   gap: 70px;
+  margin-top: 20px;
   /* width: 100%; */
 }
 
@@ -167,6 +172,8 @@ h1 {
 
 .input-container {
   width: 100%;
+  margin-bottom: 40px;
+  margin-top: 20px;
 }
 
 .create-name-input,
@@ -212,7 +219,6 @@ h1 {
   background-color: var(--huffelpuff-button-clr);
   color: var(--button-clr);
 }
-
 
 .container {
   padding: 40px;
@@ -284,7 +290,14 @@ h1 {
   visibility: visible;
 }
 
-.teacher-image {
+/* .teacher-image {
+  max-height: 150px;
+  grid-area: image;
+  display: flex;
+  justify-content: center;
+} */
+
+img {
   max-height: 150px;
   grid-area: image;
   display: flex;
@@ -325,16 +338,146 @@ h1 {
 
 .teacher-gryffindor {
   background-color: #ce373d;
+  list-style-type: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  grid-template-areas:
+    "name image"
+    "house image"
+    "patronus image"
+    "delete-btn image"
+    "edit-btn image";
+  text-align: left;
+  border: 1px solid rgba(68, 83, 147, 0.8);
+  transition: transform 500ms ease-in-out;
+}
+
+.teacher-gryffindor:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px 5px rgba(68, 83, 147, 0.8),
+    inset 0 0 10px 5px rgba(68, 83, 147, 0.8);
 }
 
 .teacher-slytherin {
   background-color: #377f6a;
+  list-style-type: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  grid-template-areas:
+    "name image"
+    "house image"
+    "patronus image"
+    "delete-btn image"
+    "edit-btn image";
+  text-align: left;
+  border: 1px solid rgba(68, 83, 147, 0.8);
+  transition: transform 500ms ease-in-out;
+}
+
+.teacher-slytherin:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px 5px rgba(68, 83, 147, 0.8),
+    inset 0 0 10px 5px rgba(68, 83, 147, 0.8);
 }
 
 .teacher-hufflepuff {
   background-color: #e6a038;
+  list-style-type: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  grid-template-areas:
+    "name image"
+    "house image"
+    "patronus image"
+    "delete-btn image"
+    "edit-btn image";
+  text-align: left;
+  border: 1px solid rgba(68, 83, 147, 0.8);
+  transition: transform 500ms ease-in-out;
+}
+
+.teacher-hufflepuff:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px 5px rgba(68, 83, 147, 0.8),
+    inset 0 0 10px 5px rgba(68, 83, 147, 0.8);
+}
+
+.teacher-hufflepuff > .delete-btn {
+  background-color: #251a08;
+  color: white;
+}
+
+.teacher-hufflepuff > .edit-btn {
+  background-color: #251a08;
+  color: white;
 }
 
 .teacher-ravenclaw {
   background-color: #445393;
+  color: white;
+  list-style-type: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  grid-template-areas:
+    "name image"
+    "house image"
+    "patronus image"
+    "delete-btn image"
+    "edit-btn image";
+  text-align: left;
+  border: 1px solid rgba(68, 83, 147, 0.8);
+  transition: transform 500ms ease-in-out;
+}
+
+.teacher-ravenclaw:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px 5px rgba(68, 83, 147, 0.8),
+    inset 0 0 10px 5px rgba(68, 83, 147, 0.8);
+}
+
+.teacher-gryffindor:hover > .teacher-patronus {
+  visibility: visible;
+  background-image: linear-gradient(to right, white, #e6a038, white, #e6a038);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.teacher-slytherin:hover > .teacher-patronus {
+  visibility: visible;
+  background-image: linear-gradient(to right, white, #e6a038, white, #e6a038);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.teacher-hufflepuff:hover > .teacher-patronus {
+  visibility: visible;
+  background-image: linear-gradient(
+    to right,
+    #ce373d,
+    #ce373d,
+    #377f6a,
+    #445393,
+    #445393
+  );
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.teacher-ravenclawn:hover > .teacher-patronus {
+  visibility: visible;
+  color: white;
 }
