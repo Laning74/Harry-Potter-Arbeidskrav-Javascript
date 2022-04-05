@@ -36,7 +36,7 @@ const displaySeverus = (hpCharacters) => {
       severus.wand.length
     } </p>
     <div class="button-container">
-    <button class="start-btn" onclick="startTeaching()">Start teaching</button>
+    <button id="start-btn" onclick="startTeaching()">Start teaching</button>
     </div>
     <img src="${placeholder}" class="severus-img"/>
     </div>`;
@@ -71,12 +71,25 @@ severusContainer.addEventListener("mouseout", () => {
 
 let studentsList = document.querySelector(".students-list");
 // funsjonen som skal starte klassen
-// studentsList.style.visibility = "hidden";
 
-// function startTeaching() {
-//   studentsList.style.visibility = "visible";
-//   getStudents();
-// }
+let showStudents = document.querySelector(".students-container");
+// showStudents.style.display = "none";
+
+// Random farge funksjon
+const setBg = () => {
+  const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+
+  document.getElementById("student-card").style.backgroundColor =
+    "#" + randomColor;
+};
+
+let startTeaching = document.getElementById("start-teaching");
+startTeaching.addEventListener("click", setBg, () => {
+  showStudents.style.display = "block";
+  getStudents();
+});
+
+// getStudents();
 
 let students = [];
 function getStudents() {
@@ -98,12 +111,12 @@ const getRandomStudents = (students, tenStudents) => {
       }
       let house = student.house;
       return `<li>
-    <div class="student-card">
-    <div class="student-info">
-    <h2 class="student-name">Name: ${name}</h2>
-    <p class="student-house">House: ${house} </p>
-    <button class="delete-student-btn">Delete Student</button>
-    </div>
+      <div id="student-card">
+      <div class="student-info">
+      <h2 class="student-name">Name: ${name}</h2>
+      <p class="student-house">House: ${house} </p>
+      <button class="delete-student-btn" onclick="deleteStudent()">Delete Student</button>
+      </div>
     <img src="${placeholder}" class="students-image"/></
     div>
     </li>`;
@@ -112,5 +125,22 @@ const getRandomStudents = (students, tenStudents) => {
   }
   return randomTen;
 };
+
+// function startTeaching() {
+//   if (showStudents.style.display === "none") {
+//     showStudents.style.display = "block";
+//   } else {
+//     showStudents.style.display = "none";
+//   }
+// }
+
+// function getRandomColor() {
+//   let letters = "0123456789ABCDEF";
+//   let color = "#";
+//   for (let i = 0; i < 6; i++) {
+//     color += letters[Math.floor(Math.random() * 16)];
+//     document.querySelector(".student-card").style.backgroundColor = color;
+//   }
+// }
 
 getCharcters();

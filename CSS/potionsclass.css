@@ -190,13 +190,11 @@ nav a:hover::before {
 
 main {
   grid-area: main;
-  background-color: aqua;
 }
 
 .students-container {
   width: 100%;
   padding: 2em 0 2em 0;
-  background-color: rgb(251, 255, 0);
 }
 
 .students-list {
@@ -207,12 +205,12 @@ main {
   gap: 1em;
 }
 
-.student-card {
+#student-card {
   display: flex;
   justify-content: space-between;
   width: 23rem;
   height: 9rem;
-  background-color: #000000;
+  /* background-color: #000000; */
   color: white;
 }
 
@@ -255,5 +253,12 @@ footer {
       ". . severus severus . ."
       "main main main main main main"
       ". footer footer footer footer .";
+  }
+  nav a {
+    font-size: 0.7rem;
+    padding: 0;
+  }
+  .logo {
+    width: 200px;
   }
 }
