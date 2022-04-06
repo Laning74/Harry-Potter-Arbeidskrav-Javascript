@@ -1,3 +1,4 @@
+// fetching api and filtering the teacher data to store locally
 const loadCharacters = async () => {
   fetch("http://hp-api.herokuapp.com/api/characters")
     .then((response) => {
@@ -22,7 +23,7 @@ function filterStaffMembers(data) {
   displayTeachers(staffMembers);
   return staffMembers;
 }
-
+//function for displaying all the staff members in browser (creating html in js)
 function displayTeachers(staffMembers) {
   console.log(staffMembers);
   const teacherList = document.querySelector(".teacher-list");
@@ -31,7 +32,8 @@ function displayTeachers(staffMembers) {
     let editTeacherCard = document.createElement("li");
     editTeacherCard.classList.add("edit-teacher");
     editTeacherCard.style.display = "none";
-
+    let heading = document.createElement("h4");
+    heading.innerText = "Update Teacher Info";
     let editNameInput = document.createElement("input");
     editNameInput.value = `${staffMembers[i].name}`;
     let editHouseInput = document.createElement("input");
@@ -41,10 +43,9 @@ function displayTeachers(staffMembers) {
     let teacherCard = document.createElement("li");
     let teacherName = document.createElement("h2");
     teacherName.innerText = staffMembers[i].name;
-    let editName = document.createElement("input");
-    editName.classList.add("edit-teacher-info");
     let teacherHouse = document.createElement("p");
     teacherHouse.classList.add("teacher-house");
+    
     teacherHouse.innerText = `House: ${staffMembers[i].house}`;
     if (staffMembers[i].house == "Gryffindor") {
       teacherCard.classList.add("teacher-gryffindor");
@@ -56,6 +57,7 @@ function displayTeachers(staffMembers) {
       teacherCard.classList.add("teacher-ravenclaw");
     } else {
       teacherCard.classList.add("teacher");
+      teacherHouse.innerText = `House: Uncertain`;
     }
     let teacherPatronus = document.createElement("p");
     teacherPatronus.classList.add("teacher-patronus");
@@ -73,16 +75,14 @@ function displayTeachers(staffMembers) {
     }
     let deleteBtn = document.createElement("button");
     deleteBtn.innerText = "Delete";
-    deleteBtn.classList.add("delete-btn");
+    deleteBtn.classList.add("btns", "delete-btn");
     deleteBtn.addEventListener("click", () => {
       deleteTeacher(i, staffMembers);
     });
     let editBtn = document.createElement("button");
     editBtn.innerText = "Edit";
-    editBtn.classList.add("edit-btn");
+    editBtn.classList.add("btns", "edit-btn");
     editBtn.addEventListener("click", () => {
-      // editTeacher(i, staffMembers);
-      // editTeacherContainer.style.display = "block";
       teacherCard.style.display = "none";
       editTeacherCard.style.display = "grid";
     });
@@ -97,10 +97,10 @@ function displayTeachers(staffMembers) {
     let exitBtn = document.createElement("button");
     exitBtn.innerText = "Exit";
     exitBtn.addEventListener("click", () => {
-      // alert("exit btn clicked");
       editTeacherCard.style.display = "none";
       teacherCard.style.display = "grid";
     });
+    // appending the front side of teacher cards
     teacherList.append(teacherCard, editTeacherCard);
     teacherCard.append(
       teacherName,
@@ -110,8 +110,9 @@ function displayTeachers(staffMembers) {
       deleteBtn,
       editBtn
     );
-
+    //appending the back side for editing teachers' info
     editTeacherCard.append(
+      heading,
       editNameInput,
       editHouseInput,
       editPatronusInput,
@@ -120,6 +121,7 @@ function displayTeachers(staffMembers) {
     );
   }
 }
+//function to delete teacher from the current list
 function deleteTeacher(index, staffMembers) {
   let userConfirm = prompt(
     "Do you want to delete this teacher from list? yes/no"
@@ -137,27 +139,27 @@ let createTeacherContainer = document.querySelector(
   ".create-teacher-container"
 );
 createTeacherContainer.style.display = "none";
-//function for displaying form to craete new teacher
+//displaying form to craete new teacher
 let createTeacherBtn = document.querySelector(".create-teacher-btn");
 createTeacherBtn.addEventListener("click", () => {
   createTeacherContainer.style.display = "block";
 });
-//function for hiding the form on exit click
+// hiding the form on exit click
 let exitBtn = document.querySelector(".exit-btn");
 exitBtn.addEventListener("click", () => {
   createTeacherContainer.style.display = "none";
 });
 
-//function for saving new teacher data in array
+//saving new teacher data in array
 let saveBtn = document.querySelector(".save-btn");
 saveBtn.addEventListener("click", () => {
   addNewTeacher();
 });
+//dropdown menu for houses
 let selection = document.querySelector("select");
 let selectedHouse;
 selection.addEventListener("change", () => {
   selectedHouse = selection.options[selection.selectedIndex].value;
-  // console.log(selectedHouse);
 });
 function addNewTeacher() {
   let src = "./images/default-image.png";
@@ -181,16 +183,10 @@ function addNewTeacher() {
   }
   displayTeachers(staffMembers);
   document.querySelector(".create-name-input").value = "";
-  // document.querySelector(".create-house-input").value = "";
+  document.querySelector("select").selectedIndex = 0;
   document.querySelector(".create-patronus-input").value = "";
 }
-
-//hiding the form for edit teacher
-
-let editTeacherContainer = document.querySelector(".edit-teacher-container");
-editTeacherContainer.style.display = "none";
-
-//function for saving edited teacher data in array working
+//saving edited teacher data in array working
 function saveEditedInfo(
   i,
   staffMembers,
@@ -204,6 +200,5 @@ function saveEditedInfo(
     house: editedHouse,
     patronus: editedPatronus,
   };
-  // console.log(staffMembers);
   displayTeachers(staffMembers);
 }
