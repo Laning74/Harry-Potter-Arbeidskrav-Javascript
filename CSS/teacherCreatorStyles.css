@@ -42,6 +42,7 @@ header {
 
 .logo:hover {
   opacity: 60%;
+  border: #0d0d10;
 }
 
 nav ul {
@@ -514,9 +515,5 @@ img {
 
 /* Ved å kommentere ut position absolute, så stod kortet på samme sted uten og flytte seg litt til siden */
 .edit-teacher-info {
-  
   display: block;
-  
 }
-
-
