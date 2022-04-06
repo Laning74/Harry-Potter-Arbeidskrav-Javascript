@@ -92,7 +92,7 @@ showStudents.style.display = "none";
 
 // Random farge funksjon
 
-let startTeaching = document.querySelector(".start-teaching");
+let startTeaching = document.querySelector(".start-btn");
 startTeaching.addEventListener("click", () => {
   showStudents.style.display = "block";
   getStudents();
