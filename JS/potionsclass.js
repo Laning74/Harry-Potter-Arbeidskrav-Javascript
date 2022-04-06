@@ -62,14 +62,9 @@ function displaySeverus(professor) {
   });
 }
 
-// severusContainer.innerHTML = professorCard;
-// };
-
 function calculateAge(age) {
   return 2022 - age;
 }
-
-// startBtn.style.backgroundColor = "red";
 
 // The mouseover effect
 let chatBubbleContainer = document.createElement("div");
@@ -84,59 +79,57 @@ wrapper.appendChild(chatBubbleContainer);
 chatBubbleContainer.classList.add("magicspell-container");
 magicSpell.classList.add("magicspell");
 
-let studentsList = document.querySelector(".students-list");
-// funsjonen som skal starte klassen
-
 let showStudents = document.querySelector(".students-container");
 showStudents.style.display = "none";
 
 // Random farge funksjon
 
-let startTeaching = document.querySelector(".start-btn");
-startTeaching.addEventListener("click", () => {
+startBtn.addEventListener("click", () => {
   showStudents.style.display = "block";
   getStudents();
 });
-
-// let startTeaching = document.getElementById("start-teaching");
-// startTeaching.addEventListener("click", setBg, () => {
-//   showStudents.style.display = "block";
-//   getStudents();
-// });
 
 // getStudents();
 
 let students = [];
 function getStudents() {
+  studentContainer.innerHTML = "";
   students = hpCharacters.filter(function (data) {
     return data.hogwartsStudent == true;
   });
   getRandomStudents(students, 10);
 }
-
+let studentContainer = document.querySelector(".students-list");
+let studentList = document.createElement("li");
+studentList.classList.add("student-card");
+let studentInfo = document.createElement("div");
+studentInfo.classList.add("student-info");
+let studentName = document.createElement("h2");
+let studentHouse = document.createElement("p");
+let deleteButton = document.createElement("button");
+deleteButton.classList.add("delete-student-btn");
+let studentPlaceholder = document.createElement("img");
+studentPlaceholder.classList.add("students-image");
 const getRandomStudents = (students, tenStudents) => {
   let randomTen = [];
   for (let i = 0; i < tenStudents; i++) {
     randomTen.push(students[Math.floor(Math.random() * students.length)]);
-    const studentsInfo = randomTen.map((student) => {
-      let name = student.name;
-      let placeholder = student.image;
-      if (placeholder == "") {
-        placeholder = "./images/default-image.png";
+    const infoAboutStudent = randomTen.map((student) => {
+      studentName.innerHTML = student.name;
+      studentHouse.innerHTML = `House: ${student.house}`;
+      deleteButton.innerHTML = "Delete student";
+      studentPlaceholder.src = student.image;
+      if (student.image == "") {
+        studentPlaceholder.src = "./images/default-image.png";
       }
-      let house = student.house;
-      return `<li>
-      <div class="student-card">
-      <div class="student-info">
-      <h2 class="student-name">${name}</h2>
-      <p class="student-house">House: ${house} </p>
-      <button class="delete-student-btn" onclick="deleteStudent()">Delete Student</button>
-      </div>
-    <img src="${placeholder}" class="students-image"/></
-    div>
-    </li>`;
+      if (student.house == "") {
+        studentHouse.innerHTML = "House: Unknown";
+      }
+      studentContainer.append(studentList);
+      studentInfo.append(studentName, studentHouse, deleteButton);
+      studentList.append(studentInfo, studentPlaceholder);
     });
-    studentsList.innerHTML = studentsInfo;
+    studentContainer.innerHTML += infoAboutStudent;
     let studentCard = document.querySelectorAll(".student-card");
     for (let i = 0; i < studentCard.length; i++) {
       const setBg = () => {
