@@ -84,9 +84,9 @@ wrapper.appendChild(chatBubbleContainer);
 chatBubbleContainer.classList.add("magicspell-container");
 magicSpell.classList.add("magicspell");
 
-let studentsList = document.querySelector(".students-list");
 // funsjonen som skal starte klassen
 
+let studentsList = document.querySelector(".students-list");
 let showStudents = document.querySelector(".students-container");
 showStudents.style.display = "none";
 
@@ -97,12 +97,6 @@ startTeaching.addEventListener("click", () => {
   showStudents.style.display = "block";
   getStudents();
 });
-
-// let startTeaching = document.getElementById("start-teaching");
-// startTeaching.addEventListener("click", setBg, () => {
-//   showStudents.style.display = "block";
-//   getStudents();
-// });
 
 // getStudents();
 
@@ -130,7 +124,7 @@ const getRandomStudents = (students, tenStudents) => {
       <div class="student-info">
       <h2 class="student-name">${name}</h2>
       <p class="student-house">House: ${house} </p>
-      <button class="delete-student-btn" onclick="deleteStudent()">Delete Student</button>
+      <button class="delete-student-btn" onclick="deleteStudent(${i})">Delete Student</button>
       </div>
     <img src="${placeholder}" class="students-image"/></
     div>
@@ -149,5 +143,3 @@ const getRandomStudents = (students, tenStudents) => {
   return randomTen;
 };
 getCharcters();
-
-function deleteStudent() {}
