@@ -85,7 +85,10 @@ function displayTeachers(staffMembers) {
     let saveBtn = document.createElement("button");
     saveBtn.innerText = "Save";
     saveBtn.addEventListener("click", () => {
-      alert("clicked me");
+      let editedName = editNameInput.value;
+      let editedHouse = editHouseInput.value;
+      let editedPatronus = editPatronusInput.value;
+      saveEditedInfo(i, staffMembers, editedName, editedHouse, editedPatronus);
     });
     let exitBtn = document.createElement("button");
     exitBtn.innerText = "Exit";
@@ -93,7 +96,6 @@ function displayTeachers(staffMembers) {
       // alert("exit btn clicked");
       editTeacherCard.style.display = "none";
       teacherCard.style.display = "grid";
-      
     });
     teacherList.append(teacherCard, editTeacherCard);
     teacherCard.append(
@@ -178,9 +180,21 @@ function addNewTeacher() {
 let editTeacherContainer = document.querySelector(".edit-teacher-container");
 editTeacherContainer.style.display = "none";
 
-//function for displaying form to edit teacher
+//function for saving edited teacher data in array working
+function saveEditedInfo(
+  i,
+  staffMembers,
+  editedName,
+  editedHouse,
+  editedPatronus
+) {
+  staffMembers[i] = {
+    ...staffMembers[i],
+    name: editedName,
+    house: editedHouse,
+    patronus: editedPatronus,
+  };
+  // console.log(staffMembers);
+  displayTeachers(staffMembers);
+}
 
-// let editBtn = document.querySelector("edit-btn");
-// editBtn.addEventListener("click", () => {
-//   editTeacherContainer.style.display = "block";
-// });
