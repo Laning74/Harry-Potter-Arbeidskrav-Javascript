@@ -10,16 +10,11 @@
   --huffelpuff-button-clr: #e6a038;
   --ravenclaw-clr: #445393;
 }
-/* Prøvde og sette inn tryllestav som musepeker med det funka ikke (Passer nok best på side 2) */
-/* html {
-  cursor: url("../images/Wand.png"), auto;
-  height: 100%;
-} */
 
 body {
   width: 100%;
   min-height: 100vh;
-  background-image: url(../images/Harry-Potter-background.jpg);
+  background-image: url(../images/background-image.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -150,18 +145,6 @@ h1 {
   height: 25rem;
   padding: 1.5em;
   cursor: url("./images/pngwing.com\ \(8\).png"), auto;
-}
-
-.edit-teacher-container {
-  margin: 0.7em auto 0 auto;
-  background-image: url(../images/Old\ paper.png);
-  background-position: center;
-  background-size: cover;
-  text-align: center;
-  width: 50em;
-  height: 25rem;
-  padding: 1.5em;
-  cursor: url("../images/pngwing.com\ \(8\).png"), auto;
 }
 
 .logo-header-container {
@@ -495,7 +478,7 @@ img {
   color: white;
 }
 
-.dropdown-content {
+/* .dropdown-content {
   margin: 0.5em;
   width: 50%;
   border-radius: 17px;
@@ -503,17 +486,64 @@ img {
   padding-left: 1em;
   border: none;
   background-color: transparent;
-}
+} */
 
-.dropdown-content li {
+/* .dropdown-content {
   list-style: none;
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-}
+} */
 
 /* Ved å kommentere ut position absolute, så stod kortet på samme sted uten og flytte seg litt til siden */
 .edit-teacher-info {
   display: block;
+}
+
+/* Styling edit teacher card */
+.edit-teacher {
+  list-style-type: none;
+  background-color: antiquewhite;
+  border-radius: 10px;
+  padding: 10px 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 2rem);
+  text-align: left;
+  border: 1px solid rgba(68, 83, 147, 0.8);
+  transition: transform 500ms ease-in-out;
+}
+
+input {
+  background-color: #ce373d;
+  grid-column: 1 / span 2;
+  margin: 2px;
+  padding: 5px;
+  border-radius: 8px;
+  border: 0.5rem;
+}
+
+.edit-teacher > button {
+  border: none;
+  font-family: mr-darcy, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  width: 180px;
+  border-radius: 8px;
+  background-color: #e6a038;
+  margin: 2px;
+}
+
+/* Dropdown menu */
+
+select {
+  font-family: mr-darcy, sans-serif;
+  border: none;
+  background-color: rgba(250, 235, 215, 0.491);
+  border: 0.5rem;
+}
+
+#houseDropdown.dropdown-content {
+  width: 500px;
 }

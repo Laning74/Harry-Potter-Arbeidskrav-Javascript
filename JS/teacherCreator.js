@@ -29,7 +29,7 @@ function displayTeachers(staffMembers) {
   teacherList.innerHTML = "";
   for (let i = 0; i < staffMembers.length; i++) {
     let editTeacherCard = document.createElement("li");
-    editTeacherCard.classList.add("teacher");
+    editTeacherCard.classList.add("edit-teacher");
     editTeacherCard.style.display = "none";
 
     let editNameInput = document.createElement("input");
@@ -65,7 +65,7 @@ function displayTeachers(staffMembers) {
       teacherPatronus.innerText = `Patronus: ${staffMembers[i].patronus}`;
     }
     let teacherImage = document.createElement("img");
-    teacherImage.classList.add(".teacher-image");
+    teacherImage.classList.add("teacher-image");
     if (staffMembers[i].image == "") {
       teacherImage.src = "../images/defaultimage.png";
     } else {
