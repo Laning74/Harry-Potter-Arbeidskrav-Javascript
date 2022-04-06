@@ -481,3 +481,24 @@ img {
   visibility: visible;
   color: white;
 }
+
+.dropdown-content {
+  margin: 0.5em;
+  width: 50%;
+  border-radius: 17px;
+  height: 33px;
+  padding-left: 1em;
+  border: none;
+  background-color: transparent;
+}
+
+.dropdown-content li {
+  list-style: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.show {
+  display: block;
+}

@@ -116,20 +116,28 @@ let saveBtn = document.querySelector(".save-btn");
 saveBtn.addEventListener("click", () => {
   addNewTeacher();
 });
+let selection = document.querySelector("select");
+let selectedHouse;
+selection.addEventListener("change", () => {
+  selectedHouse = selection.options[selection.selectedIndex].value;
+  // console.log(selectedHouse);
+});
 function addNewTeacher() {
   let src = "./images/default-image.png";
   let teacherName = document.querySelector(".create-name-input").value;
-  let teachersHouse = document.querySelector(".create-house-input").value;
   let teacherPatronus = document.querySelector(".create-patronus-input").value;
-  staffMembers.push({
+  if (teacherName == "" || teacherPatronus == "") {
+    alert("Fill in all the information")
+  }else{ staffMembers.push({
     name: teacherName,
-    house: teachersHouse,
+    house: selectedHouse,
     patronus: teacherPatronus,
     image: src,
-  });
-  // console.log(staffMembers);
+  });}
   displayTeachers(staffMembers);
   document.querySelector(".create-name-input").value = "";
-  document.querySelector(".create-house-input").value = "";
+  // document.querySelector(".create-house-input").value = "";
   document.querySelector(".create-patronus-input").value = "";
 }
+
+
