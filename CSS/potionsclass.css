@@ -93,7 +93,7 @@ nav a:hover::before {
   height: 100%;
   gap: 10px;
   grid-template-columns: 6em 1fr 2fr 2fr 2fr 6em;
-  grid-template-rows: 15% 30% 30% 50% 10%;
+  grid-template-rows: 15% 30% 30% auto 10%;
   grid-template-areas:
     "header header header header header header "
     ". . severus severus bubble ."
@@ -201,11 +201,10 @@ main {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 1em;
 }
 
-#student-card {
+.student-card {
   display: flex;
   justify-content: space-between;
   width: 23rem;

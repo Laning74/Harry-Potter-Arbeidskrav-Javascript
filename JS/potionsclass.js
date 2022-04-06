@@ -73,18 +73,12 @@ let studentsList = document.querySelector(".students-list");
 // funsjonen som skal starte klassen
 
 let showStudents = document.querySelector(".students-container");
-// showStudents.style.display = "none";
+showStudents.style.display = "none";
 
 // Random farge funksjon
-const setBg = () => {
-  const randomColor = Math.floor(Math.random() * 16777215).toString(16);
 
-  document.getElementById("student-card").style.backgroundColor =
-    "#" + randomColor;
-};
-
-let startTeaching = document.getElementById("start-teaching");
-startTeaching.addEventListener("click", setBg, () => {
+let startTeaching = document.querySelector(".start-teaching");
+startTeaching.addEventListener("click", () => {
   showStudents.style.display = "block";
   getStudents();
 });
@@ -111,7 +105,7 @@ const getRandomStudents = (students, tenStudents) => {
       }
       let house = student.house;
       return `<li>
-      <div id="student-card">
+      <div class="student-card">
       <div class="student-info">
       <h2 class="student-name">Name: ${name}</h2>
       <p class="student-house">House: ${house} </p>
@@ -122,25 +116,15 @@ const getRandomStudents = (students, tenStudents) => {
     </li>`;
     });
     studentsList.innerHTML = studentsInfo;
+    let studentCard = document.querySelectorAll(".student-card");
+    for (let i = 0; i < studentCard.length; i++) {
+      const setBg = () => {
+        const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+        studentCard[i].style.backgroundColor = "#" + randomColor;
+      };
+      setBg();
+    }
   }
   return randomTen;
 };
-
-// function startTeaching() {
-//   if (showStudents.style.display === "none") {
-//     showStudents.style.display = "block";
-//   } else {
-//     showStudents.style.display = "none";
-//   }
-// }
-
-// function getRandomColor() {
-//   let letters = "0123456789ABCDEF";
-//   let color = "#";
-//   for (let i = 0; i < 6; i++) {
-//     color += letters[Math.floor(Math.random() * 16)];
-//     document.querySelector(".student-card").style.backgroundColor = color;
-//   }
-// }
-
 getCharcters();
