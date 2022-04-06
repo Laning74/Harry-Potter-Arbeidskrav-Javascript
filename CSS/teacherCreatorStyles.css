@@ -511,6 +511,12 @@ img {
   text-decoration: none;
   display: block;
 }
-.show {
+
+/* Ved å kommentere ut position absolute, så stod kortet på samme sted uten og flytte seg litt til siden */
+.edit-teacher-info {
+  
   display: block;
+  
 }
+
+

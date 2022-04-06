@@ -28,10 +28,17 @@ function displayTeachers(staffMembers) {
   const teacherList = document.querySelector(".teacher-list");
   teacherList.innerHTML = "";
   for (let i = 0; i < staffMembers.length; i++) {
+    let editTeacherCard = document.createElement("li");
+    editTeacherCard.classList.add("teacher");
+    editTeacherCard.style.display = "none";
+    let editNameInput = document.createElement("input");
+    let editHouseInput = document.createElement("input");
+    let editPatronusInput = document.createElement("input");
     let teacherCard = document.createElement("li");
-    // teacherCard.classList.add("teacher");
     let teacherName = document.createElement("h2");
     teacherName.innerText = staffMembers[i].name;
+    let editName = document.createElement("input");
+    editName.classList.add("edit-teacher-info");
     let teacherHouse = document.createElement("p");
     teacherHouse.classList.add("teacher-house");
     teacherHouse.innerText = `House: ${staffMembers[i].house}`;
@@ -71,9 +78,24 @@ function displayTeachers(staffMembers) {
     editBtn.classList.add("edit-btn");
     editBtn.addEventListener("click", () => {
       // editTeacher(i, staffMembers);
-      editTeacherContainer.style.display = "block";
+      // editTeacherContainer.style.display = "block";
+      teacherCard.style.display = "none";
+      editTeacherCard.style.display = "grid";
     });
-    teacherList.append(teacherCard);
+    let saveBtn = document.createElement("button");
+    saveBtn.innerText = "Save";
+    saveBtn.addEventListener("click", () => {
+      alert("clicked me");
+    });
+    let exitBtn = document.createElement("button");
+    exitBtn.innerText = "Exit";
+    exitBtn.addEventListener("click", () => {
+      // alert("exit btn clicked");
+      editTeacherCard.style.display = "none";
+      teacherCard.style.display = "grid";
+      
+    });
+    teacherList.append(teacherCard, editTeacherCard);
     teacherCard.append(
       teacherName,
       teacherHouse,
@@ -81,6 +103,14 @@ function displayTeachers(staffMembers) {
       teacherImage,
       deleteBtn,
       editBtn
+    );
+
+    editTeacherCard.append(
+      editNameInput,
+      editHouseInput,
+      editPatronusInput,
+      saveBtn,
+      exitBtn
     );
   }
 }
@@ -128,13 +158,15 @@ function addNewTeacher() {
   let teacherName = document.querySelector(".create-name-input").value;
   let teacherPatronus = document.querySelector(".create-patronus-input").value;
   if (teacherName == "" || teacherPatronus == "") {
-    alert("Fill in all the information")
-  }else{ staffMembers.push({
-    name: teacherName,
-    house: selectedHouse,
-    patronus: teacherPatronus,
-    image: src,
-  });}
+    alert("Fill in all the information");
+  } else {
+    staffMembers.push({
+      name: teacherName,
+      house: selectedHouse,
+      patronus: teacherPatronus,
+      image: src,
+    });
+  }
   displayTeachers(staffMembers);
   document.querySelector(".create-name-input").value = "";
   // document.querySelector(".create-house-input").value = "";
