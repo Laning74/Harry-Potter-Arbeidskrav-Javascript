@@ -71,6 +71,7 @@ function displayTeachers(staffMembers) {
     editBtn.classList.add("edit-btn");
     editBtn.addEventListener("click", () => {
       // editTeacher(i, staffMembers);
+      editTeacherContainer.style.display = "block";
     });
     teacherList.append(teacherCard);
     teacherCard.append(
@@ -133,3 +134,15 @@ function addNewTeacher() {
   document.querySelector(".create-house-input").value = "";
   document.querySelector(".create-patronus-input").value = "";
 }
+
+//hiding the form for edit teacher
+
+let editTeacherContainer = document.querySelector(".edit-teacher-container");
+editTeacherContainer.style.display = "none";
+
+//function for displaying form to edit teacher
+
+// let editBtn = document.querySelector("edit-btn");
+// editBtn.addEventListener("click", () => {
+//   editTeacherContainer.style.display = "block";
+// });
