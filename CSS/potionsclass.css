@@ -111,7 +111,7 @@ nav a:hover::before {
   border-radius: 8px;
 }
 
-.severus-text-container {
+.severus-info-container {
   height: 100%;
   width: 100%;
   align-items: center;
@@ -125,7 +125,7 @@ nav a:hover::before {
     ". startbtn image";
 }
 
-.severus-text-container > h2 {
+.severus-name {
   grid-area: severusname;
   font-size: 30px;
 }
@@ -135,12 +135,12 @@ nav a:hover::before {
   font-size: 25px;
 }
 
-.wand-info {
+.severus-wand {
   grid-area: severuswand;
   font-size: 25px;
 }
 
-.button-container {
+.btn-container {
   grid-area: startbtn;
   display: flex;
   justify-content: center;
@@ -201,7 +201,7 @@ main {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  /* justify-content: center;  */
   gap: 1em;
 }
 
