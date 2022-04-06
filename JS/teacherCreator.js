@@ -34,7 +34,7 @@ function displayTeachers(staffMembers) {
     teacherName.innerText = staffMembers[i].name;
     let teacherHouse = document.createElement("p");
     teacherHouse.classList.add("teacher-house");
-    teacherHouse.innerText = staffMembers[i].house;
+    teacherHouse.innerText = `House: ${staffMembers[i].house}`;
     if (staffMembers[i].house == "Gryffindor") {
       teacherCard.classList.add("teacher-gryffindor");
     } else if (staffMembers[i].house == "Slytherin") {
@@ -51,7 +51,7 @@ function displayTeachers(staffMembers) {
     if (staffMembers[i].patronus == "") {
       teacherPatronus.innerText = "Patronus: Uncertain";
     } else {
-      teacherPatronus.innerText = staffMembers[i].patronus;
+      teacherPatronus.innerText = `Patronus: ${staffMembers[i].patronus}`;
     }
     let teacherImage = document.createElement("img");
     teacherImage.classList.add(".teacher-image");
