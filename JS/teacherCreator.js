@@ -162,12 +162,18 @@ function addNewTeacher() {
   if (teacherName == "" || teacherPatronus == "") {
     alert("Fill in all the information");
   } else {
-    staffMembers.push({
-      name: teacherName,
-      house: selectedHouse,
-      patronus: teacherPatronus,
-      image: src,
-    });
+    let userAnswer = prompt("Do you want to save this New Teacher? yes/no");
+    if (userAnswer == "yes") {
+      staffMembers.push({
+        name: teacherName,
+        house: selectedHouse,
+        patronus: teacherPatronus,
+        image: src,
+      });
+      alert("New Teacher saved");
+    } else {
+      alert("No New teacher saved");
+    }
   }
   displayTeachers(staffMembers);
   document.querySelector(".create-name-input").value = "";
@@ -197,4 +203,3 @@ function saveEditedInfo(
   // console.log(staffMembers);
   displayTeachers(staffMembers);
 }
-
