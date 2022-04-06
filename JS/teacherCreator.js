@@ -33,11 +33,11 @@ function displayTeachers(staffMembers) {
     editTeacherCard.style.display = "none";
 
     let editNameInput = document.createElement("input");
-    editNameInput.placeholder = `${staffMembers[i].name}`;
+    editNameInput.value = `${staffMembers[i].name}`;
     let editHouseInput = document.createElement("input");
-    editHouseInput.placeholder = `${staffMembers[i].house}`;
+    editHouseInput.value = `${staffMembers[i].house}`;
     let editPatronusInput = document.createElement("input");
-    editPatronusInput.placeholder = `${staffMembers[i].patronus}`;
+    editPatronusInput.value = `${staffMembers[i].patronus}`;
     let teacherCard = document.createElement("li");
     let teacherName = document.createElement("h2");
     teacherName.innerText = staffMembers[i].name;
