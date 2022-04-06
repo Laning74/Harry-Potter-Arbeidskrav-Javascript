@@ -16,38 +16,60 @@ function getSeverus() {
     return data.name == "Severus Snape";
   });
   displaySeverus(professor);
+  console.log(hpCharacters);
 }
 
 // The function for displaying professor Severus Snape
 let severusContainer = document.querySelector(".severus-snape-container");
-const displaySeverus = (hpCharacters) => {
-  const professorCard = hpCharacters.map((severus) => {
-    var placeholder = severus.image;
-    let name = severus.name;
-    let age = severus.yearOfBirth;
-    // let wandInfo = severus.wand[wand.wood, wand.core, wand.length];
-    severus.wand.wood = "Holly";
-    severus.wand.core = "Phoenix feather";
-    severus.wand.length = "11";
-    return `<div class="severus-text-container">
-    <h2> Professor ${name} </h2>
-    <p class="severus-age"> Age: ${calculateAge(age)} </p>
-    <p class="wand-info"> Wand: ${severus.wand.wood} ${severus.wand.core} ${
-      severus.wand.length
-    } </p>
-    <div class="button-container">
-    <button id="start-btn" onclick="startTeaching()">Start teaching</button>
-    </div>
-    <img src="${placeholder}" class="severus-img"/>
-    </div>`;
-  });
+let severusInfoContainer = document.createElement("div");
+severusInfoContainer.classList.add("severus-info-container");
+let severusName = document.createElement("h2");
+let severusAge = document.createElement("p");
+let severusWand = document.createElement("p");
+let btnContainer = document.createElement("div");
+btnContainer.classList.add("btn-container");
+let startBtn = document.createElement("button");
+btnContainer.append(startBtn);
+let severusImage = document.createElement("img");
+severusName.classList.add("severus-name");
+severusAge.classList.add("severus-age");
+severusWand.classList.add("severus-wand");
+severusImage.classList.add("severus-img");
+startBtn.classList.add("start-btn");
+severusContainer.append(severusInfoContainer);
+severusInfoContainer.append(
+  severusName,
+  severusAge,
+  severusWand,
+  severusImage,
+  btnContainer
+);
 
-  severusContainer.innerHTML = professorCard;
-};
+function displaySeverus(professor) {
+  professor.map((severus) => {
+    severusName.innerHTML = severus.name;
+    severusAge.innerHTML = `Age: ${calculateAge(severus.yearOfBirth)}`;
+    severusWand.innerHTML = "Wand: vet ikke enda";
+    startBtn.innerHTML = "Start teaching";
+    severusImage.src = severus.image;
+  });
+  // The hover effect on Severus Image
+  severusImage.addEventListener("mouseover", () => {
+    chatBubbleContainer.style.visibility = "visible";
+  });
+  severusImage.addEventListener("mouseout", () => {
+    chatBubbleContainer.style.visibility = "hidden";
+  });
+}
+
+// severusContainer.innerHTML = professorCard;
+// };
 
 function calculateAge(age) {
   return 2022 - age;
 }
+
+// startBtn.style.backgroundColor = "red";
 
 // The mouseover effect
 let chatBubbleContainer = document.createElement("div");
@@ -62,13 +84,6 @@ wrapper.appendChild(chatBubbleContainer);
 chatBubbleContainer.classList.add("magicspell-container");
 magicSpell.classList.add("magicspell");
 
-severusContainer.addEventListener("mouseover", () => {
-  chatBubbleContainer.style.visibility = "visible";
-});
-severusContainer.addEventListener("mouseout", () => {
-  chatBubbleContainer.style.visibility = "hidden";
-});
-
 let studentsList = document.querySelector(".students-list");
 // funsjonen som skal starte klassen
 
@@ -82,6 +97,12 @@ startTeaching.addEventListener("click", () => {
   showStudents.style.display = "block";
   getStudents();
 });
+
+// let startTeaching = document.getElementById("start-teaching");
+// startTeaching.addEventListener("click", setBg, () => {
+//   showStudents.style.display = "block";
+//   getStudents();
+// });
 
 // getStudents();
 
@@ -107,7 +128,7 @@ const getRandomStudents = (students, tenStudents) => {
       return `<li>
       <div class="student-card">
       <div class="student-info">
-      <h2 class="student-name">Name: ${name}</h2>
+      <h2 class="student-name">${name}</h2>
       <p class="student-house">House: ${house} </p>
       <button class="delete-student-btn" onclick="deleteStudent()">Delete Student</button>
       </div>
