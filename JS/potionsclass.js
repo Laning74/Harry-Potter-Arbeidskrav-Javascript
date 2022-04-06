@@ -149,3 +149,5 @@ const getRandomStudents = (students, tenStudents) => {
   return randomTen;
 };
 getCharcters();
+
+function deleteStudent() {}

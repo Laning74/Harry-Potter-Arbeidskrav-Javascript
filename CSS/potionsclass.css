@@ -92,7 +92,7 @@ nav a:hover::before {
   display: grid;
   height: 100%;
   gap: 10px;
-  grid-template-columns: 6em 1fr 2fr 2fr 2fr 6em;
+  grid-template-columns: 6em 1fr 1fr 1fr 1fr 6em;
   grid-template-rows: 15% 30% 30% auto 10%;
   grid-template-areas:
     "header header header header header header "
@@ -201,7 +201,7 @@ main {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: center;  */
+  justify-content: center;
   gap: 1em;
 }
 
@@ -210,7 +210,6 @@ main {
   justify-content: space-between;
   width: 23rem;
   height: 9rem;
-  /* background-color: #000000; */
   color: white;
 }
 
