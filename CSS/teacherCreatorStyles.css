@@ -137,7 +137,7 @@ h1 {
 
 .create-teacher-container {
   margin: 0.7em auto 0 auto;
-  background-image: url(/images/pergament.png);
+  background-image: url(../images/pergament.png);
   background-position: center;
   background-size: cover;
   text-align: center;
@@ -504,7 +504,7 @@ img {
 /* Styling edit teacher card */
 .edit-teacher {
   list-style-type: none;
-  background-color: antiquewhite;
+  background-image: url(../images/Old\ paper.png);
   border-radius: 10px;
   padding: 10px 20px;
   display: grid;
@@ -516,12 +516,12 @@ img {
 }
 
 input {
-  background-color: #ce373d;
+  background-color: #251a0833;
   grid-column: 1 / span 2;
-  margin: 2px;
-  padding: 5px;
+  margin: 3px;
+  padding: 8px;
   border-radius: 8px;
-  border: 0.5rem;
+  border: 0.5px solid #251a08b8;
 }
 
 .edit-teacher > button {
@@ -531,8 +531,9 @@ input {
   font-style: normal;
   width: 180px;
   border-radius: 8px;
-  background-color: #e6a038;
-  margin: 2px;
+  background-color: #251a08b8;
+  color: white;
+  margin: 3px;
 }
 
 /* Dropdown menu */
@@ -540,8 +541,8 @@ input {
 select {
   font-family: mr-darcy, sans-serif;
   border: none;
+  border-radius: 5px;
   background-color: rgba(250, 235, 215, 0.491);
-  border: 0.5rem;
 }
 
 #houseDropdown.dropdown-content {
