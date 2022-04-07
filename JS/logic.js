@@ -39,7 +39,7 @@ const displayCharacters = (hpCharacters) => {
       let characterStatus = character.alive;
       if (character.alive === false) {
         characterStatus = "Is dead";
-        return `<li class="character">
+        return `<li class=" character ${hogwartsHouse} ">
       <h2>${character.name}</h2>
       <p class ="character-status-dead">Status: ${characterStatus}</p> 
       <p class="character-house">House: ${hogwartsHouse}</p>
@@ -50,7 +50,7 @@ const displayCharacters = (hpCharacters) => {
       if (age === "") {
         characterStatus = `Is alive`;
         return `
-        <li class="character">
+        <li class="character ${hogwartsHouse}">
         <h2>${character.name}</h2>
         <p class ="character-status">Status: ${characterStatus}</p> 
         <p class="character-age">Age: Uknown</p>
@@ -61,7 +61,7 @@ const displayCharacters = (hpCharacters) => {
       } else {
         characterStatus = `Is alive`;
         return `
-        <li class="character">
+        <li class="character ${hogwartsHouse}">
         <h2>${character.name}</h2>
         <p class ="character-status">Status: ${characterStatus}</p> 
          <p class="character-age">Age: ${calculateAge(age)}</p>
@@ -131,7 +131,7 @@ let saveStudentBtn = document.querySelector(".save-student-btn");
 saveStudentBtn.addEventListener("click", () => {
   let src = "./images/default-image.png";
   let studentName = document.querySelector(".create-name-input").value;
-  // let house = document.querySelector(".create-house-input").value;
+
   //dropdown menu for houses
   let selection = document.querySelector("select");
   let selectedHouse;
@@ -139,11 +139,11 @@ saveStudentBtn.addEventListener("click", () => {
     selectedHouse = selection.options[selection.selectedIndex].value;
   });
   let studentAge = parseInt(document.querySelector(".create-age-input").value);
-  const capitalizeStudentHouse = house;
-  const houseName =
-    capitalizeStudentHouse.charAt(0).toUpperCase() +
-    capitalizeStudentHouse.slice(1);
-  console.log(houseName);
+  // const capitalizeStudentHouse = house;
+  // const houseName =
+  //   capitalizeStudentHouse.charAt(0).toUpperCase() +
+  //   capitalizeStudentHouse.slice(1);
+  // console.log(houseName);
 
   // Lager error melding hvis input ikke er utfylt
   if (studentName == "") {

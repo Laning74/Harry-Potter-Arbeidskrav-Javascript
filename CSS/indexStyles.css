@@ -14,7 +14,7 @@
   --ravenclaw-clr: #445393;
 }
 body {
-  width: 100%;
+  width: 95vw;
   height: 100vh;
   background-image: url(../images/background-image.jpg);
   background-position: center;
@@ -124,9 +124,9 @@ nav a:hover::before {
   justify-content: space-evenly;
 }
 
-.grid > cards img {
+/* .grid > cards img {
   max-width: 100%;
-}
+} */
 
 .card {
   position: relative;
@@ -153,15 +153,6 @@ nav a:hover::before {
 .flipCard {
   transform: rotateY(180deg);
 }
-.character {
-  border: 1px solid rgba(68, 83, 147, 0.8);
-  transition: transform 500ms ease-in-out;
-}
-.character:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px 5px rgba(68, 83, 147, 0.8),
-    inset 0 0 10px 5px rgba(68, 83, 147, 0.8);
-}
 
 /* Dropdown menu */
 
@@ -175,46 +166,20 @@ select {
 }
 
 #houseDropdown.dropdown-content {
-  width: 720px;
+  width: 740px;
 }
 
 /*styling from createStudent.css file */
-/* * {
-  margin: 0;
-  padding: 0;
-  font-family: mr-darcy, sans-serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-:root {
-  --primary-clr: #0d0d10;
-  --griffingdor-clr: #ce373d;
-  --slytherin-hoover-button-clr: #377f6a;
-  --huffelpuff-button-clr: #e6a038;
-  --ravenclaw-clr: #445393;
-} */
-/* 
-body {
-  width: 100%;
-  min-height: 100vh;
-
-  gap: 2em;
-  /* font-family: mr-darcy, sans-serif;
-  font-weight: 600;
-  font-style: normal; 
-} */
-
 .create-student-container {
   margin: 2em auto 0 auto;
-  background-image: url(./images/pergament.png);
+  background-image: url(../images/pergament.png);
   background-position: center;
   background-size: cover;
   text-align: center;
   width: 50em;
   height: 25rem;
   padding: 2em;
-  cursor: url("./images/pngwing.com\ \(8\).png"), auto;
+  cursor: url(../images/pngwing.png), auto;
 }
 
 .logo-header-container {
@@ -277,16 +242,124 @@ body {
 }
 
 .save-student-btn {
-  background-color: var(--slytherin-hoover-button-clr);
+  background-color: var(--slytherin-clr);
 }
 
 .save-student-btn:hover {
-  background-color: var(--huffelpuff-button-clr);
-  color: var(--button-clr);
+  background-color: var(--huffelpuff-clr);
+  color: var(--primary-clr);
 }
 
-.student-list {
+/*.student-list {
   background-color: var(--griffingdor-clr);
   width: 200px;
-  /* height: 200px; */
+  /* height: 200px;  
+}*/
+/* styling from students.css */
+
+.character-list-container {
+  padding: 20px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.characters-list {
+  /* padding-inline-start: 0; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 20px;
+}
+
+.character {
+  list-style-type: none;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  display: grid;
+  /* grid-template-columns: 4fr 1fr; */
+  grid-template-areas:
+    "name image"
+    "house image"
+    "status image"
+    "status image";
+  text-align: left;
+  border: 1px solid rgba(68, 83, 147, 0.8);
+  transition: transform 500ms ease-in-out;
+}
+
+.character > h2 {
+  grid-area: name;
+  margin-bottom: 0px;
+}
+
+.character-house {
+  grid-area: house;
+  margin: 0;
+  margin-top: -18px;
+}
+
+.character-age {
+  grid-area: status;
+}
+
+.character-image {
+  max-height: 150px;
+  grid-area: image;
+  display: flex;
+  justify-content: center;
+}
+
+.character-status-dead {
+  grid-area: status;
+  color: red;
+  /* background-color: #e6a038; */
+}
+.character:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px 5px rgba(147, 68, 147, 0.8),
+    inset 0 0 10px 5px rgba(68, 83, 147, 0.8);
+}
+/* added specific background color for every house */
+.Gryffindor {
+  background-color: var(--griffingdor-clr);
+}
+.Slytherin {
+  background-color: var(--slytherin-clr);
+}
+.Hufflepuff {
+  background-color: var(--huffelpuff-clr);
+}
+.Ravenclaw {
+  background-color: var(--ravenclaw-clr);
+}
+
+.searchbar-container {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+}
+
+.searchbar {
+  width: 30%;
+  height: 32px;
+  border-radius: 3px;
+  border: 1px solid #eaeaea;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.create-student-btn {
+  border: none;
+  font-family: mr-darcy, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  width: 200px;
+  border-radius: 8px;
+  background-color: #e6a038;
+}
+
+.create-student-btn:hover {
+  cursor: pointer;
+  background-color: #377f6a;
+  color: white;
 }

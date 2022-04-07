@@ -1,4 +1,4 @@
-body {
+/* body {
   font-family: mr-darcy, sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -15,7 +15,7 @@ body {
 }
 
 .characters-list {
-  /* padding-inline-start: 0; */
+  /* padding-inline-start: 0; 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-gap: 20px;
@@ -28,7 +28,7 @@ body {
   border-radius: 10px;
   padding: 10px 20px;
   display: grid;
-  /* grid-template-columns: 4fr 1fr; */
+  /* grid-template-columns: 4fr 1fr; 
   grid-template-areas:
     "name image"
     "house image"
@@ -93,4 +93,4 @@ body {
   cursor: pointer;
   background-color: #377f6a;
   color: white;
-}
+} */

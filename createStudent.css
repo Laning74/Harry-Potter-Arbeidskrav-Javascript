@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   font-family: mr-darcy, sans-serif;
@@ -21,7 +21,7 @@ body {
   gap: 2em;
   /* font-family: mr-darcy, sans-serif;
   font-weight: 600;
-  font-style: normal; */
+  font-style: normal; 
 }
 
 .create-student-container {
@@ -37,15 +37,15 @@ body {
 }
 
 .logo-header-container {
-  /* padding-left: 10em; */
+  /* padding-left: 10em; 
   display: flex;
   justify-content: center;
   gap: 70px;
-  /* width: 100%; */
+  /* width: 100%;
 }
 
 .hogwarts-logo {
-  /* position: absolute; */
+  /* position: absolute;
   left: 20em;
   width: 70px;
 }
@@ -107,5 +107,5 @@ body {
 .student-list {
   background-color: var(--griffingdor-clr);
   width: 200px;
-  /* height: 200px; */
-}
+  height: 200px; 
+} */
