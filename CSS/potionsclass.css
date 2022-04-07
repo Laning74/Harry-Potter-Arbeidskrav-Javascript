@@ -10,8 +10,7 @@
 body {
   width: 100%;
   height: 100vh;
-  background-image: url(../images/potionsclass-background.jpg);
-  background-color: black;
+  /* background-image: url(../images/potionsclass-background.jpg); */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -203,6 +202,7 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   gap: 1em;
+  list-style: none;
 }
 
 .student-card {
