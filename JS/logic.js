@@ -1,3 +1,4 @@
+//fetching api and storing tha data in array locally
 let hpCharacters = [];
 const loadCharacters = async () => {
   try {
@@ -8,11 +9,11 @@ const loadCharacters = async () => {
     console.error(err);
   }
 };
+//function for searching hp characters /searchbar
 const searchBar = document.querySelector(".searchbar");
 let charactersList = document.querySelector(".characters-list");
 searchBar.addEventListener("keyup", (e) => {
   let searchString = e.target.value.toLowerCase();
-
   if (e.target.value === "") {
     charactersList.innerHTML = "";
   } else {
@@ -22,6 +23,7 @@ searchBar.addEventListener("keyup", (e) => {
     displayCharacters(filteredCharacters);
   }
 });
+//function to display the hpcharacters by searchbar or students by house cards
 const displayCharacters = (hpCharacters) => {
   const htmlString = hpCharacters
     .map((character) => {
@@ -98,43 +100,45 @@ ravenclawCard.addEventListener("click", () => {
   renderData("Ravenclaw");
   flipCard(ravenclawCard);
 });
-
 function flipCard(card) {
   card.classList.toggle("flipCard");
 }
-
 function renderData(houseName) {
   houseMembers = hpCharacters.filter(function (data) {
     return data.house == houseName;
   });
   displayCharacters(houseMembers);
 }
-// Her begynner create new student funksjonene
+// container for creating new students
 let createStudentContainer = document.querySelector(
   ".create-student-container"
 );
-//Skjul container
+//hiding the create student form
 createStudentContainer.style.display = "none";
 
-// Vis container - create new student button
+// show create new student form on button click
 const showCreateStudent = document.querySelector(".create-student-btn");
 showCreateStudent.addEventListener("click", () => {
   createStudentContainer.style.display = "block";
 });
-// Skjul container - exit button
+// hide the form on exit button click
 let createExitBtn = document.querySelector(".exit-btn");
 createExitBtn.addEventListener("click", () => {
   createStudentContainer.style.display = "none";
 });
-//Lagrer new student og pusher til arryet
+//saving the new students in the students list
 let saveStudentBtn = document.querySelector(".save-student-btn");
-
 saveStudentBtn.addEventListener("click", () => {
   let src = "./images/default-image.png";
   let studentName = document.querySelector(".create-name-input").value;
-  let house = document.querySelector(".create-house-input").value;
+  // let house = document.querySelector(".create-house-input").value;
+  //dropdown menu for houses
+  let selection = document.querySelector("select");
+  let selectedHouse;
+  selection.addEventListener("change", () => {
+    selectedHouse = selection.options[selection.selectedIndex].value;
+  });
   let studentAge = parseInt(document.querySelector(".create-age-input").value);
-
   const capitalizeStudentHouse = house;
   const houseName =
     capitalizeStudentHouse.charAt(0).toUpperCase() +
@@ -152,7 +156,7 @@ saveStudentBtn.addEventListener("click", () => {
     hpCharacters.push({
       image: src,
       name: studentName,
-      house: houseName,
+      house: selectedHouse,
       yearOfBirth: studentAge,
     });
   }
