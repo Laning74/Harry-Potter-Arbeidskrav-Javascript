@@ -344,24 +344,30 @@ img {
     inset 0 0 10px 5px rgba(68, 83, 147, 0.8);
 }
 .teacher-gryffindor {
-  background-color: #ce373d;
+  background-color: var(--griffingdor-clr);
 }
 .teacher-slytherin {
-  background-color: #377f6a;
+  background-color: var(--slytherin-clr);
 }
 .teacher-hufflepuff {
-  background-color: #e6a038;
+  background-color: var(--huffelpuff-clr);
 }
 .teacher-hufflepuff > .btns {
-  background-color: #251a08;
-  color: white;
+  background-color: var(--primary-clr);
+  color: #fff;
 }
 .teacher-ravenclaw {
-  background-color: #445393;
+  background-color: var(--ravenclaw-clr);
 }
 .teacher-list > li:hover > .teacher-patronus {
   visibility: visible;
-  background-image: linear-gradient(to right, #fff, #e6a038, #fff, #e6a038);
+  background-image: linear-gradient(
+    to right,
+    #fff,
+    var(--huffelpuff-clr),
+    #fff,
+    var(--huffelpuff-clr)
+  );
   -webkit-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;
