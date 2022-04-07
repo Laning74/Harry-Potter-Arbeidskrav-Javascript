@@ -131,6 +131,38 @@ const getRandomStudents = (students, tenStudents) => {
       studentContainer.append(studentList);
       studentInfo.append(studentName, studentHouse, deleteButton);
       studentList.append(studentInfo, studentPlaceholder);
+
+      // delete student funksjon
+      // deleteButton.addEventListener("click", () => {
+      //   deleteStudent(i, randomTen);
+      // });
+
+      // function deleteStudent(index, tenStudents) {
+      //   let userConfirm = prompt(
+      //     "Do you want to delete this student from class? yes/no"
+      //   );
+      //   if (userConfirm == "yes") {
+      //     tenStudents.splice(index, 1);
+      //   } else {
+      //     alert("Nothing deleted from this list");
+      //   }
+      //   displayStudents(tenStudents);
+      // }
+
+      let deleteBtn = document.querySelectorAll(".delete-student-btn");
+
+      for (let i = 0; i < deleteBtn.length; i++) {
+        deleteBtn[i].addEventListener("click", (i, tenStudents) => {
+          let userAnswear = prompt(
+            "Do you want to delete this student? yes/no"
+          );
+          if (userAnswear == "yes") {
+            tenStudents.spleice(i, 1);
+          } else {
+            alert("Go back to class!");
+          }
+        });
+      }
     });
     studentContainer.innerHTML += infoAboutStudent;
     let studentCard = document.querySelectorAll(".student-card");

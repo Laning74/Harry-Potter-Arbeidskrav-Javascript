@@ -202,7 +202,7 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   gap: 1em;
-  list-style: none;
+  /* list-style: none; */
 }
 
 .student-card {
