@@ -69,6 +69,7 @@ body {
   padding-left: 1em;
   border: none;
   background-color: transparent;
+  font-size: 1em;
 }
 
 ::placeholder {

@@ -1,9 +1,18 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: mr-darcy, sans-serif;
+  font-weight: 600;
+  font-style: normal;
 }
 
-/* Fikset på bakgrunnen, så den er i orden nå */
+:root {
+  --primary-clr: #0d0d10;
+  --griffingdor-clr: #ce373d;
+  --slytherin-clr: #377f6a;
+  --huffelpuff-clr: #e6a038;
+  --ravenclaw-clr: #445393;
+}
 body {
   width: 100%;
   height: 100vh;
@@ -16,34 +25,27 @@ body {
   font-weight: 600;
   font-style: normal;
 }
-
-/* Header begynner her */
-
+/* Header section starts here */
 header {
   display: flex;
   justify-content: space-around;
 }
-
 .logo {
   width: 18rem;
 }
-
 .logo:hover {
   opacity: 60%;
 }
-
 nav ul {
   margin: 0.6rem;
   padding: 0;
   list-style: none;
 }
-
 nav li {
   display: inline-block;
   margin: 1em;
   position: relative;
 }
-
 nav a {
   text-decoration: none;
   padding: 0.5em;
@@ -51,26 +53,21 @@ nav a {
   color: white;
   font-size: 1.3rem;
 }
-
 nav a:hover,
 nav a:focus {
-  color: #e0c53b;
+  color: var(--huffelpuff-clr);
 }
-
 nav a::before {
   content: "";
   display: block;
   height: 5px;
-  background-color: #e0c53b;
-
+  background-color: var(--huffelpuff-clr);
   position: absolute;
   top: 0;
   margin-top: 1.5rem;
   border-radius: 2px;
-
   transition: all ease-in-out 250ms;
 }
-
 nav a:hover::before {
   width: 100%;
 }
@@ -87,7 +84,6 @@ nav a:hover::before {
 
 /* Wrapper House Cards begynner her */
 
-/* Kommenterte ut noen ting som jeg ikke kunne se gjorde noe endring */
 .tittel {
   /* grid-column: 1/5; */
   /* width: 100%; */
@@ -101,23 +97,20 @@ nav a:hover::before {
 
 /* Måtte gjøre det på denne måten for å legge til farge, funket ikke i tittel classen */
 .tittel h1 {
-  /* color: #e0c53b; */
   background-image: linear-gradient(
     to right,
-    #ce373d,
-    #ce373d,
-    #377f6a,
-    #e6a038,
-    #445393,
-    #445393
+    var(--griffingdor-clr),
+    var(--griffingdor-clr),
+    var(--slytherin-clr),
+    var(--huffelpuff-clr),
+    var(--ravenclaw-clr),
+    var(--ravenclaw-clr)
   );
   -webkit-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;
   color: transparent;
 }
-
-
 
 /* Kommenterte ut dette for å få kortene characters riktig under kortene */
 .grid {
@@ -135,7 +128,6 @@ nav a:hover::before {
   max-width: 100%;
 }
 
-
 .card {
   position: relative;
   display: flex;
@@ -146,7 +138,6 @@ nav a:hover::before {
   transform-style: preserve-3d;
   transition: all 0.8s ease;
 }
-
 
 .front {
   position: absolute;
@@ -170,4 +161,132 @@ nav a:hover::before {
   transform: scale(1.05);
   box-shadow: 0 0 10px 5px rgba(68, 83, 147, 0.8),
     inset 0 0 10px 5px rgba(68, 83, 147, 0.8);
+}
+
+/* Dropdown menu */
+
+select {
+  font-family: mr-darcy, sans-serif;
+  border: none;
+  background: transparent;
+  width: 260px;
+  height: 1.5em;
+  font-size: 1em;
+}
+
+#houseDropdown.dropdown-content {
+  width: 720px;
+}
+
+/*styling from createStudent.css file */
+/* * {
+  margin: 0;
+  padding: 0;
+  font-family: mr-darcy, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+:root {
+  --primary-clr: #0d0d10;
+  --griffingdor-clr: #ce373d;
+  --slytherin-hoover-button-clr: #377f6a;
+  --huffelpuff-button-clr: #e6a038;
+  --ravenclaw-clr: #445393;
+} */
+/* 
+body {
+  width: 100%;
+  min-height: 100vh;
+
+  gap: 2em;
+  /* font-family: mr-darcy, sans-serif;
+  font-weight: 600;
+  font-style: normal; 
+} */
+
+.create-student-container {
+  margin: 2em auto 0 auto;
+  background-image: url(./images/pergament.png);
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  width: 50em;
+  height: 25rem;
+  padding: 2em;
+  cursor: url("./images/pngwing.com\ \(8\).png"), auto;
+}
+
+.logo-header-container {
+  /* padding-left: 10em; */
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  /* width: 100%; */
+}
+
+.hogwarts-logo {
+  /* position: absolute; */
+  left: 20em;
+  width: 70px;
+}
+
+.new-student-header {
+  margin: 0.5em 0 1em 0;
+}
+
+.input-container {
+  width: 100%;
+}
+
+.create-name-input,
+.create-house-input,
+.create-age-input,
+.create-alive-input {
+  margin: 0.5em;
+  width: 50%;
+  border-radius: 17px;
+  height: 33px;
+  padding-left: 1em;
+  border: none;
+  background-color: transparent;
+  font-size: 1em;
+}
+
+::placeholder {
+  text-transform: uppercase;
+  font-family: mr-darcy, sans-serif;
+  color: var(--primary-clr);
+}
+
+.default-student-img {
+  width: 100px;
+  height: 100px;
+}
+
+.exit-btn,
+.save-student-btn {
+  width: 10em;
+  margin: 0.5em 1em;
+  padding: 0.7em;
+  border-radius: 10px;
+  border: none;
+}
+.exit-btn {
+  background-color: var(--griffingdor-clr);
+}
+
+.save-student-btn {
+  background-color: var(--slytherin-hoover-button-clr);
+}
+
+.save-student-btn:hover {
+  background-color: var(--huffelpuff-button-clr);
+  color: var(--button-clr);
+}
+
+.student-list {
+  background-color: var(--griffingdor-clr);
+  width: 200px;
+  /* height: 200px; */
 }
