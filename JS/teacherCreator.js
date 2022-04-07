@@ -45,7 +45,7 @@ function displayTeachers(staffMembers) {
     teacherName.innerText = staffMembers[i].name;
     let teacherHouse = document.createElement("p");
     teacherHouse.classList.add("teacher-house");
-    
+
     teacherHouse.innerText = `House: ${staffMembers[i].house}`;
     if (staffMembers[i].house == "Gryffindor") {
       teacherCard.classList.add("teacher-gryffindor");
@@ -86,13 +86,20 @@ function displayTeachers(staffMembers) {
       teacherCard.style.display = "none";
       editTeacherCard.style.display = "grid";
     });
+
     let saveBtn = document.createElement("button");
     saveBtn.innerText = "Save";
     saveBtn.addEventListener("click", () => {
       let editedName = editNameInput.value;
       let editedHouse = editHouseInput.value;
+
+      const capitalizeHouse = editedHouse;
+      const houseName =
+        capitalizeHouse.charAt(0).toUpperCase() + capitalizeHouse.slice(1);
+      console.log(houseName);
+
       let editedPatronus = editPatronusInput.value;
-      saveEditedInfo(i, staffMembers, editedName, editedHouse, editedPatronus);
+      saveEditedInfo(i, staffMembers, editedName, houseName, editedPatronus);
     });
     let exitBtn = document.createElement("button");
     exitBtn.innerText = "Exit";
@@ -121,6 +128,7 @@ function displayTeachers(staffMembers) {
     );
   }
 }
+
 //function to delete teacher from the current list
 function deleteTeacher(index, staffMembers) {
   let userConfirm = prompt(
