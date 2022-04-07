@@ -121,6 +121,7 @@ h1 {
   text-align: center;
   padding: 5px 0 40px 0;
 }
+/* styling create new teacher form */
 .create-teacher-btn {
   border: none;
   font-family: mr-darcy, sans-serif;
@@ -132,11 +133,9 @@ h1 {
   background-color: #e6a038;
   margin: 30px;
 }
-
 .create-teacher-btn:hover {
   opacity: 80%;
 }
-
 .create-teacher-container {
   margin: 0.7em auto 0 auto;
   background-image: url(../images/pergament.png);
@@ -148,7 +147,6 @@ h1 {
   padding: 1.5em;
   cursor: url(/images/pngwing.png), auto;
 }
-
 .logo-header-container {
   display: flex;
   justify-content: center;
@@ -179,11 +177,6 @@ h1 {
   background-color: transparent;
   font-size: 1em;
 }
-input {
-  text-transform: uppercase;
-  font-family: mr-darcy, sans-serif;
-  color: var(--primary-clr);
-}
 ::placeholder {
   text-transform: uppercase;
   font-family: mr-darcy, sans-serif;
@@ -194,7 +187,6 @@ input {
   height: 100px;
 }
 /* Dropdown menu */
-
 select {
   font-family: mr-darcy, sans-serif;
   border: none;
@@ -203,7 +195,6 @@ select {
   height: 1.5em;
   font-size: 1em;
 }
-
 #houseDropdown.dropdown-content {
   width: 800px;
 }
@@ -229,14 +220,13 @@ select {
 .save-btn:hover {
   background-color: var(--huffelpuff-clr);
 }
-
+/* styling the teacher list and teacher Cards */
 .teacher-list {
   padding-inline-start: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-gap: 20px;
 }
-
 .teacher {
   list-style-type: none;
   background-color: black;
@@ -255,21 +245,12 @@ select {
   border: 1px solid rgba(68, 83, 147, 0.8);
   transition: transform 500ms ease-in-out;
 }
-
-.teacher:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px 5px rgba(68, 83, 147, 0.8),
-    inset 0 0 10px 5px rgba(68, 83, 147, 0.8);
-}
-
 .teacher > h2 {
   grid-area: name;
 }
-
 .teacher-house {
   grid-area: house;
 }
-
 .teacher-patronus {
   grid-area: patronus;
   margin: 0;
@@ -280,7 +261,6 @@ select {
     var(--griffingdor-clr),
     var(--griffingdor-clr),
     var(--slytherin-clr),
-    var(--huffelpuff-clr),
     var(--ravenclaw-clr),
     var(--ravenclaw-clr)
   );
@@ -289,38 +269,13 @@ select {
   background-clip: text;
   color: transparent;
 }
-
+.teacher:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px 5px rgba(68, 83, 147, 0.8),
+    inset 0 0 10px 5px rgba(68, 83, 147, 0.8);
+}
 .teacher:hover > .teacher-patronus {
   visibility: visible;
-}
-
-img {
-  max-height: 150px;
-  grid-area: image;
-  display: flex;
-  justify-content: center;
-}
-.btns {
-  border: none;
-  font-family: mr-darcy, sans-serif;
-  font-weight: 600;
-  font-style: normal;
-  width: 200px;
-  border-radius: 8px;
-  background-color: #e6a038;
-  /* grid-area: delete-btn; */
-  margin-bottom: 5px;
-}
-.delete-btn {
-  grid-area: delete-btn;
-}
-.delete-btn:hover,
-.edit-btn:hover {
-  opacity: 80%;
-}
-
-.edit-btn {
-  grid-area: edit-btn;
 }
 .teacher-list > li {
   list-style-type: none;
@@ -360,7 +315,9 @@ img {
   background-color: var(--ravenclaw-clr);
   color: #fff;
 }
-/* .teacher-list > li:hover > .teacher-patronus {
+.teacher-gryffindor:hover > .teacher-patronus,
+.teacher-slytherin:hover > .teacher-patronus,
+.teacher-ravenclaw:hover > .teacher-patronus {
   visibility: visible;
   background-image: linear-gradient(
     to right,
@@ -369,22 +326,6 @@ img {
     #fff,
     var(--huffelpuff-clr)
   );
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  background-clip: text;
-  color: transparent;
-} */
-.teacher-gryffindor:hover > .teacher-patronus {
-  visibility: visible;
-  background-image: linear-gradient(to right, white, #e6a038, white, #e6a038);
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.teacher-slytherin:hover > .teacher-patronus {
-  visibility: visible;
-  background-image: linear-gradient(to right, white, #e6a038, white, #e6a038);
   -webkit-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;
@@ -405,25 +346,40 @@ img {
   background-clip: text;
   color: transparent;
 }
-.teacher-ravenclaw:hover > .teacher-patronus {
-  visibility: visible;
-  background-image: linear-gradient(to right, white, #e6a038, white, #e6a038);
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  /* color: white; */
+img {
+  max-height: 150px;
+  grid-area: image;
+  display: flex;
+  justify-content: center;
 }
-/* Styling edit teacher card*/
+.btns {
+  border: none;
+  font-family: mr-darcy, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  width: 200px;
+  border-radius: 8px;
+  background-color: var(--huffelpuff-clr);
+  margin-bottom: 5px;
+}
+.delete-btn {
+  grid-area: delete-btn;
+}
+.edit-btn {
+  grid-area: edit-btn;
+}
+.delete-btn:hover,
+.edit-btn:hover {
+  opacity: 80%;
+}
+/* Styling of edit teacher card*/
 .edit-teacher {
   background-image: url(../images/Old\ paper.png);
   display: grid;
-  /* grid-template-columns: repeat(2, 1fr); */
-  /* grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); */
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(4, 2rem);
   text-align: left;
 }
-
 input {
   background-color: #251a0833;
   grid-column: 1 / span 2;
@@ -431,8 +387,10 @@ input {
   padding: 8px;
   border-radius: 8px;
   border: 0.5px solid #251a08b8;
+  text-transform: uppercase;
+  font-family: mr-darcy, sans-serif;
+  color: var(--primary-clr);
 }
-
 .edit-teacher > button {
   border: none;
   font-family: mr-darcy, sans-serif;

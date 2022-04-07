@@ -23,7 +23,7 @@ function filterStaffMembers(data) {
   displayTeachers(staffMembers);
   return staffMembers;
 }
-//function for displaying all the staff members in browser (creating html in js)
+//displaying all the staff members in browser (creating html elements in js)
 function displayTeachers(staffMembers) {
   console.log(staffMembers);
   const teacherList = document.querySelector(".teacher-list");
@@ -45,7 +45,6 @@ function displayTeachers(staffMembers) {
     teacherName.innerText = staffMembers[i].name;
     let teacherHouse = document.createElement("p");
     teacherHouse.classList.add("teacher-house");
-
     teacherHouse.innerText = `House: ${staffMembers[i].house}`;
     if (staffMembers[i].house == "Gryffindor") {
       teacherCard.classList.add("teacher-gryffindor");
@@ -92,7 +91,6 @@ function displayTeachers(staffMembers) {
     saveBtn.addEventListener("click", () => {
       let editedName = editNameInput.value;
       let editedHouse = editHouseInput.value;
-
       const capitalizeHouse = editedHouse;
       const houseName =
         capitalizeHouse.charAt(0).toUpperCase() + capitalizeHouse.slice(1);
