@@ -1,11 +1,10 @@
 let hpCharacters = [];
 
-// The function for fetching the API
+//****** Funksjonen som henter API'en******
 const getCharcters = async () => {
   const data = await fetch("https://hp-api.herokuapp.com/api/characters");
   hpCharacters = await data.json();
 
-  // console.log(hpCharacters);
   getSeverus();
   getStudents();
 };
@@ -79,19 +78,15 @@ wrapper.appendChild(chatBubbleContainer);
 chatBubbleContainer.classList.add("magicspell-container");
 magicSpell.classList.add("magicspell");
 
-// funsjonen som skal starte klassen
+// ******funsjonen som skal starte klassen*******
 
 let showStudents = document.querySelector(".students-container");
 showStudents.style.display = "none";
-
-// Random farge funksjon
 
 startBtn.addEventListener("click", () => {
   showStudents.style.display = "block";
   getStudents();
 });
-
-// getStudents();
 
 let students = [];
 function getStudents() {
@@ -102,69 +97,43 @@ function getStudents() {
   getRandomStudents(students, 10);
 }
 let studentContainer = document.querySelector(".students-list");
-let studentList = document.createElement("li");
-studentList.classList.add("student-card");
-let studentInfo = document.createElement("div");
-studentInfo.classList.add("student-info");
-let studentName = document.createElement("h2");
-let studentHouse = document.createElement("p");
-let deleteButton = document.createElement("button");
-deleteButton.classList.add("delete-student-btn");
+// let studentList = document.createElement("li");
+// studentList.classList.add("student-card");
+// let studentInfo = document.createElement("div");
+// studentInfo.classList.add("student-info");
+// let studentName = document.createElement("h2");
+// let studentHouse = document.createElement("p");
+// let deleteButton = document.createElement("button");
+// deleteButton.classList.add("delete-student-btn");
 let studentPlaceholder = document.createElement("img");
 studentPlaceholder.classList.add("students-image");
 const getRandomStudents = (students, tenStudents) => {
   let randomTen = [];
   for (let i = 0; i < tenStudents; i++) {
     randomTen.push(students[Math.floor(Math.random() * students.length)]);
-    const infoAboutStudent = randomTen.map((student) => {
-      studentName.innerHTML = student.name;
-      studentHouse.innerHTML = `House: ${student.house}`;
-      deleteButton.innerHTML = "Delete student";
-      studentPlaceholder.src = student.image;
-      if (student.image == "") {
-        studentPlaceholder.src = "./images/default-image.png";
-      }
-      if (student.house == "") {
-        studentHouse.innerHTML = "House: Unknown";
-      }
-
-      studentContainer.append(studentList);
-      studentInfo.append(studentName, studentHouse, deleteButton);
-      studentList.append(studentInfo, studentPlaceholder);
-
-      // delete student funksjon
-      // deleteButton.addEventListener("click", () => {
-      //   deleteStudent(i, randomTen);
-      // });
-
-      // function deleteStudent(index, tenStudents) {
-      //   let userConfirm = prompt(
-      //     "Do you want to delete this student from class? yes/no"
-      //   );
-      //   if (userConfirm == "yes") {
-      //     tenStudents.splice(index, 1);
-      //   } else {
-      //     alert("Nothing deleted from this list");
-      //   }
-      //   displayStudents(tenStudents);
+    randomTen.map((student) => {
+      let studentinfo = `<li><div class="student-card">
+        <div class="student-info">
+        <h2>${student.name}</h2>
+        <p>${student.house}</p>
+        <button class="delete-student-btn" onclick="deleteStudent(i, student)">Delete</Button></div>
+        <img src="./images/default-image.png">
+        </div>
+      </li>`;
+      // studentName.innerHTML = student.name;
+      // studentHouse.innerHTML = `House: ${student.house}`;
+      // // deleteButton.innerHTML = "Delete student";
+      // studentPlaceholder.src = student.image;
+      // if (student.image == "") {
+      //   studentPlaceholder.src = "./images/default-image.png";
       // }
-
-      let deleteBtn = document.querySelectorAll(".delete-student-btn");
-
-      for (let i = 0; i < deleteBtn.length; i++) {
-        deleteBtn[i].addEventListener("click", (i, tenStudents) => {
-          let userAnswear = prompt(
-            "Do you want to delete this student? yes/no"
-          );
-          if (userAnswear == "yes") {
-            tenStudents.spleice(i, 1);
-          } else {
-            alert("Go back to class!");
-          }
-        });
-      }
+      // if (student.house == "") {
+      //   studentHouse.innerHTML = "House: Unknown";
+      // }
+      studentContainer.innerHTML += studentinfo;
     });
-    studentContainer.innerHTML += infoAboutStudent;
+
+    // **********Farge generator funksjonen *********
     let studentCard = document.querySelectorAll(".student-card");
     for (let i = 0; i < studentCard.length; i++) {
       const setBg = () => {
@@ -174,6 +143,46 @@ const getRandomStudents = (students, tenStudents) => {
       setBg();
     }
   }
-  return randomTen;
+  // return randomTen;
 };
+
 getCharcters();
+
+// *********delete student funksjon **************
+
+function deleteStudent(i, student) {
+  let userAnswear = prompt(
+    "Do you want to delete this student from class? yes/no"
+  );
+  if (userAnswear.student == "yes") {
+    randomTen.splice(i, 1);
+  }
+}
+
+// deleteButton.addEventListener("click", () => {
+//   deleteStudent(i, randomTen);
+// });
+
+// function deleteStudent(index, tenStudents) {
+//   let userConfirm = prompt(
+//     "Do you want to delete this student from class? yes/no"
+//   );
+//   if (userConfirm == "yes") {
+//     tenStudents.splice(index, 1);
+//   } else {
+//     alert("Nothing deleted from this list");
+//   }
+//   displayStudents(tenStudents);
+// }
+
+// let deleteBtn = document.querySelectorAll(".delete-student-btn");
+// for (let i = 0; i < deleteBtn.length; i++) {
+//   deleteBtn[i].addEventListener("click", (i, tenStudents) => {
+//     let userAnswear = prompt("Do you want to delete this student? yes/no");
+//     if (userAnswear == "yes") {
+//       tenStudents[i].spleice(i, 1);
+//     } else {
+//       alert("Go back to class!");
+//     }
+//   });
+// }
