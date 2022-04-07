@@ -358,8 +358,9 @@ img {
 }
 .teacher-ravenclaw {
   background-color: var(--ravenclaw-clr);
+  color: #fff;
 }
-.teacher-list > li:hover > .teacher-patronus {
+/* .teacher-list > li:hover > .teacher-patronus {
   visibility: visible;
   background-image: linear-gradient(
     to right,
@@ -368,6 +369,22 @@ img {
     #fff,
     var(--huffelpuff-clr)
   );
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+} */
+.teacher-gryffindor:hover > .teacher-patronus {
+  visibility: visible;
+  background-image: linear-gradient(to right, white, #e6a038, white, #e6a038);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.teacher-slytherin:hover > .teacher-patronus {
+  visibility: visible;
+  background-image: linear-gradient(to right, white, #e6a038, white, #e6a038);
   -webkit-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;
@@ -388,11 +405,20 @@ img {
   background-clip: text;
   color: transparent;
 }
+.teacher-ravenclaw:hover > .teacher-patronus {
+  visibility: visible;
+  background-image: linear-gradient(to right, white, #e6a038, white, #e6a038);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* color: white; */
+}
 /* Styling edit teacher card*/
 .edit-teacher {
   background-image: url(../images/Old\ paper.png);
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  /* grid-template-columns: repeat(2, 1fr); */
   /* grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); */
   grid-template-rows: repeat(4, 2rem);
   text-align: left;

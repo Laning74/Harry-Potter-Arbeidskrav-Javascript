@@ -45,7 +45,7 @@ function displayTeachers(staffMembers) {
     teacherName.innerText = staffMembers[i].name;
     let teacherHouse = document.createElement("p");
     teacherHouse.classList.add("teacher-house");
-    
+
     teacherHouse.innerText = `House: ${staffMembers[i].house}`;
     if (staffMembers[i].house == "Gryffindor") {
       teacherCard.classList.add("teacher-gryffindor");
