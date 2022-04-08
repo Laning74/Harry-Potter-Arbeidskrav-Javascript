@@ -21,9 +21,9 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  font-family: mr-darcy, sans-serif;
+  /* font-family: mr-darcy, sans-serif;
   font-weight: 600;
-  font-style: normal;
+  font-style: normal; */
 }
 /* Header section starts here */
 header {
@@ -272,11 +272,12 @@ select {
 
 .character {
   list-style-type: none;
+  background-color: black;
   color: #fff;
   border-radius: 10px;
   padding: 10px 20px;
   display: grid;
-  /* grid-template-columns: 4fr 1fr; */
+  grid-template-columns: 4fr 1fr;
   grid-template-areas:
     "name image"
     "house image"
@@ -320,6 +321,7 @@ select {
     inset 0 0 10px 5px rgba(68, 83, 147, 0.8);
 }
 /* added specific background color for every house */
+
 .Gryffindor {
   background-color: var(--griffingdor-clr);
 }
