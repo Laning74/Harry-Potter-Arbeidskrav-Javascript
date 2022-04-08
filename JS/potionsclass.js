@@ -106,8 +106,8 @@ function getTenStudent(array) {
   showStudents(randomArray);
 }
 
+let studentContainer = document.querySelector(".students-list");
 function showStudents(array) {
-  let studentContainer = document.querySelector(".students-list");
   let studentPlaceholder = document.createElement("img");
 
   studentContainer.innerHTML = "";
@@ -115,19 +115,23 @@ function showStudents(array) {
 
   for (let i = 0; i < array.length; i++) {
     studentPlaceholder = "./images/default-image.png";
+    let deleteBtn = document.createElement("button");
+    deleteBtn.innerText = "Delete student";
+    deleteBtn.addEventListener("click", () => {
+      deleteStudent(i, array);
+      // alert("Hei");
+    });
+    let studentCard = document.createElement("div");
+    let studenInfo = document.createElement("div");
+    let studentName = document.createElement("h1");
+    studentName.innerText = array[i].name;
+    let studentHouse = document.createElement("p");
+    studentHouse.innerText = array[i].house;
 
-    let studentinfo = `<li><div class="student-card">
-        <div class="student-info">
-        <h2>${array[i].name}</h2>
-        <p> House: ${array[i].house}</p>
-        <button class="delete-student-btn" onclick="deleteStudent(${i}, ${array})">Delete</Button></div>
-       <img src="${
-         array[i].image || studentPlaceholder
-       }" class="students-image"/>
-       </div>
-       </li>`;
-
-    studentContainer.innerHTML += studentinfo;
+    studentContainer.append(studentCard);
+    studentCard.append(studenInfo);
+    studenInfo.append(studentName, studentHouse, deleteBtn);
+    // studentContainer.innerHTML += studentInfo;
   }
 
   // **********Farge generator funksjonen *********
@@ -141,17 +145,18 @@ function showStudents(array) {
   }
 }
 
-getCharacters();
-
 // *********delete student funksjon **************
 function deleteStudent(i, array) {
   let userAnswear = prompt(
     "Do you want to delete this student from class? yes/no"
   );
   if (userAnswear == "yes") {
-    array.splice(i, 1);
+    array.splice(i, 1) && array.push(array[1]);
+    studentsContainer = "";
     console.log(array);
   } else {
     alert("Go back to class!");
   }
 }
+
+getCharacters();
