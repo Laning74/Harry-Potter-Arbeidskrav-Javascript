@@ -1,12 +1,11 @@
 let hpCharacters = [];
 
 //****** Funksjonen som henter API'en******
-const getCharcters = async () => {
+const getCharacters = async () => {
   const data = await fetch("https://hp-api.herokuapp.com/api/characters");
   hpCharacters = await data.json();
 
   getSeverus();
-  getStudents();
 };
 
 // The function for getting professor Severus Snape from the API
@@ -80,109 +79,79 @@ magicSpell.classList.add("magicspell");
 
 // ******funsjonen som skal starte klassen*******
 
-let showStudents = document.querySelector(".students-container");
-showStudents.style.display = "none";
+let studentsContainer = document.querySelector(".students-container");
+studentsContainer.style.display = "none";
 
 startBtn.addEventListener("click", () => {
-  showStudents.style.display = "block";
-  getStudents();
+  studentsContainer.style.display = "block";
+  filterStudents();
 });
 
-let students = [];
-function getStudents() {
-  studentContainer.innerHTML = "";
-  students = hpCharacters.filter(function (data) {
-    return data.hogwartsStudent == true;
-  });
-  getRandomStudents(students, 10);
+function filterStudents() {
+  let studentsArray = hpCharacters.filter(
+    (student) => student.hogwartsStudent == true
+  );
+  console.log(studentsArray);
+  getTenStudent(studentsArray);
 }
-let studentContainer = document.querySelector(".students-list");
-// let studentList = document.createElement("li");
-// studentList.classList.add("student-card");
-// let studentInfo = document.createElement("div");
-// studentInfo.classList.add("student-info");
-// let studentName = document.createElement("h2");
-// let studentHouse = document.createElement("p");
-// let deleteButton = document.createElement("button");
-// deleteButton.classList.add("delete-student-btn");
-let studentPlaceholder = document.createElement("img");
-studentPlaceholder.classList.add("students-image");
-const getRandomStudents = (students, tenStudents) => {
-  let randomTen = [];
-  for (let i = 0; i < tenStudents; i++) {
-    randomTen.push(students[Math.floor(Math.random() * students.length)]);
-    randomTen.map((student) => {
-      let studentinfo = `<li><div class="student-card">
-        <div class="student-info">
-        <h2>${student.name}</h2>
-        <p>${student.house}</p>
-        <button class="delete-student-btn" onclick="deleteStudent(i, student)">Delete</Button></div>
-        <img src="./images/default-image.png">
-        </div>
-      </li>`;
-      // studentName.innerHTML = student.name;
-      // studentHouse.innerHTML = `House: ${student.house}`;
-      // // deleteButton.innerHTML = "Delete student";
-      // studentPlaceholder.src = student.image;
-      // if (student.image == "") {
-      //   studentPlaceholder.src = "./images/default-image.png";
-      // }
-      // if (student.house == "") {
-      //   studentHouse.innerHTML = "House: Unknown";
-      // }
-      studentContainer.innerHTML += studentinfo;
-    });
 
-    // **********Farge generator funksjonen *********
-    let studentCard = document.querySelectorAll(".student-card");
-    for (let i = 0; i < studentCard.length; i++) {
-      const setBg = () => {
-        const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-        studentCard[i].style.backgroundColor = "#" + randomColor;
-      };
-      setBg();
-    }
+function getTenStudent(array) {
+  let randomArray = [];
+
+  for (let i = 0; i < 10; i++) {
+    let randomNumber = Math.floor(Math.random() * array.length);
+    randomArray.push(array[randomNumber]);
   }
-  // return randomTen;
-};
+  console.log("get 10 students", randomArray);
+  showStudents(randomArray);
+}
 
-getCharcters();
+function showStudents(array) {
+  let studentContainer = document.querySelector(".students-list");
+  let studentPlaceholder = document.createElement("img");
+
+  studentContainer.innerHTML = "";
+  console.log("show 10 students", array);
+
+  for (let i = 0; i < array.length; i++) {
+    studentPlaceholder = "./images/default-image.png";
+
+    let studentinfo = `<li><div class="student-card">
+        <div class="student-info">
+        <h2>${array[i].name}</h2>
+        <p> House: ${array[i].house}</p>
+        <button class="delete-student-btn" onclick="deleteStudent(${i}, ${array})">Delete</Button></div>
+       <img src="${
+         array[i].image || studentPlaceholder
+       }" class="students-image"/>
+       </div>
+       </li>`;
+
+    studentContainer.innerHTML += studentinfo;
+  }
+
+  // **********Farge generator funksjonen *********
+  let studentCard = document.querySelectorAll(".student-card");
+  for (let i = 0; i < studentCard.length; i++) {
+    const setBg = () => {
+      const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+      studentCard[i].style.backgroundColor = "#" + randomColor;
+    };
+    setBg();
+  }
+}
+
+getCharacters();
 
 // *********delete student funksjon **************
-
-function deleteStudent(i, student) {
+function deleteStudent(i, array) {
   let userAnswear = prompt(
     "Do you want to delete this student from class? yes/no"
   );
-  if (userAnswear.student == "yes") {
-    randomTen.splice(i, 1);
+  if (userAnswear == "yes") {
+    array.splice(i, 1);
+    console.log(array);
+  } else {
+    alert("Go back to class!");
   }
 }
-
-// deleteButton.addEventListener("click", () => {
-//   deleteStudent(i, randomTen);
-// });
-
-// function deleteStudent(index, tenStudents) {
-//   let userConfirm = prompt(
-//     "Do you want to delete this student from class? yes/no"
-//   );
-//   if (userConfirm == "yes") {
-//     tenStudents.splice(index, 1);
-//   } else {
-//     alert("Nothing deleted from this list");
-//   }
-//   displayStudents(tenStudents);
-// }
-
-// let deleteBtn = document.querySelectorAll(".delete-student-btn");
-// for (let i = 0; i < deleteBtn.length; i++) {
-//   deleteBtn[i].addEventListener("click", (i, tenStudents) => {
-//     let userAnswear = prompt("Do you want to delete this student? yes/no");
-//     if (userAnswear == "yes") {
-//       tenStudents[i].spleice(i, 1);
-//     } else {
-//       alert("Go back to class!");
-//     }
-//   });
-// }
