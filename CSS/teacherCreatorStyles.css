@@ -145,7 +145,7 @@ h1 {
   width: 50em;
   height: 25rem;
   padding: 1.5em;
-  cursor: url(/images/pngwing.png), auto;
+  cursor: url(../images/pngwing.png), auto;
 }
 .logo-header-container {
   display: flex;
@@ -375,7 +375,6 @@ img {
 /* Styling of edit teacher card*/
 .edit-teacher {
   background-image: url(../images/Old\ paper.png);
-  display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(4, 2rem);
   text-align: left;
@@ -396,7 +395,7 @@ input {
   font-family: mr-darcy, sans-serif;
   font-weight: 600;
   height: 28px;
-  width: 200px;
+  width: 180px;
   border-radius: 8px;
   background-color: #251a08b8;
   color: white;
