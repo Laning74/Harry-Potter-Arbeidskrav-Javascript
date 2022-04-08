@@ -108,28 +108,32 @@ function getTenStudent(array) {
 
 let studentContainer = document.querySelector(".students-list");
 function showStudents(array) {
-  let studentPlaceholder = document.createElement("img");
-
   studentContainer.innerHTML = "";
   console.log("show 10 students", array);
 
   for (let i = 0; i < array.length; i++) {
-    studentPlaceholder = "./images/default-image.png";
     let deleteBtn = document.createElement("button");
     deleteBtn.innerText = "Delete student";
     deleteBtn.addEventListener("click", () => {
       deleteStudent(i, array);
-      // alert("Hei");
     });
     let studentCard = document.createElement("div");
+    studentCard.classList.add("student-card");
     let studenInfo = document.createElement("div");
+    studenInfo.classList.add("student-info");
     let studentName = document.createElement("h1");
     studentName.innerText = array[i].name;
+    studentName.classList.add("student-name");
     let studentHouse = document.createElement("p");
-    studentHouse.innerText = array[i].house;
-
+    studentHouse.innerText = "House: " + array[i].house;
+    studentHouse.classList.add("student-house");
+    let studentPlaceholder = document.createElement("img");
+    studentPlaceholder.src = array[i].image;
+    if (studentPlaceholder == "") {
+      studentPlaceholder.src = "./images/default-image.png";
+    }
     studentContainer.append(studentCard);
-    studentCard.append(studenInfo);
+    studentCard.append(studenInfo, studentPlaceholder);
     studenInfo.append(studentName, studentHouse, deleteBtn);
     // studentContainer.innerHTML += studentInfo;
   }
@@ -152,7 +156,7 @@ function deleteStudent(i, array) {
   );
   if (userAnswear == "yes") {
     array.splice(i, 1) && array.push(array[1]);
-    // studentsContainer = "";
+
     console.log(array);
   } else {
     alert("Go back to class!");
