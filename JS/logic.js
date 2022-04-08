@@ -127,18 +127,19 @@ createExitBtn.addEventListener("click", () => {
   createStudentContainer.style.display = "none";
 });
 //saving the new students in the students list
+//dropdown menu for houses
+let selection = document.querySelector("#selection");
+let selectedHouse;
+selection.addEventListener("change", () => {
+  selectedHouse = selection.options[selection.selectedIndex].value;
+});
+console.log(selectedHouse);
+
 let saveStudentBtn = document.querySelector(".save-student-btn");
 saveStudentBtn.addEventListener("click", () => {
   let src = "./images/default-image.png";
   let studentName = document.querySelector(".create-name-input").value;
-
-  //dropdown menu for houses
-  let selection = document.querySelector("select");
-  let selectedHouse;
-  selection.addEventListener("change", () => {
-    selectedHouse = selection.options[selection.selectedIndex].value;
-  });
-  let studentAge = parseInt(document.querySelector(".create-age-input").value);
+  let studentAge = document.querySelector(".create-age-input").value;
   // const capitalizeStudentHouse = house;
   // const houseName =
   //   capitalizeStudentHouse.charAt(0).toUpperCase() +
@@ -148,8 +149,6 @@ saveStudentBtn.addEventListener("click", () => {
   // Lager error melding hvis input ikke er utfylt
   if (studentName == "") {
     alert("Name is required");
-  } else if (houseName == "") {
-    alert("House is required");
   } else if (studentAge == "") {
     alert("Age is required");
   } else {
@@ -163,7 +162,8 @@ saveStudentBtn.addEventListener("click", () => {
 
   charactersList.innerHTML = hpCharacters;
   // addNewStudent();
-  renderData(houseName); //calling this function to filter according to the house name
+  // console.log(selectedHouse);
+  renderData(selectedHouse); //calling this function to filter according to the house name
 });
 //trenger ikke denne funksjonen egentlig for vi kan bruke det samme filter funksjonen her i.e renderData()
 // function addNewStudent() {
