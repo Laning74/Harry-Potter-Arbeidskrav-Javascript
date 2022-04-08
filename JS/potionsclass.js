@@ -152,11 +152,12 @@ function deleteStudent(i, array) {
   );
   if (userAnswear == "yes") {
     array.splice(i, 1) && array.push(array[1]);
-    studentsContainer = "";
+    // studentsContainer = "";
     console.log(array);
   } else {
     alert("Go back to class!");
   }
+  showStudents(array);
 }
 
 getCharacters();
