@@ -183,17 +183,14 @@ select {
 }
 
 .logo-header-container {
-  /* padding-left: 10em; */
+  margin: 2em 0 0 7em;
   display: flex;
-  justify-content: center;
-  gap: 70px;
-  /* width: 100%; */
+  align-items: center;
+  gap: 0.5em;
 }
 
 .hogwarts-logo {
-  /* position: absolute; */
-  left: 20em;
-  width: 70px;
+  width: 100px;
 }
 
 .new-student-header {
@@ -202,6 +199,7 @@ select {
 
 .input-container {
   width: 100%;
+  padding: 0 1em 1em 1em;
 }
 
 .create-name-input,
@@ -232,7 +230,7 @@ select {
 .exit-btn,
 .save-student-btn {
   width: 10em;
-  margin: 0.5em 1em;
+  margin: 0.5em 2.5em;
   padding: 0.7em;
   border-radius: 10px;
   border: none;
@@ -241,13 +239,16 @@ select {
   background-color: var(--griffingdor-clr);
 }
 
+.exit-btn:hover {
+  background-color: var(--huffelpuff-clr);
+}
+
 .save-student-btn {
   background-color: var(--slytherin-clr);
 }
 
 .save-student-btn:hover {
   background-color: var(--huffelpuff-clr);
-  color: var(--primary-clr);
 }
 
 /*.student-list {
@@ -357,11 +358,11 @@ select {
   font-style: normal;
   width: 200px;
   border-radius: 8px;
-  background-color: #e6a038;
+  background-color: var(--huffelpuff-clr);
 }
 
 .create-student-btn:hover {
   cursor: pointer;
-  background-color: #377f6a;
+  background-color: var(--slytherin-clr);
   color: white;
 }
