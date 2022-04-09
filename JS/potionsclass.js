@@ -87,29 +87,32 @@ startBtn.addEventListener("click", () => {
   filterStudents();
 });
 
+studentsArray = [];
 function filterStudents() {
   let studentsArray = hpCharacters.filter(
     (student) => student.hogwartsStudent == true
   );
-  console.log(studentsArray);
+  studentsArray.push((studentsArray) => {
+    student.hogwartsStudent == true;
+  });
+  console.log("students arry etter push: ", studentsArray);
   getTenStudent(studentsArray);
 }
 
 function getTenStudent(array) {
   let randomArray = [];
-
   for (let i = 0; i < 10; i++) {
     let randomNumber = Math.floor(Math.random() * array.length);
     randomArray.push(array[randomNumber]);
   }
-  console.log("get 10 students", randomArray);
+  // console.log("get 10 students", randomArray);
   showStudents(randomArray);
 }
 
 let studentContainer = document.querySelector(".students-list");
 function showStudents(array) {
   studentContainer.innerHTML = "";
-  console.log("show 10 students", array);
+  // console.log("show 10 students", array);
 
   for (let i = 0; i < array.length; i++) {
     let deleteBtn = document.createElement("button");
@@ -128,8 +131,9 @@ function showStudents(array) {
     studentHouse.innerText = "House: " + array[i].house;
     studentHouse.classList.add("student-house");
     let studentPlaceholder = document.createElement("img");
+    studentPlaceholder.classList.add("students-image");
     studentPlaceholder.src = array[i].image;
-    if (studentPlaceholder == "") {
+    if (array[i].image == "") {
       studentPlaceholder.src = "./images/default-image.png";
     }
     studentContainer.append(studentCard);
@@ -155,12 +159,16 @@ function deleteStudent(i, array) {
     "Do you want to delete this student from class? yes/no"
   );
   if (userAnswear == "yes") {
-    array.splice(i, 1) && array.push(array[1]);
+    array.splice(i, 1);
+    console.log("arryet etter delete :", array);
 
+    // let randomNumber = Math.floor(Math.random() * studentsArray.length);
+    array.push(studentsArray);
     console.log(array);
   } else {
     alert("Go back to class!");
   }
+  showStudents(array);
 }
 
 getCharacters();
