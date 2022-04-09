@@ -6,12 +6,20 @@
   font-family: mr-darcy, sans-serif;
 }
 
-/* Fikset på bakgrunnen, så den er i orden nå */
+:root {
+  --gryffindor-clr: #ce373d;
+  --slytherin-clr: #377f6a;
+  --hufflepuff-clr: #e6a038;
+  --ravenclaw-clr: #445393;
+  --card-shaddow: 0 0 10px 5px rgba(68, 83, 147, 0.8);
+  --card-border: rgba(68, 83, 147, 0.8);
+  --text-clr: white;
+}
+
 body {
   width: 100%;
   height: 100vh;
-  background-color: rgb(81, 81, 77);
-  /* background-image: url(../images/potionsclass-background.jpg); */
+  background-image: url(../images/background-image.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -51,26 +59,24 @@ nav a {
   text-decoration: none;
   padding: 0.5em;
   text-transform: uppercase;
-  color: white;
+  color: var(--text-clr);
   font-size: 1.3rem;
 }
 
 nav a:hover,
 nav a:focus {
-  color: #e0c53b;
+  color: var(--hufflepuff-clr);
 }
 
 nav a::before {
   content: "";
   display: block;
   height: 5px;
-  background-color: #e0c53b;
-
+  background-color: var(--hufflepuff-clr);
   position: absolute;
   top: 0;
   margin-top: 1.5rem;
   border-radius: 2px;
-
   transition: all ease-in-out 250ms;
 }
 
@@ -103,11 +109,10 @@ nav a:hover::before {
 }
 
 /* Severus Snape card styling */
-
 .severus-snape-container {
   grid-area: severus;
   background-color: #000000;
-  color: white;
+  color: var(--text-clr);
   border-radius: 8px;
 }
 
@@ -147,7 +152,7 @@ nav a:hover::before {
 }
 
 .start-btn {
-  background-color: #e0c53b;
+  background-color: var(--hufflepuff-clr);
   width: 200px;
   height: 50px;
   border-radius: 8px;
@@ -159,8 +164,8 @@ nav a:hover::before {
 
 .start-btn:hover {
   cursor: pointer;
-  color: white;
-  background-color: #377f6a;
+  color: var(--text-clr);
+  background-color: var(--slytherin-clr);
 }
 
 .severus-img {
@@ -202,22 +207,32 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1em;
-  /* list-style: none; */
+  gap: 2em;
 }
 
 .student-card {
   display: flex;
   justify-content: space-between;
   width: 23rem;
-  height: 9rem;
-  color: white;
+  height: 10rem;
+  color: var(--text-clr);
+  border-radius: 10px;
+  transition: transform 500ms ease-in-out;
+  overflow: hidden;
+}
+
+.student-card:hover {
+  transform: scale(1.05);
+  box-shadow: var(--card-shaddow), inset var(--card-shaddow);
 }
 
 .student-info {
   width: 100%;
   margin: 1em 0;
   padding: 0 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .delete-student-btn {
@@ -226,6 +241,12 @@ main {
   border-radius: 5px;
   border: none;
   width: 100%;
+  cursor: pointer;
+  background-color: var(--hufflepuff-clr);
+}
+
+.delete-student-btn:hover {
+  background-color: var(--gryffindor-clr);
 }
 .students-image {
   width: 200px;
@@ -233,7 +254,12 @@ main {
 }
 
 .student-name {
-  font-size: 1em;
+  font-size: 24px;
+  line-height: 100%;
+}
+
+.student-house {
+  margin-top: 10px;
 }
 
 footer {

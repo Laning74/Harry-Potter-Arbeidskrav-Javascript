@@ -14,7 +14,6 @@ function getSeverus() {
     return data.name == "Severus Snape";
   });
   displaySeverus(professor);
-  console.log(hpCharacters);
 }
 
 // The function for displaying professor Severus Snape
@@ -92,39 +91,54 @@ function filterStudents() {
   let studentsArray = hpCharacters.filter(
     (student) => student.hogwartsStudent == true
   );
-  studentsArray.push((studentsArray) => {
-    student.hogwartsStudent == true;
+  studentsArray.push((student) => {
+    student.name;
+    student.house;
+    student.image;
   });
-  console.log("students arry etter push: ", studentsArray);
   getTenStudent(studentsArray);
+  console.log("students arry etter push: ", studentsArray);
 }
-
-function getTenStudent(array) {
+// ********* Funksjonen som henter 10 studenter*********
+function getTenStudent(studentsArray) {
   let randomArray = [];
   for (let i = 0; i < 10; i++) {
-    let randomNumber = Math.floor(Math.random() * array.length);
-    randomArray.push(array[randomNumber]);
+    let randomNumber = Math.floor(Math.random() * studentsArray.length);
+    randomArray.push(studentsArray[randomNumber]);
   }
   // console.log("get 10 students", randomArray);
-  showStudents(randomArray);
+  showStudents(randomArray, studentsArray);
 }
 
+let defaultImgMale = [
+  "./images/harry-potter-sexy.jpg",
+  "./images/harry-potter-sexy2.jpg",
+  "./images/harry-potter-sexy3.jpg",
+  "./images/harry-potter-sexy4.jpg",
+  "./images/harry-potter-sexy5.jpg",
+];
+
+let defaultImgFemale = ["./images/harpreet.jpg", "./images/martine.jpg"];
+
 let studentContainer = document.querySelector(".students-list");
-function showStudents(array) {
+function showStudents(array, studentsArray) {
   studentContainer.innerHTML = "";
   // console.log("show 10 students", array);
 
   for (let i = 0; i < array.length; i++) {
     let deleteBtn = document.createElement("button");
+    deleteBtn.classList.add("delete-student-btn");
     deleteBtn.innerText = "Delete student";
     deleteBtn.addEventListener("click", () => {
-      deleteStudent(i, array);
+      deleteStudent(i, array, studentsArray);
     });
     let studentCard = document.createElement("div");
     studentCard.classList.add("student-card");
     let studenInfo = document.createElement("div");
     studenInfo.classList.add("student-info");
-    let studentName = document.createElement("h1");
+    studentText = document.createElement("div");
+    studentText.classList.add("student-txt");
+    let studentName = document.createElement("h2");
     studentName.innerText = array[i].name;
     studentName.classList.add("student-name");
     let studentHouse = document.createElement("p");
@@ -133,13 +147,33 @@ function showStudents(array) {
     let studentPlaceholder = document.createElement("img");
     studentPlaceholder.classList.add("students-image");
     studentPlaceholder.src = array[i].image;
-    if (array[i].image == "") {
-      studentPlaceholder.src = "./images/default-image.png";
+    if (array[i].image == "" && array[i].gender == "male") {
+      studentPlaceholder.src =
+        defaultImgMale[Math.floor(Math.random() * defaultImgMale.length)];
+    }
+    if (array[i].image == "" && array[i].gender == "female") {
+      studentPlaceholder.src =
+        defaultImgFemale[Math.floor(Math.random() * defaultImgFemale.length)];
+    }
+    if (array[i].house == "Gryffindor") {
+      studentHouse.style.color = "#ce373d";
+    }
+    if (array[i].house == "Slytherin") {
+      studentHouse.style.color = "#377f6a";
+    }
+    if (array[i].house == "Hufflepuff") {
+      studentHouse.style.color = "#e6a038";
+    }
+    if (array[i].house == "Ravenclaw") {
+      studentHouse.style.color = "#445393";
+    }
+    if (array[i].house == "") {
+      studentHouse.innerHTML = "house: unknown";
     }
     studentContainer.append(studentCard);
     studentCard.append(studenInfo, studentPlaceholder);
-    studenInfo.append(studentName, studentHouse, deleteBtn);
-    // studentContainer.innerHTML += studentInfo;
+    studenInfo.append(studentText, deleteBtn);
+    studentText.append(studentName, studentHouse);
   }
 
   // **********Farge generator funksjonen *********
@@ -154,21 +188,22 @@ function showStudents(array) {
 }
 
 // *********delete student funksjon **************
-function deleteStudent(i, array) {
+function deleteStudent(i, array, studentsArray) {
   let userAnswear = prompt(
     "Do you want to delete this student from class? yes/no"
   );
+  let randomStudent =
+    studentsArray[Math.floor(Math.random() * studentsArray.length)];
+
   if (userAnswear == "yes") {
     array.splice(i, 1);
-    console.log("arryet etter delete :", array);
-
-    // let randomNumber = Math.floor(Math.random() * studentsArray.length);
-    array.push(studentsArray);
-    console.log(array);
+    array.push(randomStudent);
   } else {
     alert("Go back to class!");
   }
   showStudents(array);
+  console.log("array:", array);
+  console.log("studentsarray:", studentsArray);
 }
 
 getCharacters();
