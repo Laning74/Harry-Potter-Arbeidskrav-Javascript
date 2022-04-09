@@ -4,7 +4,6 @@
   box-sizing: border-box;
   list-style: none;
   font-family: mr-darcy, sans-serif;
-  cursor: url("./images/pngwing.com\ \(8\).png"), auto;
 }
 
 :root {
@@ -18,6 +17,7 @@
 }
 
 body {
+  cursor: url(../images/Wand.png), auto;
   width: 100%;
   height: 100vh;
   background-image: url(../images/background-image.jpg);
@@ -220,6 +220,7 @@ main {
   border-radius: 10px;
   transition: transform 500ms ease-in-out;
   overflow: hidden;
+  border: 1px solid var(--card-border);
 }
 
 .student-card:hover {

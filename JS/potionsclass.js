@@ -1,5 +1,5 @@
+"use strict";
 let hpCharacters = [];
-
 //****** Funksjonen som henter API'en******
 const getCharacters = async () => {
   const data = await fetch("https://hp-api.herokuapp.com/api/characters");
@@ -86,18 +86,19 @@ startBtn.addEventListener("click", () => {
   filterStudents();
 });
 
-studentsArray = [];
+let studentsArray = [];
 function filterStudents() {
   let studentsArray = hpCharacters.filter(
     (student) => student.hogwartsStudent == true
   );
-  studentsArray.push((student) => {
-    student.name;
-    student.house;
-    student.image;
-  });
+  studentsArray.pop();
+  // studentsArray.push((student) => {
+  //   student.name;
+  //   student.house;
+  //   student.image;
+  // });
   getTenStudent(studentsArray);
-  console.log("students arry etter push: ", studentsArray);
+  // console.log("students arry etter push: ", studentsArray);
 }
 // ********* Funksjonen som henter 10 studenter*********
 function getTenStudent(studentsArray) {
@@ -106,14 +107,14 @@ function getTenStudent(studentsArray) {
     let randomNumber = Math.floor(Math.random() * studentsArray.length);
     randomArray.push(studentsArray[randomNumber]);
   }
-  // console.log("get 10 students", randomArray);
+  console.log("get 10 students", randomArray);
+  console.log("get all students", studentsArray);
   showStudents(randomArray, studentsArray);
 }
 
 let defaultImgMale = [
   "./images/harry-potter-sexy.jpg",
   "./images/harry-potter-sexy2.jpg",
-  "./images/harry-potter-sexy3.jpg",
   "./images/harry-potter-sexy4.jpg",
   "./images/harry-potter-sexy5.jpg",
 ];
@@ -136,7 +137,7 @@ function showStudents(array, studentsArray) {
     studentCard.classList.add("student-card");
     let studenInfo = document.createElement("div");
     studenInfo.classList.add("student-info");
-    studentText = document.createElement("div");
+    let studentText = document.createElement("div");
     studentText.classList.add("student-txt");
     let studentName = document.createElement("h2");
     studentName.innerText = array[i].name;
@@ -192,14 +193,13 @@ function deleteStudent(i, array, studentsArray) {
   let userAnswear = prompt(
     "Do you want to delete this student from class? yes/no"
   );
-  let randomStudent =
-    studentsArray[Math.floor(Math.random() * studentsArray.length)];
-
+  //
   if (userAnswear == "yes") {
     array.splice(i, 1);
-    array.push(randomStudent);
+    array.push(studentsArray[Math.floor(Math.random() * studentsArray.length)]);
   } else {
     alert("Go back to class!");
+    array.splice(0, 0);
   }
   showStudents(array);
   console.log("array:", array);
