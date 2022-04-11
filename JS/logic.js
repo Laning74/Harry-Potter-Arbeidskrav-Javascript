@@ -143,15 +143,15 @@ let saveStudentBtn = document.querySelector(".save-student-btn");
 saveStudentBtn.addEventListener("click", () => {
   let src = "./images/default-image.png";
   let studentName = document.querySelector(".create-name-input").value;
-  let studentAge = parseInt(document.querySelector(".create-age-input").value);
-  let selectedHouse = validateHouse();
-
-  // Lager error melding hvis input ikke er utfylt
-  if (studentName == "") {
-    alert("Name is required");
-  } else if (studentAge == "") {
-    alert("Age is required");
+  let studentAge = document.querySelector(".create-age-input").value;
+  let selectedHouse;
+  // Error handling for empty input fields
+  if (studentName == "" || studentAge == "") {
+    alert("Type in both Name and year of birth");
+  } else if (isNaN(studentAge)) {
+    alert("Type in Year of Birth in numbers (yyyy)");
   } else {
+    selectedHouse = validateHouse();
     hpCharacters.push({
       image: src,
       name: studentName,
