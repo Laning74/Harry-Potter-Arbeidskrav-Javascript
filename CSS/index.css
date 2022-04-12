@@ -314,6 +314,10 @@ select {
 .character-status-dead {
   grid-area: status;
   color: red;
+  font-size: larger;
+  text-shadow: black 1px 4px;
+  -webkit-text-stroke-width: 0.4px;
+  -webkit-text-stroke-color: white;
   /* background-color: #e6a038; */
 }
 .character:hover {
