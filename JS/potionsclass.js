@@ -86,19 +86,14 @@ startBtn.addEventListener("click", () => {
   filterStudents();
 });
 
-let studentsArray = [];
 function filterStudents() {
-  let studentsArray = hpCharacters.filter(
+  let studentsArray = [];
+  studentsArray = hpCharacters.filter(
     (student) => student.hogwartsStudent == true
   );
   studentsArray.pop();
-  // studentsArray.push((student) => {
-  //   student.name;
-  //   student.house;
-  //   student.image;
-  // });
+
   getTenStudent(studentsArray);
-  // console.log("students arry etter push: ", studentsArray);
 }
 // ********* Funksjonen som henter 10 studenter*********
 function getTenStudent(studentsArray) {
@@ -107,31 +102,38 @@ function getTenStudent(studentsArray) {
     let randomNumber = Math.floor(Math.random() * studentsArray.length);
     randomArray.push(studentsArray[randomNumber]);
   }
-  console.log("get 10 students", randomArray);
-  console.log("get all students", studentsArray);
+
   showStudents(randomArray, studentsArray);
 }
 
 let defaultImgMale = [
   "./images/harry-potter-sexy.jpg",
+  "./images/harry-potter-sexy.jpg",
+  "./images/harry-potter-sexy.jpg",
+  "./images/harry-potter-sexy3.jpg",
   "./images/harry-potter-sexy2.jpg",
   "./images/harry-potter-sexy4.jpg",
   "./images/harry-potter-sexy5.jpg",
 ];
 
-let defaultImgFemale = ["./images/harpreet.jpg", "./images/martine.jpg"];
+let defaultImgFemale = [
+  "./images/harpreet.jpg",
+  "./images/martine.jpg",
+  "./images/renna.png",
+  "./images/default-image.png",
+];
 
+// display student funksjon
 let studentContainer = document.querySelector(".students-list");
-function showStudents(array, studentsArray) {
+function showStudents(array) {
   studentContainer.innerHTML = "";
-  // console.log("show 10 students", array);
 
   for (let i = 0; i < array.length; i++) {
     let deleteBtn = document.createElement("button");
     deleteBtn.classList.add("delete-student-btn");
     deleteBtn.innerText = "Delete student";
     deleteBtn.addEventListener("click", () => {
-      deleteStudent(i, array, studentsArray);
+      deleteStudent(i, array);
     });
     let studentCard = document.createElement("div");
     studentCard.classList.add("student-card");
@@ -148,6 +150,7 @@ function showStudents(array, studentsArray) {
     let studentPlaceholder = document.createElement("img");
     studentPlaceholder.classList.add("students-image");
     studentPlaceholder.src = array[i].image;
+    //la inn forsj\kjellige default bilder
     if (array[i].image == "" && array[i].gender == "male") {
       studentPlaceholder.src =
         defaultImgMale[Math.floor(Math.random() * defaultImgMale.length)];
@@ -156,6 +159,7 @@ function showStudents(array, studentsArray) {
       studentPlaceholder.src =
         defaultImgFemale[Math.floor(Math.random() * defaultImgFemale.length)];
     }
+    // La også inn fargene til husene på kortene
     if (array[i].house == "Gryffindor") {
       studentHouse.style.color = "#ce373d";
     }
@@ -189,21 +193,27 @@ function showStudents(array, studentsArray) {
 }
 
 // *********delete student funksjon **************
-function deleteStudent(i, array, studentsArray) {
+function deleteStudent(i, array) {
   let userAnswear = prompt(
     "Do you want to delete this student from class? yes/no"
   );
-  //
+  // Trengte filter students her også ellers fikk jeg error/undefined
+  let newStudentArray = hpCharacters.filter(
+    (student) => student.hogwartsStudent == true
+  );
   if (userAnswear == "yes") {
     array.splice(i, 1);
-    array.push(studentsArray[Math.floor(Math.random() * studentsArray.length)]);
+    array.push(
+      newStudentArray[Math.floor(Math.random() * newStudentArray.length)]
+    );
   } else {
     alert("Go back to class!");
     array.splice(0, 0);
   }
+
   showStudents(array);
   console.log("array:", array);
-  console.log("studentsarray:", studentsArray);
+  console.log("NewStudentsarray:", newStudentArray);
 }
 
 getCharacters();

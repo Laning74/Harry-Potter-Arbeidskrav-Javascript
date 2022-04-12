@@ -47,7 +47,7 @@ header {
 
 nav ul {
   margin: 0.6rem;
-  padding: 0;
+  /* padding: 0; */
 }
 
 nav li {
@@ -100,7 +100,7 @@ nav a:hover::before {
   height: 100%;
   gap: 10px;
   grid-template-columns: 6em 1fr 1fr 1fr 1fr 6em;
-  grid-template-rows: 15% 30% 30% auto 10%;
+  grid-template-rows: 30% 30% 30% auto 10%;
   grid-template-areas:
     "header header header header header header "
     ". . severus severus bubble ."
@@ -252,6 +252,7 @@ main {
 }
 .students-image {
   width: 200px;
+  object-fit: cover;
   overflow: hidden;
 }
 
@@ -273,20 +274,98 @@ footer {
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 738px) {
   .wrapper {
+    grid-template-columns: 2em 1fr 1fr 1fr 1fr 2em;
+    grid-template-rows: 25% 60% 30% auto 10%;
     grid-template-areas:
       "header header header header header header "
-      ". . severus severus bubble ."
-      ". . severus severus . ."
+      ". severus severus severus severus bubble"
+      ". severus severus severus severus ."
       "main main main main main main"
       ". footer footer footer footer .";
   }
-  nav a {
-    font-size: 0.7rem;
+  header {
+    justify-content: space-between;
+  }
+  nav ul {
+    margin: 0;
     padding: 0;
   }
+
+  nav a {
+    font-size: 10px;
+    padding: 0;
+  }
+
+  nav a::before {
+    height: 1px;
+    margin-top: 1.2rem;
+  }
+
   .logo {
     width: 200px;
+  }
+  .severus-info-container {
+    border-radius: 8px;
+    border: 1px solid var(--card-border);
+
+    /* height: 100%; */
+    width: auto;
+    /* align-items: center;
+    display: grid; */
+    text-align: center;
+    grid-template-columns: 1em 1fr 1em;
+    grid-template-rows: 30% 30% 10% 7% 7% 20%;
+    grid-template-areas:
+      "image image image"
+      "image image image"
+      ".severusname ."
+      ".severusage ."
+      ".severuswand ."
+      ".startbtn .";
+  }
+  .severus-name {
+    font-size: 20px;
+  }
+
+  .severus-age {
+    font-size: 16px;
+  }
+
+  .severus-wand {
+    font-size: 16px;
+  }
+  .severus-img {
+    border-radius: 8px 8px 0 0;
+  }
+  .start-btn {
+    margin-bottom: 1em;
+  }
+  .magicspell-container {
+    position: absolute;
+    width: 300px;
+    left: 25em;
+    top: -8em;
+  }
+}
+@media screen and (max-width: 620px) {
+  .magicspell-container {
+    width: 200px;
+    left: 20em;
+    top: -8em;
+  }
+  .magicspell {
+    font-size: 10px;
+  }
+  .logo {
+    width: 100px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .magicspell-container {
+    width: 200px;
+    left: 14em;
+    top: -8em;
   }
 }
