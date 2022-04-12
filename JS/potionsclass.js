@@ -46,7 +46,7 @@ function displaySeverus(professor) {
   professor.map((severus) => {
     severusName.innerHTML = severus.name;
     severusAge.innerHTML = `Age: ${calculateAge(severus.yearOfBirth)}`;
-    severusWand.innerHTML = "Wand: vet ikke enda";
+    severusWand.innerHTML = "Wandinfo: Uknown";
     startBtn.innerHTML = "Start teaching";
     severusImage.src = severus.image;
   });

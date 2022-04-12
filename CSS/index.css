@@ -278,7 +278,7 @@ select {
   border-radius: 10px;
   padding: 10px 20px;
   display: grid;
-  grid-template-columns: 4fr 1fr;
+  grid-template-columns: 4fr auto;
   grid-template-areas:
     "name image"
     "house image"

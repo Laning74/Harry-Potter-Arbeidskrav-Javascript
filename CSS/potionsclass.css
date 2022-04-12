@@ -100,13 +100,22 @@ nav a:hover::before {
   height: 100%;
   gap: 10px;
   grid-template-columns: 6em 1fr 1fr 1fr 1fr 6em;
-  grid-template-rows: 30% 30% 30% auto 10%;
+  grid-template-rows: 15% 10% 25% 25% auto 10%;
   grid-template-areas:
     "header header header header header header "
+    ". . title title . ."
     ". . severus severus bubble ."
     ". . severus severus . ."
     ". main main main main ."
     ". footer footer footer footer .";
+}
+
+.tittel {
+  grid-area: title;
+  color: white;
+  display: flex;
+  justify-content: center;
+  
 }
 
 /* Severus Snape card styling */
