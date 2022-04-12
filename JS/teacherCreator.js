@@ -56,12 +56,12 @@ function displayTeachers(staffMembers) {
       teacherCard.classList.add("teacher-ravenclaw");
     } else {
       teacherCard.classList.add("teacher");
-      teacherHouse.innerText = `House: Uncertain`;
+      teacherHouse.innerText = `House: Unknown`;
     }
     let teacherPatronus = document.createElement("p");
     teacherPatronus.classList.add("teacher-patronus");
     if (staffMembers[i].patronus == "") {
-      teacherPatronus.innerText = "Patronus: Uncertain";
+      teacherPatronus.innerText = "Patronus: Unknown";
     } else {
       teacherPatronus.innerText = `Patronus: ${staffMembers[i].patronus}`;
     }
@@ -162,20 +162,24 @@ saveBtn.addEventListener("click", () => {
   addNewTeacher();
 });
 //dropdown menu for houses
-let selection = document.querySelector("select");
-let selectedHouse;
-selection.addEventListener("change", () => {
-  selectedHouse = selection.options[selection.selectedIndex].value;
-});
+// let selection = document.querySelector("select");
+// let selectedHouse;
+// selection.addEventListener("change", () => {
+//   selectedHouse = selection.options[selection.selectedIndex].value;
+// });
 function addNewTeacher() {
   let src = "./images/default-image.png";
   let teacherName = document.querySelector(".create-name-input").value;
   let teacherPatronus = document.querySelector(".create-patronus-input").value;
+  let selectedHouse = document.querySelector("#selection").value;
   if (teacherName == "" || teacherPatronus == "") {
     alert("Fill in all the information");
+  } else if (selectedHouse === "none") {
+    alert("Select a house");
   } else {
     let userAnswer = prompt("Do you want to save this New Teacher? yes/no");
     if (userAnswer == "yes") {
+      selectedHouse = document.querySelector("#selection").value;
       staffMembers.push({
         name: teacherName,
         house: selectedHouse,
@@ -189,7 +193,7 @@ function addNewTeacher() {
   }
   displayTeachers(staffMembers);
   document.querySelector(".create-name-input").value = "";
-  document.querySelector("select").selectedIndex = 0;
+  // document.querySelector("select").selectedIndex = 0;
   document.querySelector(".create-patronus-input").value = "";
 }
 //saving edited teacher data in array working
