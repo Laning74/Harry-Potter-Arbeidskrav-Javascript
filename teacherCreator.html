@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Meet the teachers at Hogwarts and create your own new teachers and edit the exisiting ones"
+    />
+    <title>Harry Potter Teacher-Creator</title>
+    <link rel="stylesheet" href="/CSS/teacherCreatorStyles.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/crr1vck.css" />
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <img
+          src="/images/Harry-Potter-Logo.png"
+          alt="Harry Potter logo"
+          class="logo"
+        />
+      </a>
+
+      <nav>
+        <ul>
+          <li><a href="/index.html">Yearbook</a></li>
+          <li><a href="">Potions Class</a></li>
+          <li><a href="/teacherCreator.html">Teacher-Creator</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h1>Meet our teachers at Hogwarts</h1>
+      <div class="btn-container">
+        <button class="create-teacher-btn">Create new teacher</button>
+      </div>
+
+      <!-- Create new teacher -->
+
+      <div class="create-teacher-container">
+        <div class="logo-header-container">
+          <img class="hogwarts-logo" src="./images/Hogwarts-logo.png" alt="" />
+          <h2 class="new-teacher-header">Add new teacher to Hogwarts</h2>
+        </div>
+
+        <div class="input-container">
+          <input type="text" placeholder="Name:" class="create-name-input" />
+          <div id="houseDropdown" class="dropdown-content">
+            <label for="select">House:</label>
+            <select>
+              <option disabled hidden selected>Select</option>
+              <option value="Gryffindor">Gryffindor</option>
+              <option value="Slytherin">Slytherin</option>
+              <option value="Hufflepuff">Hufflepuff</option>
+              <option value="Ravenclaw">Ravenclaw</option>
+            </select>
+          </div>
+
+          <input
+            type="text"
+            placeholder="Patronus:"
+            class="create-patronus-input"
+          />
+        </div>
+        <button class="save-btn">Save</button>
+        <button class="exit-btn">Exit</button>
+      </div>
+
+      <!-- Teachers of Hogwart -->
+
+      <ul class="teacher-list"></ul>
+    </div>
+
+    <script src="/JS/teacherCreator.js"></script>
+  </body>
+</html>
