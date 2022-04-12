@@ -127,31 +127,22 @@ createExitBtn.addEventListener("click", () => {
   createStudentContainer.style.display = "none";
 });
 //saving the new students in the students list
-//dropdown menu for houses
-
-// let selectedHouse;
-// selection.addEventListener("change", () => {
-
-// let selection = document.querySelector("#selection");
-// let selectedHouse;
-// selection.addEventListener("change", () => {
-//   selectedHouse = selection.options[selection.selectedIndex].value;
-// });
-// console.log(selectedHouse);
 
 let saveStudentBtn = document.querySelector(".save-student-btn");
 saveStudentBtn.addEventListener("click", () => {
   let src = "./images/default-image.png";
   let studentName = document.querySelector(".create-name-input").value;
-  let studentAge = parseInt(document.querySelector(".create-age-input").value);
-  let selectedHouse = validateHouse();
-
-  // Lager error melding hvis input ikke er utfylt
-  if (studentName == "") {
-    alert("Name is required");
-  } else if (studentAge == "") {
-    alert("Age is required");
+  let studentAge = document.querySelector(".create-age-input").value;
+  let selectedHouse = document.querySelector("#selection").value;
+  // Error handling for empty input fields
+  if (studentName == "" || studentAge == "") {
+    alert("Type in both Name and year of birth");
+  } else if (selectedHouse === "none") {
+    alert("Select a house");
+  } else if (isNaN(studentAge)) {
+    alert("Type in Year of Birth in numbers (yyyy)");
   } else {
+    selectedHouse = document.querySelector("#selection").value;
     hpCharacters.push({
       image: src,
       name: studentName,
@@ -166,16 +157,6 @@ saveStudentBtn.addEventListener("click", () => {
 
   renderData(selectedHouse);
 });
-//function to check if user have selected a house from drop down menu or not
-function validateHouse() {
-  let selection = document.querySelector("#selection");
-  let selectHouse = selection.options[selection.selectedIndex].value;
-  if (selection.selectedIndex <= 0) {
-    alert("Please Select Valid Value");
-  } else {
-    return selectHouse;
-  }
-}
 //trenger ikke denne funksjonen egentlig for vi kan bruke det samme filter funksjonen her i.e renderData()
 // function addNewStudent() {
 //   charactersList.innerHTML = "";
