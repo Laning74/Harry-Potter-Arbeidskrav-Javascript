@@ -13,7 +13,7 @@
   --ravenclaw-clr: #445393;
   --card-shaddow: 0 0 10px 5px rgba(68, 83, 147, 0.8);
   --card-border: rgba(68, 83, 147, 0.8);
-  --text-clr: white;
+  --text-clr: #ffffff;
 }
 
 body {
@@ -102,6 +102,20 @@ nav a:hover::before {
   text-align: center;
   align-items: flex-end;
   color: var(--text-clr);
+  font-size: 22px;
+  background-image: linear-gradient(
+    to right,
+    var(--gryffindor-clr),
+    var(--gryffindor-clr),
+    var(--hufflepuff-clr),
+    var(--slytherin-clr),
+    var(--ravenclaw-clr),
+    var(--ravenclaw-clr)
+  );
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .wrapper {
@@ -151,17 +165,17 @@ nav a:hover::before {
 
 .severus-name {
   grid-area: severusname;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .severus-age {
   grid-area: severusage;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .severus-wand {
   grid-area: severuswand;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .btn-container {
