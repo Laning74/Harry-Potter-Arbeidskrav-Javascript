@@ -95,31 +95,40 @@ nav a:hover::before {
   }
 }
 
+.headline {
+  grid-area: headline;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: flex-end;
+  color: var(--text-clr);
+}
+
 .wrapper {
   display: grid;
   height: 100%;
   gap: 10px;
   grid-template-columns: 6em 1fr 1fr 1fr 1fr 6em;
-  grid-template-rows: 15% 10% 25% 25% auto 10%;
+  grid-template-rows: 15% 20% 25% 25% auto 10%;
   grid-template-areas:
     "header header header header header header "
-    ". . title title . ."
+    "headline headline headline headline headline headline"
     ". . severus severus bubble ."
     ". . severus severus . ."
     ". main main main main ."
     ". footer footer footer footer .";
 }
 
-.tittel {
+/* .tittel {
   grid-area: title;
   color: white;
   display: flex;
   justify-content: center;
-  
-}
+} */
 
 /* Severus Snape card styling */
 .severus-snape-container {
+  margin-top: 2em;
   grid-area: severus;
   background-color: #000000;
   color: var(--text-clr);
@@ -286,20 +295,27 @@ footer {
 @media screen and (max-width: 738px) {
   .wrapper {
     grid-template-columns: 2em 1fr 1fr 1fr 1fr 2em;
-    grid-template-rows: 25% 60% 30% auto 10%;
+    grid-template-rows: 20% 20% 60% 30% auto 10%;
     grid-template-areas:
-      "header header header header header header "
-      ". severus severus severus severus bubble"
-      ". severus severus severus severus ."
+      ". header header header header ."
+      "headline headline headline headline headline headline"
+      ". . severus severus bubble ."
+      ". . severus severus . ."
       "main main main main main main"
       ". footer footer footer footer .";
   }
   header {
-    justify-content: space-between;
+    flex-direction: column;
   }
+
   nav ul {
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  nav li {
+    margin: 0;
   }
 
   nav a {
@@ -311,6 +327,11 @@ footer {
     height: 1px;
     margin-top: 1.2rem;
   }
+  .headline {
+    align-items: center;
+    margin: 0 1em;
+    font-size: 1em;
+  }
 
   .logo {
     width: 200px;
@@ -318,11 +339,7 @@ footer {
   .severus-info-container {
     border-radius: 8px;
     border: 1px solid var(--card-border);
-
-    /* height: 100%; */
     width: auto;
-    /* align-items: center;
-    display: grid; */
     text-align: center;
     grid-template-columns: 1em 1fr 1em;
     grid-template-rows: 30% 30% 10% 7% 7% 20%;
@@ -330,10 +347,11 @@ footer {
       "image image image"
       "image image image"
       ".severusname ."
-      ".severusage ."
-      ".severuswand ."
-      ".startbtn .";
+      ". severusage ."
+      ". severuswand ."
+      ". startbtn .";
   }
+
   .severus-name {
     font-size: 20px;
   }
@@ -345,24 +363,37 @@ footer {
   .severus-wand {
     font-size: 16px;
   }
+
   .severus-img {
     border-radius: 8px 8px 0 0;
   }
+
   .start-btn {
     margin-bottom: 1em;
   }
+
   .magicspell-container {
     position: absolute;
     width: 300px;
-    left: 25em;
-    top: -8em;
+    left: 23em;
+    top: -0.9em;
   }
 }
 @media screen and (max-width: 620px) {
+  .wrapper {
+    grid-template-columns: 3em 1fr 1fr 1fr 1fr 3em;
+    grid-template-rows: 20% 20% 60% 30% auto 10%;
+    grid-template-areas:
+      ". header header header header . "
+      "headline headline headline headline headline headline"
+      ". severus severus severus severus bubble"
+      ". severus severus severus severus ."
+      "main main main main main main"
+      ". footer footer footer footer .";
+  }
   .magicspell-container {
     width: 200px;
-    left: 20em;
-    top: -8em;
+    left: 19em;
   }
   .magicspell {
     font-size: 10px;
@@ -373,8 +404,7 @@ footer {
 }
 @media screen and (max-width: 500px) {
   .magicspell-container {
-    width: 200px;
     left: 14em;
-    top: -8em;
+    top: 1em;
   }
 }
