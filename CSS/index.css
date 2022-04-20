@@ -15,7 +15,7 @@
   --text-clr: #ffffff;
 }
 body {
-  width: 95vw;
+  width: 100vw;
   height: 100vh;
   background-image: url(../images/background-image.jpg);
   background-position: center;

@@ -120,7 +120,7 @@ let defaultImgFemale = [
   "./images/harpreet.jpg",
   "./images/martine.jpg",
   "./images/renna.png",
-  "./images/default-image.png",
+  "./images/Ingvild.jpg",
 ];
 
 // display student funksjon

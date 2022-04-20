@@ -68,7 +68,7 @@ function displayTeachers(staffMembers) {
     let teacherImage = document.createElement("img");
     teacherImage.classList.add("teacher-image");
     if (staffMembers[i].image == "") {
-      teacherImage.src = "../images/defaultimage.png";
+      teacherImage.src = "../images/Ingvild.jpg";
     } else {
       teacherImage.src = staffMembers[i].image;
     }
