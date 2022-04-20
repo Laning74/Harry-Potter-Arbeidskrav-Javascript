@@ -310,9 +310,13 @@ select {
 .character-age {
   grid-area: status;
 }
-
+li > img {
+  width: 100px;
+height: 150px;
+}
 .character-image {
   max-height: 150px;
+
   grid-area: image;
   display: flex;
   justify-content: center;
