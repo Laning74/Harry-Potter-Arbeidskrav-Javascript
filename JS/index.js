@@ -62,10 +62,14 @@ const displayCharacters = (hpCharacters) => {
       if (character.alive === false) {
         characterStatus = "Is dead";
         return `<li class=" character ${hogwartsHouse} ">
+        <div class="info-container">
       <h2>${character.name}</h2>
-      <p class ="character-status-dead">Status: ${characterStatus}</p> 
       <p class="character-house">House: ${hogwartsHouse}</p>
+      <p class ="character-status-dead">Status: ${characterStatus}</p> 
+      </div>
+      <div class="image-container">
       <img src="${placeholder}" class="character-image"/>
+      </div>
       </li>
       `;
       }
@@ -73,22 +77,32 @@ const displayCharacters = (hpCharacters) => {
         characterStatus = `Is alive`;
         return `
         <li class="character ${hogwartsHouse}">
+        <div class="info-container">
         <h2>${character.name}</h2>
         <p class ="character-status">Status: ${characterStatus}</p> 
         <p class="character-age">Age: Uknown</p>
         <p class="character-house">House: ${hogwartsHouse}</p>
+        </div>
+        <div class="image-container">
         <img src="${placeholder}" class="character-image"/>
+        </div>
         </li>
         `;
       } else {
         characterStatus = `Is alive`;
         return `
         <li class="character ${hogwartsHouse}">
+        <div class="info-container">
+
         <h2>${character.name}</h2>
         <p class ="character-status">Status: ${characterStatus}</p> 
          <p class="character-age">Age: ${calculateAge(age)}</p>
         <p class="character-house">House: ${hogwartsHouse}</p>
+        </div>
+        <div class="image-container">
+
         <img src="${placeholder}" class="character-image"/>
+        </div>
         </li>
         `;
       }
