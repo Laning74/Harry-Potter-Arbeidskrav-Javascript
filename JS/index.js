@@ -24,13 +24,35 @@ searchBar.addEventListener("keyup", (e) => {
   }
 });
 //function to display the hpcharacters by searchbar or students by house cards
+let defaultImgMale = [
+  "./images/harry-potter-sexy.jpg",
+  "./images/harry-potter-sexy.jpg",
+  "./images/harry-potter-sexy.jpg",
+  "./images/harry-potter-sexy3.jpg",
+  "./images/harry-potter-sexy2.jpg",
+  "./images/harry-potter-sexy4.jpg",
+  "./images/harry-potter-sexy5.jpg",
+];
+
+let defaultImgFemale = [
+  "./images/harpreet.jpg",
+  "./images/martine.jpg",
+  "./images/renna.png",
+  "./images/default-image.png",
+];
+
 const displayCharacters = (hpCharacters) => {
   const htmlString = hpCharacters
     .map((character) => {
       let age = character.yearOfBirth;
       let placeholder = character.image;
-      if (character.image === "") {
-        placeholder = "./images/defaultimage.png";
+      if (character.image === "" && character.gender === "male") {
+        placeholder =
+          defaultImgMale[Math.floor(Math.random() * defaultImgMale.length)];
+      }
+      if (character.image == "" && character.gender == "female") {
+        placeholder =
+          defaultImgFemale[Math.floor(Math.random() * defaultImgFemale.length)];
       }
       let hogwartsHouse = character.house;
       if (character.house === "") {
