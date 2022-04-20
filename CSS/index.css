@@ -83,12 +83,8 @@ nav a:hover::before {
   }
 }
 
-/* Wrapper House Cards begynner her */
-
+/* Styles på overskrift */
 .tittel {
-  /* grid-column: 1/5; */
-  /* width: 100%; */
-  /* height: 10vh; */
   text-align: center;
   position: relative;
   font-size: 22px;
@@ -96,7 +92,7 @@ nav a:hover::before {
   margin-bottom: 40px;
 }
 
-/* Måtte gjøre det på denne måten for å legge til farge, funket ikke i tittel classen */
+/* Had to do it like this because the text wouldnt change color on the class itself */
 .tittel h1 {
   background-image: linear-gradient(
     to right,
@@ -113,21 +109,28 @@ nav a:hover::before {
   color: transparent;
 }
 
-/* Kommenterte ut dette for å få kortene characters riktig under kortene */
+/* The searchbar styles */
+.searchbar-container {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+}
+
+.searchbar {
+  width: 30%;
+  height: 32px;
+  border-radius: 3px;
+  border: 1px solid #eaeaea;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+/* The styling of the House cards */
 .grid {
-  /* display: grid; */
-  /* grid-template-columns: repeat(4, 1fr); */
-  /* grid-template-rows: 300px auto; */
-  /* grid-gap: 20px; */
   margin-top: 30px;
-  /* align-items: stretch; */
   display: flex;
   justify-content: space-evenly;
 }
-
-/* .grid > cards img {
-  max-width: 100%;
-} */
 
 .card {
   position: relative;
@@ -145,7 +148,6 @@ nav a:hover::before {
   backface-visibility: hidden;
 }
 
-/* Ved å kommentere ut position absolute, så stod kortet på samme sted uten og flytte seg litt til siden */
 .back {
   backface-visibility: hidden;
   transform: rotateY(180deg);
@@ -156,7 +158,6 @@ nav a:hover::before {
 }
 
 /* Dropdown menu */
-
 select {
   font-family: mr-darcy, sans-serif;
   border: none;
@@ -170,7 +171,7 @@ select {
   width: 740px;
 }
 
-/*styling from createStudent.css file */
+/* Create student styles */
 .create-student-container {
   margin: 2em auto 0 auto;
   background-image: url(../images/pergament.png);
@@ -217,6 +218,22 @@ select {
   font-size: 1em;
 }
 
+.create-student-btn {
+  border: none;
+  font-family: mr-darcy, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  width: 200px;
+  border-radius: 8px;
+  background-color: var(--huffelpuff-clr);
+}
+
+.create-student-btn:hover {
+  cursor: pointer;
+  background-color: var(--slytherin-clr);
+  color: white;
+}
+
 ::placeholder {
   text-transform: uppercase;
   font-family: mr-darcy, sans-serif;
@@ -252,13 +269,6 @@ select {
   background-color: var(--huffelpuff-clr);
 }
 
-/*.student-list {
-  background-color: var(--griffingdor-clr);
-  width: 200px;
-  /* height: 200px;  
-}*/
-/* styling from students.css */
-
 .character-list-container {
   padding: 20px;
   margin: 0 auto;
@@ -266,7 +276,6 @@ select {
 }
 
 .characters-list {
-  /* padding-inline-start: 0; */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-gap: 20px;
@@ -319,15 +328,14 @@ select {
   text-shadow: black 1px 4px;
   -webkit-text-stroke-width: 0.4px;
   -webkit-text-stroke-color: white;
-  /* background-color: #e6a038; */
 }
 .character:hover {
   transform: scale(1.05);
   box-shadow: 0 0 10px 5px rgba(147, 68, 147, 0.8),
     inset 0 0 10px 5px rgba(68, 83, 147, 0.8);
 }
-/* added specific background color for every house */
 
+/* specific background color for every house */
 .Gryffindor {
   background-color: var(--griffingdor-clr);
 }
@@ -339,35 +347,4 @@ select {
 }
 .Ravenclaw {
   background-color: var(--ravenclaw-clr);
-}
-
-.searchbar-container {
-  display: flex;
-  justify-content: space-around;
-  position: relative;
-}
-
-.searchbar {
-  width: 30%;
-  height: 32px;
-  border-radius: 3px;
-  border: 1px solid #eaeaea;
-  padding: 5px 10px;
-  font-size: 12px;
-}
-
-.create-student-btn {
-  border: none;
-  font-family: mr-darcy, sans-serif;
-  font-weight: 600;
-  font-style: normal;
-  width: 200px;
-  border-radius: 8px;
-  background-color: var(--huffelpuff-clr);
-}
-
-.create-student-btn:hover {
-  cursor: pointer;
-  background-color: var(--slytherin-clr);
-  color: white;
 }
