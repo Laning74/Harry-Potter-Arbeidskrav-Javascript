@@ -75,7 +75,7 @@ const displayCharacters = (hpCharacters) => {
         <li class="character ${hogwartsHouse}">
         <h2>${character.name}</h2>
         <p class ="character-status">Status: ${characterStatus}</p> 
-        <p class="character-age">Age: Uknown</p>
+        <p class="character-age">Age: Unknown</p>
         <p class="character-house">House: ${hogwartsHouse}</p>
         <img src="${placeholder}" class="character-image"/>
         </li>
