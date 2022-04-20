@@ -169,7 +169,7 @@ createExitBtn.addEventListener("click", () => {
 
 let saveStudentBtn = document.querySelector(".save-student-btn");
 saveStudentBtn.addEventListener("click", () => {
-  let src = "./images/default-image.png";
+  let src = "./images/amina.jpg";
   let studentName = document.querySelector(".create-name-input").value;
   let studentAge = document.querySelector(".create-age-input").value;
   let selectedHouse = document.querySelector("#selection").value;
