@@ -14,18 +14,16 @@
   --ravenclaw-clr: #445393;
   --text-clr: #ffffff;
 }
+
 body {
-  width: 95vw;
-  height: 100vh;
+  height: 100%;
   background-image: url(../images/background-image.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  /* font-family: mr-darcy, sans-serif;
-  font-weight: 600;
-  font-style: normal; */
 }
+
 /* Header section starts here */
 header {
   display: flex;
@@ -270,7 +268,6 @@ select {
 }
 
 .character-list-container {
-  padding: 20px;
   margin: 0 auto;
   width: 100%;
 }

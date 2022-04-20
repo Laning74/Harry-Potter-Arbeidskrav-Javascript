@@ -123,7 +123,7 @@ nav a:hover::before {
   height: 100%;
   gap: 10px;
   grid-template-columns: 6em 1fr 1fr 1fr 1fr 6em;
-  grid-template-rows: 15% 20% 25% 25% auto 10%;
+  grid-template-rows: 5% 20% 25% 25% auto 10%;
   grid-template-areas:
     "header header header header header header "
     "headline headline headline headline headline headline"
