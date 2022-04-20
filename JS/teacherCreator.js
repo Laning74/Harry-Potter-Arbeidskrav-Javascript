@@ -2,7 +2,6 @@
 const loadCharacters = async () => {
   fetch("http://hp-api.herokuapp.com/api/characters")
     .then((response) => {
-      console.log(response);
       if (response.ok) {
         return response.json();
       }
@@ -32,7 +31,6 @@ let defaultImg = [
 
 //displaying all the staff members in browser (creating html elements in js)
 function displayTeachers(staffMembers) {
-  console.log(staffMembers);
   const teacherList = document.querySelector(".teacher-list");
   teacherList.innerHTML = "";
   for (let i = 0; i < staffMembers.length; i++) {
@@ -102,8 +100,6 @@ function displayTeachers(staffMembers) {
       const capitalizeHouse = editedHouse;
       const houseName =
         capitalizeHouse.charAt(0).toUpperCase() + capitalizeHouse.slice(1);
-      console.log(houseName);
-
       let editedPatronus = editPatronusInput.value;
       saveEditedInfo(i, staffMembers, editedName, houseName, editedPatronus);
     });

@@ -194,8 +194,6 @@ function deleteStudent(i, array) {
   }
 
   showStudents(array);
-  console.log("array:", array);
-  console.log("NewStudentsarray:", newStudentArray);
 }
 
 getCharacters();

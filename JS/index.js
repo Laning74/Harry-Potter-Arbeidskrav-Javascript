@@ -4,9 +4,7 @@ const loadCharacters = async () => {
   try {
     const res = await fetch("https://hp-api.herokuapp.com/api/characters");
     hpCharacters = await res.json();
-    console.log(hpCharacters);
   } catch (err) {
-    console.error(err);
   }
 };
 

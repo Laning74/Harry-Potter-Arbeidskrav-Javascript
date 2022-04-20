@@ -166,7 +166,7 @@ select {
   font-size: 1em;
 }
 
-#houseDropdown.dropdown-content {
+#houseDropdown {
   width: 740px;
 }
 
