@@ -29,6 +29,7 @@ let defaultImg = [
   "./images/dawood.jpg",
   "./images/egil.jpg",
 ];
+
 //displaying all the staff members in browser (creating html elements in js)
 function displayTeachers(staffMembers) {
   console.log(staffMembers);
@@ -74,12 +75,8 @@ function displayTeachers(staffMembers) {
     let teacherImage = document.createElement("img");
     teacherImage.classList.add("teacher-image");
     if (staffMembers[i].image == "") {
-<<<<<<< HEAD
-      teacherImage.src = "../images/Ingvild.jpg";
-=======
       teacherImage.src =
         defaultImg[Math.floor(Math.random() * defaultImg.length)];
->>>>>>> a091dd4bcf0fe3cfbab5349704aa009701a67001
     } else {
       teacherImage.src = staffMembers[i].image;
     }
@@ -172,12 +169,6 @@ let saveBtn = document.querySelector(".save-btn");
 saveBtn.addEventListener("click", () => {
   addNewTeacher();
 });
-//dropdown menu for houses
-// let selection = document.querySelector("select");
-// let selectedHouse;
-// selection.addEventListener("change", () => {
-//   selectedHouse = selection.options[selection.selectedIndex].value;
-// });
 
 function addNewTeacher() {
   let src = defaultImg[Math.floor(Math.random() * defaultImg.length)];
@@ -205,7 +196,6 @@ function addNewTeacher() {
   }
   displayTeachers(staffMembers);
   document.querySelector(".create-name-input").value = "";
-  // document.querySelector("select").selectedIndex = 0;
   document.querySelector(".create-patronus-input").value = "";
 }
 //saving edited teacher data in array working

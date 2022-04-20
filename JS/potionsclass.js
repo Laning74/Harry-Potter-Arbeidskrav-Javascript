@@ -1,6 +1,6 @@
 "use strict";
 let hpCharacters = [];
-//****** Funksjonen som henter API'en******
+// Get the API
 const getCharacters = async () => {
   const data = await fetch("https://hp-api.herokuapp.com/api/characters");
   hpCharacters = await data.json();
@@ -63,7 +63,7 @@ function calculateAge(age) {
   return 2022 - age;
 }
 
-// The mouseover effect
+// The mouseover effect on Severus image
 let chatBubbleContainer = document.createElement("div");
 let magicSpell = document.createElement("h2");
 magicSpell.innerHTML = "Avadakadabra!";
@@ -76,8 +76,7 @@ wrapper.appendChild(chatBubbleContainer);
 chatBubbleContainer.classList.add("magicspell-container");
 magicSpell.classList.add("magicspell");
 
-// ******funsjonen som skal starte klassen*******
-
+// Start teaching button function
 let studentsContainer = document.querySelector(".students-container");
 studentsContainer.style.display = "none";
 
@@ -86,6 +85,7 @@ startBtn.addEventListener("click", () => {
   filterStudents();
 });
 
+// Filter only the students from API
 function filterStudents() {
   let studentsArray = [];
   studentsArray = hpCharacters.filter(
@@ -95,7 +95,7 @@ function filterStudents() {
 
   getTenStudent(studentsArray);
 }
-// ********* Funksjonen som henter 10 studenter*********
+// Get 10 students function
 function getTenStudent(studentsArray) {
   let randomArray = [];
   for (let i = 0; i < 10; i++) {
@@ -123,7 +123,7 @@ let defaultImgFemale = [
   "./images/Ingvild.jpg",
 ];
 
-// display student funksjon
+// Display students function
 let studentContainer = document.querySelector(".students-list");
 function showStudents(array) {
   studentContainer.innerHTML = "";
@@ -150,7 +150,6 @@ function showStudents(array) {
     let studentPlaceholder = document.createElement("img");
     studentPlaceholder.classList.add("students-image");
     studentPlaceholder.src = array[i].image;
-    //la inn forsj\kjellige default bilder
     if (array[i].image == "" && array[i].gender == "male") {
       studentPlaceholder.src =
         defaultImgMale[Math.floor(Math.random() * defaultImgMale.length)];
@@ -159,15 +158,13 @@ function showStudents(array) {
       studentPlaceholder.src =
         defaultImgFemale[Math.floor(Math.random() * defaultImgFemale.length)];
     }
-    // La også inn fargene til husene på kortene
-
     studentContainer.append(studentCard);
     studentCard.append(studenInfo, studentPlaceholder);
     studenInfo.append(studentText, deleteBtn);
     studentText.append(studentName, studentHouse);
   }
 
-  // **********Farge generator funksjonen *********
+  // Color generator
   let studentCard = document.querySelectorAll(".student-card");
   for (let i = 0; i < studentCard.length; i++) {
     const setBg = () => {
@@ -178,12 +175,11 @@ function showStudents(array) {
   }
 }
 
-// *********delete student funksjon **************
+// Delete student function
 function deleteStudent(i, array) {
   let userAnswear = prompt(
     "Do you want to delete this student from class? yes/no"
   );
-  // Trengte filter students her også ellers fikk jeg error/undefined
   let newStudentArray = hpCharacters.filter(
     (student) => student.hogwartsStudent == true
   );

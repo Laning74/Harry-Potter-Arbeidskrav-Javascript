@@ -24,8 +24,7 @@ body {
   font-style: normal;
 }
 
-/* Header begynner her */
-
+/* Header section starts here */
 header {
   display: flex;
   justify-content: space-around;
@@ -90,9 +89,8 @@ nav a:hover::before {
     float: right;
   }
 }
-/* Header section ends here */
 
-/* heading and teachers list */
+/* Header and teachers list */
 .container {
   padding: 40px;
   margin: 0 auto;
@@ -121,6 +119,7 @@ h1 {
   text-align: center;
   padding: 5px 0 40px 0;
 }
+
 /* styling create new teacher form */
 .create-teacher-btn {
   border: none;
@@ -133,6 +132,7 @@ h1 {
   background-color: #e6a038;
   margin: 30px;
 }
+
 .create-teacher-btn:hover {
   background-color: #377f6a;
   color: white;
@@ -149,24 +149,29 @@ h1 {
   padding: 1.5em;
   cursor: url(../images/pngwing.png), auto;
 }
+
 .logo-header-container {
   display: flex;
   justify-content: center;
   gap: 70px;
   margin-top: 20px;
 }
+
 .hogwarts-logo {
   left: 20em;
   width: 70px;
 }
+
 .new-teacher-header {
   margin: 0.5em 0 1em 0;
 }
+
 .input-container {
   width: 100%;
   margin-bottom: 40px;
   margin-top: 20px;
 }
+
 .create-name-input,
 .create-house-input,
 .create-patronus-input {
@@ -179,15 +184,18 @@ h1 {
   background-color: transparent;
   font-size: 1em;
 }
+
 ::placeholder {
   text-transform: uppercase;
   font-family: mr-darcy, sans-serif;
   color: var(--primary-clr);
 }
+
 .default-teacher-img {
   width: 100px;
   height: 100px;
 }
+
 /* Dropdown menu */
 select {
   font-family: mr-darcy, sans-serif;
@@ -197,9 +205,11 @@ select {
   height: 1.5em;
   font-size: 1em;
 }
+
 #houseDropdown.dropdown-content {
   width: 800px;
 }
+
 .exit-btn,
 .save-btn {
   width: 10em;
@@ -210,18 +220,23 @@ select {
   text-transform: uppercase;
   font-family: mr-darcy, sans-serif;
 }
+
 .exit-btn {
   background-color: var(--griffingdor-clr);
 }
+
 .exit-btn:hover {
   opacity: 90%;
 }
+
 .save-btn {
   background-color: var(--slytherin-clr);
 }
+
 .save-btn:hover {
   background-color: var(--huffelpuff-clr);
 }
+
 /* styling the teacher list and teacher Cards */
 .teacher-list {
   padding-inline-start: 0;
@@ -229,10 +244,12 @@ select {
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-gap: 20px;
 }
+
 li > img {
   width: 100px;
-height: 150px;
+  height: 150px;
 }
+
 .teacher {
   list-style-type: none;
   background-color: black;
@@ -251,12 +268,15 @@ height: 150px;
   border: 1px solid rgba(68, 83, 147, 0.8);
   transition: transform 500ms ease-in-out;
 }
+
 .teacher > h2 {
   grid-area: name;
 }
+
 .teacher-house {
   grid-area: house;
 }
+
 .teacher-patronus {
   grid-area: patronus;
   margin: 0;
@@ -275,14 +295,17 @@ height: 150px;
   background-clip: text;
   color: transparent;
 }
+
 .teacher:hover {
   transform: scale(1.05);
   box-shadow: 0 0 10px 5px rgba(68, 83, 147, 0.8),
     inset 0 0 10px 5px rgba(68, 83, 147, 0.8);
 }
+
 .teacher:hover > .teacher-patronus {
   visibility: visible;
 }
+
 .teacher-list > li {
   list-style-type: none;
   border-radius: 10px;
@@ -299,28 +322,35 @@ height: 150px;
   border: 1px solid rgba(68, 83, 147, 0.8);
   transition: transform 500ms ease-in-out;
 }
+
 .teacher-list > li:hover {
   transform: scale(1.05);
   box-shadow: 0 0 10px 5px rgba(68, 83, 147, 0.8),
     inset 0 0 10px 5px rgba(68, 83, 147, 0.8);
 }
+
 .teacher-gryffindor {
   background-color: var(--griffingdor-clr);
 }
+
 .teacher-slytherin {
   background-color: var(--slytherin-clr);
 }
+
 .teacher-hufflepuff {
   background-color: var(--huffelpuff-clr);
 }
+
 .teacher-hufflepuff > .btns {
   background-color: var(--primary-clr);
   color: #fff;
 }
+
 .teacher-ravenclaw {
   background-color: var(--ravenclaw-clr);
   color: #fff;
 }
+
 .teacher-gryffindor:hover > .teacher-patronus,
 .teacher-slytherin:hover > .teacher-patronus,
 .teacher-ravenclaw:hover > .teacher-patronus {
@@ -337,6 +367,7 @@ height: 150px;
   background-clip: text;
   color: transparent;
 }
+
 .teacher-hufflepuff:hover > .teacher-patronus {
   visibility: visible;
   background-color: linear-gradient(
@@ -352,12 +383,14 @@ height: 150px;
   background-clip: text;
   color: transparent;
 }
+
 img {
   max-height: 150px;
   grid-area: image;
   display: flex;
   justify-content: center;
 }
+
 .btns {
   border: none;
   font-family: mr-darcy, sans-serif;
@@ -368,16 +401,20 @@ img {
   background-color: var(--huffelpuff-clr);
   margin-bottom: 5px;
 }
+
 .delete-btn {
   grid-area: delete-btn;
 }
+
 .edit-btn {
   grid-area: edit-btn;
 }
+
 .delete-btn:hover,
 .edit-btn:hover {
   opacity: 80%;
 }
+
 /* Styling of edit teacher card*/
 .edit-teacher {
   background-image: url(../images/Old\ paper.png);
@@ -385,6 +422,7 @@ img {
   grid-template-rows: repeat(4, 2rem);
   text-align: left;
 }
+
 input {
   background-color: #251a0833;
   grid-column: 1 / span 2;
@@ -396,6 +434,7 @@ input {
   font-family: mr-darcy, sans-serif;
   color: var(--primary-clr);
 }
+
 .edit-teacher > button {
   border: none;
   font-family: mr-darcy, sans-serif;

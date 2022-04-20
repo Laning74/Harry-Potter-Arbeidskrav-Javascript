@@ -83,7 +83,7 @@ nav a:hover::before {
   }
 }
 
-/* Styles på overskrift */
+/* Styles on title of the page */
 .tittel {
   text-align: center;
   position: relative;
@@ -92,7 +92,6 @@ nav a:hover::before {
   margin-bottom: 40px;
 }
 
-/* Had to do it like this because the text wouldnt change color on the class itself */
 .tittel h1 {
   background-image: linear-gradient(
     to right,
@@ -320,7 +319,7 @@ select {
     inset 0 0 10px 5px rgba(68, 83, 147, 0.8);
 }
 
-/* specific background color for every house */
+/* Specific background color for every house */
 .Gryffindor {
   background-color: var(--griffingdor-clr);
 }

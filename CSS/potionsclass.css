@@ -28,8 +28,7 @@ body {
   font-style: normal;
 }
 
-/* Header begynner her */
-
+/* Header section starts here*/
 header {
   grid-area: header;
   display: flex;
@@ -46,7 +45,6 @@ header {
 
 nav ul {
   margin: 0.6rem;
-  /* padding: 0; */
 }
 
 nav li {
@@ -132,13 +130,6 @@ nav a:hover::before {
     ". footer footer footer footer .";
 }
 
-/* .tittel {
-  grid-area: title;
-  color: white;
-  display: flex;
-  justify-content: center;
-} */
-
 /* Severus Snape card styling */
 .severus-snape-container {
   margin-top: 2em;
@@ -207,6 +198,7 @@ nav a:hover::before {
   border-radius: 0 8px 8px 0;
 }
 
+/* The magicspell styles */
 .magicspell-container {
   visibility: hidden;
   grid-area: bubble;
@@ -229,6 +221,7 @@ main {
   grid-area: main;
 }
 
+/* The styling of the student cards */
 .students-container {
   width: 100%;
   padding: 2em 0 2em 0;
@@ -299,6 +292,7 @@ main {
 footer {
   grid-area: footer;
 }
+
 @media screen and (max-width: 1200px) {
   .wrapper {
     grid-template-columns: 1em 1fr 2fr 2fr 2fr 1em;
