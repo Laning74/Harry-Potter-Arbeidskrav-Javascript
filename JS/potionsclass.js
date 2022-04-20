@@ -160,21 +160,7 @@ function showStudents(array) {
         defaultImgFemale[Math.floor(Math.random() * defaultImgFemale.length)];
     }
     // La også inn fargene til husene på kortene
-    if (array[i].house == "Gryffindor") {
-      studentHouse.style.color = "#ce373d";
-    }
-    if (array[i].house == "Slytherin") {
-      studentHouse.style.color = "#377f6a";
-    }
-    if (array[i].house == "Hufflepuff") {
-      studentHouse.style.color = "#e6a038";
-    }
-    if (array[i].house == "Ravenclaw") {
-      studentHouse.style.color = "#445393";
-    }
-    if (array[i].house == "") {
-      studentHouse.innerHTML = "house: unknown";
-    }
+
     studentContainer.append(studentCard);
     studentCard.append(studenInfo, studentPlaceholder);
     studenInfo.append(studentText, deleteBtn);
