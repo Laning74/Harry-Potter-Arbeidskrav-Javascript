@@ -229,6 +229,10 @@ select {
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-gap: 20px;
 }
+li > img {
+  width: 100px;
+height: 150px;
+}
 .teacher {
   list-style-type: none;
   background-color: black;
